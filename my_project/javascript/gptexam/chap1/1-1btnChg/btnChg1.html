@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼누르면 텍스트 바꾸기</title>
+    <link href="bch.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <p id="p1">"할 일이 아직 남아있습니다."</p>
+    <button id="btn">완료</button>
+</body>
+<script>
+    const btn = document.getElementById("btn");
+    const p1 = document.getElementById("p1");
+
+    btn.addEventListener("click", () => {
+        p1.innerText = '"완료되었습니다!"'
+        document.getElementById("p1").style.color = "blue";
+        p1.addEventListener("mouseover", () => {
+            document.getElementById("p1").style.backgroundColor = "yellow";
+        })
+    })
+</script>
+</html>

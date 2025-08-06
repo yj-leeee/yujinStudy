@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">오늘 날짜 보기</button>
+    
+
+    <script>
+        const btn = document.getElementById("btn");
+        
+        btn.addEventListener("click", ()=>{
+            const p = document.createElement("p");
+            const date = new Date();
+            const y = date.getFullYear();
+            const m = String(date.getMonth()+1).padStart(2,'0');
+            const d = String(date.getDate()).padStart(2,'0');
+            p.innerText = `"${y}-${m}-${d}"`
+            document.body.appendChild(p);
+        })
+    </script>
+</body>
+</html>
