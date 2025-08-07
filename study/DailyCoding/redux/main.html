@@ -4,6 +4,8 @@
         <div id="subject"></div>
         <div id="TOC"></div>
         <div id="control"></div>
+        <div id="content"></div>
+
 
         <script>
             function subject(){
@@ -14,7 +16,7 @@
             </header>
                 `
             }
-            subject();
+            
 
             function TOC(){
                 document.querySelector("#TOC").innerHTML = `
@@ -26,7 +28,7 @@
         </nav>
                 `
             }
-            TOC();
+            
 
             function control(){
                 document.querySelector("#control").innerHTML = `
@@ -36,14 +38,22 @@
             </ul>
                 `
             }
+            
+            function article(){
+                document.querySelector("#content").innerHTML = `
+                <article>
+                <h2>HTML</h2>
+                HTML is ...
+                </article>
+                `
+            }
+            subject();
+            TOC();
             control();
+            article();
         </script>
         
         
-        <article>
-            
-            <h2>HTML</h2>
-            HTML is ...
-        </article>
+        
     </body>
 </html>
