@@ -21,10 +21,12 @@
                 if(state === undefined){
                     return {color:'yellow'};
                 }
+                var newState;
                 if(action.type === 'CHANGE_COLOR'){
+                    newState = Object.assign({}, state, {color:'red'})
                     state.color = 'red';
                 }
-                return state;
+                return newState;
             }
             var store = Redux.createStore(reducer);
             console.log(store.getState());
