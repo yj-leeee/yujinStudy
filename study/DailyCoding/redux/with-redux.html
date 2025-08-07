@@ -21,6 +21,7 @@
                 if(state === undefined){
                     return {color:'yellow'};
                 }
+                return {color:'red'};
             }
             var store = Redux.createStore(reducer);
             console.log(store.getState());
