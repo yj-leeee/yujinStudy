@@ -30,6 +30,7 @@
                     newState = Object.assign({}, state, {color:action.color})
                    // state.color = 'red'; 원본 직접 변경하지말자(예측불가능 할 수 있으니)
                 }
+                console.log(action.type, action, state, newState)
                 return newState;
             }
             var store = Redux.createStore(
