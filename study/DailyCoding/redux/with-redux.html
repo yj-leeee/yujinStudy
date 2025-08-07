@@ -24,7 +24,7 @@
                 var newState;
                 if(action.type === 'CHANGE_COLOR'){
                     newState = Object.assign({}, state, {color:'red'})
-                    state.color = 'red';
+                   // state.color = 'red'; 원본 직접 변경하지말자(예측불가능 할 수 있으니)
                 }
                 return newState;
             }
@@ -44,6 +44,7 @@
                     </div>
                 `;
             }
+            store.subscribe(red);
             red();
 
         </script>
