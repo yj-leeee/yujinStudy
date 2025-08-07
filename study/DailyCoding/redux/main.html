@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <header>
-            <h1>WEB</h1>
-            Hello, WEB!
-        </header>
+        <div id="subject"></div>
+        <script>
+            function subject(){
+                document.querySelector('#subject').innerHTML = `
+                <header>
+                <h1>WEB</h1>
+                Hello, WEB!
+            </header>
+                `
+            }
+            subject();
+        </script>
+        
         <nav>
             <ol>
                 <li><a href="1.html">HTML</a></li>
