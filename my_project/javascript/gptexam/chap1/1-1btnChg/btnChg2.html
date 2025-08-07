@@ -6,6 +6,24 @@
     <title>Document</title>
 </head>
 <body>
+    <button id="btn">투표하기 버튼</button>
+    <p id="p1">총 0명이 투표했습니다</p>
+    <script>
+        const p1 = document.getElementById("p1");
+        const btn = document.getElementById("btn");
+        let count = 0
     
+
+        btn.addEventListener("click", ()=>{
+            if (count < 2){ //count가 2 미만일때 클릭 가능
+            count++;
+            btn.innerText = "투표 완료";
+            p1.innerText = `총 ${count}명 투표했습니다`;
+            }
+        if(count >= 2 ){
+            btn.disabled = true;
+        }
+        })
+    </script>
 </body>
 </html>
