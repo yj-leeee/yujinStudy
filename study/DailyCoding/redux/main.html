@@ -2,6 +2,7 @@
 <html>
     <body>
         <div id="subject"></div>
+        <div id="TOC"></div>
         <script>
             function subject(){
                 document.querySelector('#subject').innerHTML = `
@@ -12,14 +13,21 @@
                 `
             }
             subject();
-        </script>
-        
-        <nav>
+
+            function TOC(){
+                document.querySelector("#TOC").innerHTML = `
+                <nav>
             <ol>
                 <li><a href="1.html">HTML</a></li>
                 <li><a href="2.css">css</a></li>
             </ol>
         </nav>
+                `
+            }
+            TOC();
+        </script>
+        
+        
         <article>
             <ul>
                 <li><a href="/create">create</a></li>
