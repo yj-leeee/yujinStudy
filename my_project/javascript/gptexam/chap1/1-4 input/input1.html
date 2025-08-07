@@ -6,6 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <input type="text" placeholder="이름을 입력해주세요">
+    <button id="btn">인사 버튼</button>
+    <script>
+        const btn = document.getElementById("btn");
+        
+        btn.addEventListener("click",()=>{
+            const val = document.querySelector("input").value;
+            if(val === ""){
+                //이름입력x
+            document.body.textContent="이름을 입력해주세요!";
+            }else{
+                document.body.textContent=`안녕하세요 ${val}님!`;
+            }
+        })
+    </script>
 </body>
 </html>
