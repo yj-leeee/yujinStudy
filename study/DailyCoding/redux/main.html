@@ -3,6 +3,8 @@
     <body>
         <div id="subject"></div>
         <div id="TOC"></div>
+        <div id="control"></div>
+
         <script>
             function subject(){
                 document.querySelector('#subject').innerHTML = `
@@ -25,15 +27,21 @@
                 `
             }
             TOC();
+
+            function control(){
+                document.querySelector("#control").innerHTML = `
+                <ul>
+                <li><a href="/create">create</a></li>
+                <li><input type="button" value="delete"></li>
+            </ul>
+                `
+            }
+            control();
         </script>
         
         
         <article>
-            <ul>
-                <li><a href="/create">create</a></li>
-                <li><input type="button" value="delete"></li>
-
-            </ul>
+            
             <h2>HTML</h2>
             HTML is ...
         </article>
