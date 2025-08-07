@@ -6,6 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <button id="btn">배경색바꾸기</button>
 </body>
+<script>
+    const btn = document.getElementById("btn");
+    
+    
+    btn.addEventListener("click", ()=>{
+        let change = Math.ceil(Math.random()*3);
+        console.log(change);
+        if(change == 1){
+        document.body.style.backgroundColor = "red"
+        }else if(change == 2){
+            document.body.style.backgroundColor = "blue"
+        }else{
+            document.body.style.backgroundColor = "green"
+        }
+    })
+</script>
 </html>
