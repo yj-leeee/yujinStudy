@@ -62,7 +62,10 @@
             
             function article(){
                 var state = store.getState();
-                var i = 0;
+                if(state.mode === 'create'){
+
+                } else if(state.mode === 'read'){
+                    var i = 0;
                 var aTitle, aDesc;
                 while(i < state.contents.length){
                     if(state.contents[i].id === state.selected_id){
@@ -78,6 +81,8 @@
                 ${aDesc}
                 </article>
                 `
+                }
+                
             }
             
             function reducer(state, action){
