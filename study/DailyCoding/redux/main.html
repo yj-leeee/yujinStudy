@@ -167,6 +167,10 @@
                         contents:newContents,
                         mode:'welcome'
                     })
+                } else if(action.type === 'CHANGE_MODE'){
+                    newState = Object.assign({}, state, {
+                        mode:action.mode
+                    })
                 }
                 console.log(action, state, newState);
                 return newState;
