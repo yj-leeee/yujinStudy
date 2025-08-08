@@ -53,6 +53,7 @@
                 <ul>
                 <li><a onclick="
                     event.preventDefault();
+                    
                     "href="/create">create</a></li>
                 <li><input type="button" value="delete"></li>
             </ul>
@@ -83,6 +84,7 @@
                 console.log(state, action);
                 if(state === undefined){
                     return {
+                        mode: `read`,
                         selected_id:1,
                         contents:[
                             {id : 1, title:'HTML', desc:'HTML is ...'},
