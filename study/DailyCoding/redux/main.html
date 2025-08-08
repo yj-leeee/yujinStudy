@@ -127,7 +127,7 @@
                 if(state === undefined){
                     return {
                         max_id:2,
-                        mode: `create`,
+                        mode: `welcome`,
                         selected_id:1,
                         contents:[
                             {id : 1, title:'HTML', desc:'HTML is ...'},
@@ -138,7 +138,8 @@
                 }
                 var newState;
                 if(action.type === 'SELECT'){
-                    newState = Object.assign({}, state, {selected_id:action.id})
+                    newState = Object.assign({}, state,
+                    {selected_id:action.id, mode: 'read'})
                 } else if(action.type === 'CREATE'){
                     var newMaxId = state.max_id + 1;
                     var newContents = state.contents.concat();
