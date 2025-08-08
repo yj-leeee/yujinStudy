@@ -126,6 +126,8 @@
                 var newState;
                 if(action.type === 'SELECT'){
                     newState = Object.assign({}, state, {selected_id:action.id})
+                } else if(action.type === 'CREATE'){
+                    var newContents
                 }
                 console.log(action, state, newState);
                 return newState;
