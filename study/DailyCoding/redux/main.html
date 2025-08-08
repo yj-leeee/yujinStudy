@@ -68,7 +68,12 @@
                         <form onsubmit="
                             event.preventDefault();
                             var title = this.title.value;
-                            console.log(title);
+                            var desc = this.desc.value;
+                            store.dispatch({
+                                type: 'CREATE',
+                                title: title
+                                desc: desc
+                            })
                         ">
                             <p>
                                 <input type="text" name="title"
