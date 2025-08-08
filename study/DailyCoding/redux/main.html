@@ -111,6 +111,13 @@
                 ${aDesc}
                 </article>
                 `
+                } else if(state.mode === 'welcome'){
+                    document.querySelector("#content").innerHTML = `
+                <article>
+                    <h2>Welcome</h2>
+                        Hello, Redux
+                </article>
+                `
                 }
                 
             }
