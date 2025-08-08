@@ -147,11 +147,15 @@
                     while(i < state.contents.length){
                         if(state.selected_id !== state.contents[i].id){
                             newContents.push(
-                                
+                                state.contents[i]
                             );
                         }
                         i = i+1;
                     }
+                    newState = Object.assign({}, state, {
+                        contents:newContents,
+                        mode:'welcome'
+                    })
                 }
                 console.log(action, state, newState);
                 return newState;
