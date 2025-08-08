@@ -128,8 +128,9 @@
                 if(action.type === 'SELECT'){
                     newState = Object.assign({}, state, {selected_id:action.id})
                 } else if(action.type === 'CREATE'){
+                    var newMaxId = state.max_id + 1;
                     var newContents = state.contents.concat();
-                    newContents.push({title:action.title, desc:action.desc});
+                    newContents.push({id:newMaxId ,title:action.title, desc:action.desc});
                 }
                 console.log(action, state, newState);
                 return newState;
