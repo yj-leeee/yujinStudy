@@ -80,8 +80,10 @@
                 }
                 var newState;
                 if(action.type === 'SELECT'){
-                    new State = Object.assign({}, state, {selected_id:action.id})
+                    newState = Object.assign({}, state, {selected_id:action.id})
                 }
+                console.log(action, state, newState);
+                return newState;
             }
             var store = Redux.createStore(reducer);
             subject();
