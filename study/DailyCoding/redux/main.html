@@ -47,6 +47,16 @@
                 </article>
                 `
             }
+            
+            function reducer(state, action){
+                if(state === undefined){
+                    return {
+                        //최초의 state 값 초기화 해주기
+                    }
+                }
+                return //action으로 인해 바뀔 state 값을 리턴
+            }
+            Redux.createStore(reducer);
             subject();
             TOC();
             control();
