@@ -61,7 +61,10 @@
                 var state = store.getState();
                 var i = 0;
                 while(i < state.contents.length){
-                    
+                    if(state.contents[i].id === state.selected_id){
+
+                        break;
+                    }
                     i = i + 1;
                 }
                 document.querySelector("#content").innerHTML = `
