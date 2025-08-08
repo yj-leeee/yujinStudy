@@ -63,7 +63,16 @@
             function article(){
                 var state = store.getState();
                 if(state.mode === 'create'){
-
+                    document.querySelector("#content").innerHTML = `
+                    <article>
+                        <form>
+                            <p>
+                                <input type="text" name="title"
+                                placeholder="title"
+                            </p>
+                        </form>
+                    </article>
+                    `
                 } else if(state.mode === 'read'){
                     var i = 0;
                 var aTitle, aDesc;
@@ -89,7 +98,7 @@
                 console.log(state, action);
                 if(state === undefined){
                     return {
-                        mode: `read`,
+                        mode: `create`,
                         selected_id:1,
                         contents:[
                             {id : 1, title:'HTML', desc:'HTML is ...'},
