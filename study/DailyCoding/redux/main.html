@@ -27,10 +27,13 @@
                 var liTags = ``;
                 while(i<state.contents.length){
                     liTags = liTags + `
+                    <li>
                     <a href="${state.contents[i].id}">
                         ${state.contents[i].title}
                         </a>
+                    </li>
                     `
+                    i = i+1;
                 }
                 document.querySelector("#TOC").innerHTML = `
                 <nav>
