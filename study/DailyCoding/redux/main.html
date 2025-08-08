@@ -51,7 +51,9 @@
             function control(){
                 document.querySelector("#control").innerHTML = `
                 <ul>
-                <li><a href="/create">create</a></li>
+                <li><a onclick="
+                    event.preventDefault();
+                    "href="/create">create</a></li>
                 <li><input type="button" value="delete"></li>
             </ul>
                 `
