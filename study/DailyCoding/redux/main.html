@@ -58,6 +58,12 @@
             }
             
             function article(){
+                var state = store.getState();
+                var i = 0;
+                while(i < state.contents.length){
+                    
+                    i = i + 1;
+                }
                 document.querySelector("#content").innerHTML = `
                 <article>
                 <h2>HTML</h2>
