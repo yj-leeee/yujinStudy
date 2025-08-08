@@ -131,6 +131,11 @@
                     var newMaxId = state.max_id + 1;
                     var newContents = state.contents.concat();
                     newContents.push({id:newMaxId ,title:action.title, desc:action.desc});
+                    newState = Object.assign({}, state, {
+                        max_id:newMaxId,
+                        contents:newContents,
+                        mode:'read'
+                    })
                 }
                 console.log(action, state, newState);
                 return newState;
