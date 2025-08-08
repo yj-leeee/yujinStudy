@@ -142,6 +142,8 @@
             }
             var store = Redux.createStore(reducer);
             store.subscribe(article);
+            store.subscribe(TOC);
+
             subject();
             TOC();
             control();
