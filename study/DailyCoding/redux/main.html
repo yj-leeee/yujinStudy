@@ -142,11 +142,13 @@
                         mode:'read'
                     })
                 } else if(action.type === 'DELETE'){
+                    var newContents = [];
                     var i = 0;
                     while(i < state.contents.length){
-                        if(this.state.selected_id === state.contents[i].id){
-                            
-                            break;
+                        if(state.selected_id !== state.contents[i].id){
+                            newContents.push(
+                                
+                            );
                         }
                         i = i+1;
                     }
