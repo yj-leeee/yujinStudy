@@ -27,7 +27,9 @@
                 var liTags = ``;
                 while(i<state.contents.length){
                     liTags = liTags + `
-                    <a href="${state.contents[i].id}"
+                    <a href="${state.contents[i].id}">
+                        ${state.contents[i].title}
+                        </a>
                     `
                 }
                 document.querySelector("#TOC").innerHTML = `
