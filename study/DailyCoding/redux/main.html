@@ -25,6 +25,9 @@
                 var state = store.getState();
                 var i = 0;
                 var liTags = ``;
+                while(i<state.contents.length){
+                    
+                }
                 document.querySelector("#TOC").innerHTML = `
                 <nav>
             <ol>
@@ -56,7 +59,7 @@
             function reducer(state, action){
                 if(state === undefined){
                     return {
-                        content:[
+                        contents:[
                             {id : 1, title:'HTML', desc:'HTML is ...'},
                             {id : 2, title:'CSS', desc:'CSS is ...'}
 
