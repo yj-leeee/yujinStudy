@@ -51,10 +51,14 @@
             function reducer(state, action){
                 if(state === undefined){
                     return {
-                        //최초의 state 값 초기화 해주기
+                        content:[
+                            {id : 1, title:'HTML', desc:'HTML is ...'},
+                            {id : 2, title:'CSS', desc:'CSS is ...'}
+
+                        ]
                     }
                 }
-                return //action으로 인해 바뀔 state 값을 리턴
+                
             }
             Redux.createStore(reducer);
             subject();
