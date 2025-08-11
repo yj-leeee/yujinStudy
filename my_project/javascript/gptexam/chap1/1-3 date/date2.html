@@ -6,6 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <button id="date">현재 날짜 보기</button><br>
+    <p id="dateP"></p>
+    <button id="time">현재 시간 보기</button>
+    <p id="timeP"></p>
+    <script>
+        
+        const date = document.getElementById("date");
+        const time = document.getElementById("time");
+
+        date.addEventListener("click", ()=>{
+            const today = new Date();
+            const dateP = document.getElementById("dateP");
+            const days = ["일", "월", "화", "수", "목","금","토"]
+            dateP.innerText = `${today.getFullYear()}년 ${String(today.getMonth()+1).padStart(2, '0')}월 ${String(today.getDate()).padStart(2, '0')}일 (${days[today.getDay()]}요일)`
+        })
+        time.addEventListener("click", ()=>{
+            const today = new Date();
+            const timeP = document.getElementById("timeP");
+            timeP.innerText = `${String(today.getHours()).padStart(2, '0')}시 ${String(today.getMinutes()).padStart(2, '0')}분 ${String(today.getSeconds()).padStart(2, '0')}초`
+        })
+
+    </script>
 </body>
 </html>
