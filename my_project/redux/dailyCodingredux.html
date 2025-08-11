@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.min.js"></script>
+    </head>
     <body>
         <div id="header"></div>
         <div id="nav"></div>
@@ -45,6 +48,14 @@
                 `
             }
             button();
+            function reducer(state, action){
+                if(state === undefined){
+                    return{
+                        
+                    }
+                }
+            }
+            var store = Redux.createStore(reducer);
         </script>
     </body>
 </html>
