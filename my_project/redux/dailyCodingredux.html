@@ -20,7 +20,9 @@
                             {id:2, title:'CSS', desc:'CSS is ...'}
                         ]
                     }
-                }else if(action.type === 'CHANGE_MODE'){
+                }
+                var newState;
+                if(action.type === 'CHANGE_MODE'){
                     newState = Object.assign({}, state, {mode: action.mode });
                 }
                 else if(action.type === 'SELECT'){
@@ -34,7 +36,7 @@
                     newState = Object.assign({}, state, {
                         max_id:newMaxId,
                         contents:newContents,
-                        mode:'read'
+                        mode:'read',
                     });
                 }
                 return newState;
@@ -70,7 +72,7 @@
                 </nav>
                 `
             }
-            nav();
+            
             
 
             function button(){
@@ -87,7 +89,7 @@
                 <button>삭제</button>
                 `
             }
-            button();
+            
 
             function article(){
                 var state = store.getState();
@@ -131,9 +133,16 @@
                 </article>
                 `
             }}
-            store.subscribe(article)
+
+
+            store.subscribe(article);
+            store.subscribe(nav);
+
+
+            Header();
+            nav();
             article();
-        
+            button();       
         </script>
     </body>
 </html>
