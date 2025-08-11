@@ -9,6 +9,17 @@
         <div id="article"></div>
         <div id="button"></div>
         <script>
+            function reducer(state, action){
+                if(state === undefined){
+                    return{
+                        contents:[
+                            {id:1, title:'HTML', desc:'HTML is ...'},
+                            {id:2, title:'CSS', desc:'CSS is ...'}
+                        ]
+                    }
+                }
+            }
+            var store = Redux.createStore(reducer);
             function Header(){
                 document.querySelector("#header").innerHTML = `
                 <header>
@@ -19,11 +30,19 @@
             }
             Header();
             function nav(){
+                var state = store.getState();
+                var i = 0;
+                var liTags = '';
+                while(i<state.contents.length){
+                    liTags = liTags + `
+                    <li><a onclick="event.preventDefault();" href="${state.contents[i].id}">
+                        ${state.contents[i].title}</a></li>`
+                        i = i+1;
+                    }
                 document.querySelector("#nav").innerHTML = `
                 <nav>
                     <ol>
-                        <li><a href="1.html">HTML</a></li>
-                        <li><a href="1.html">CSS</a></li>
+                        ${liTags}
                     </ol>
                 </nav>
                 `
@@ -48,14 +67,7 @@
                 `
             }
             button();
-            function reducer(state, action){
-                if(state === undefined){
-                    return{
-                        
-                    }
-                }
-            }
-            var store = Redux.createStore(reducer);
+        
         </script>
     </body>
 </html>
