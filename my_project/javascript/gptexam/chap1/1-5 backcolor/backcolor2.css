@@ -1,1 +1,10 @@
-s
+.morning{
+    background-color: lightyellow;
+}
+.afternoon{
+    background-color: lightblue;
+}
+.night{
+    background-color: darkblue;
+    color: white;
+}

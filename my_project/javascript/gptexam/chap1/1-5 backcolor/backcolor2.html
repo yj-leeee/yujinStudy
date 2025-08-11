@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="backcolor2.css" rel="stylesheet">
+</head>
+<body>
+    <button id="m">아침</button>
+    <button id="a">오후</button>
+    <button id="n">밤</button>
+    <script>
+        const m = document.getElementById("m");
+        const a = document.getElementById("a");
+        const n = document.getElementById("n");
+        const p = document.createElement("p");
+        document.body.appendChild(p)
+
+        function setTheme(cls, text){
+            document.body.classList.remove("morning", "afternoon", "night");
+            document.body.classList.add(cls);
+            p.textContent = text;
+        }
+        
+
+        function basic(){
+            const date = new Date();
+            const hours = date.getHours();
+            if(hours>6 && hours < 12){
+                setTheme("morning", "상쾌한 아침입니다");
+            }else if(hours > 12 && hours < 20){
+                setTheme("afternoon", "활기찬 오후입니다");
+            }else{
+                setTheme("night","편안한 밤 되세요")
+            }
+        }
+        basic();
+
+        m.onclick = () => setTheme("morning","상쾌한 아침입니다");
+        a.onclick = () => setTheme("afternoon", "활기찬 오후입니다");
+        n.onclick = () => setTheme("night","편안한 밤 되세요");
+
+
+    </script>
+</body>
+</html>
