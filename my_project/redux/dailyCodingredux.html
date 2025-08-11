@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <header>
-            <h1>WEB</h1>
-            Hello, WEB!
-        </header>
-        <nav>
-            <ol>
-                <li><a href="1.html">HTML</a></li>
-                <li><a href="1.html">CSS</a></li>
-            </ol>
-        </nav>
-        <article>
-            <h2>HTML</h2>
-            HTML is...
-        </article>
+        <div id="header"></div>
+        <div id="nav"></div>
+        <div id="article"></div>
+        <div id="button"></div>
+        <script>
+            function Header(){
+                document.querySelector("#header").innerHTML = `
+                <header>
+                    <h1>WEB</h1>
+                    Hello, WEB!
+                </header>
+                `
+            }
+            Header();
+            function nav(){
+                document.querySelector("#nav").innerHTML = `
+                <nav>
+                    <ol>
+                        <li><a href="1.html">HTML</a></li>
+                        <li><a href="1.html">CSS</a></li>
+                    </ol>
+                </nav>
+                `
+            }
+            nav();
+            function article(){
+                document.querySelector("#article").innerHTML = `
+                <article>
+                    <h2>HTML</h2>
+                    HTML is...
+                </article>
+                `
+            }
+            article();
+
+            function button(){
+                document.querySelector("#button").innerHTML = `
+                <ul>
+                    <li><a href="/create">생성</a></li>
+                    </ul>
+                <button>삭제</button>
+                `
+            }
+            button();
+        </script>
     </body>
 </html>
