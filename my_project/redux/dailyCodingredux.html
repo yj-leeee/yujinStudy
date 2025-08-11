@@ -12,16 +12,30 @@
             function reducer(state, action){
                 if(state === undefined){
                     return{
+                        max_id:2,
+                        mode : 'read',
                         selected_id:1,
                         contents:[
                             {id:1, title:'HTML', desc:'HTML is ...'},
                             {id:2, title:'CSS', desc:'CSS is ...'}
                         ]
                     }
+                }else if(action.type === 'CHANGE_MODE'){
+                    newState = Object.assign({}, state, {mode: action.mode });
                 }
-                var newState;
-                if(action.type === 'SELECT'){
+                else if(action.type === 'SELECT'){
                     newState = Object.assign({}, state, {selected_id:action.id})
+                }
+                
+                if(action.type === 'CREATE'){
+                    var newMaxId = state.max_id + 1;
+                    var newContents = state.contents.concat();
+                    newContents.push({id:newMaxId, title:action.title, desc:action.desc});
+                    newState = Object.assign({}, state, {
+                        max_id:newMaxId,
+                        contents:newContents,
+                        mode:'read'
+                    });
                 }
                 return newState;
             }
@@ -57,10 +71,51 @@
                 `
             }
             nav();
+            
+
+            function button(){
+                document.querySelector("#button").innerHTML = `
+                <ul>
+                    <li><a onclick="
+                        event.preventDefault();
+                        store.dispatch({
+                        type:'CHANGE_MODE',
+                        mode:'create'})
+                    "
+                        href="/create">생성</a></li>
+                    </ul>
+                <button>삭제</button>
+                `
+            }
+            button();
+
             function article(){
                 var state = store.getState();
                 var i = 0;
                 var aTitle, aDesc;
+                if(state.mode === 'create'){
+                    document.querySelector("#article").innerHTML = `
+                    <form onsubmit="event.preventDefault();
+                    var title = this.title.value;
+                    var desc = this.desc.value;
+                    store.dispatch({
+                        type:"CREATE",      
+                        title: title,
+                        desc : desc
+                        })"> 
+                        <p>
+                            <input type="text" name="title" placeholder="title">
+                        </p>
+                        <p>
+                            <textarea type="text" name="desc" placeholder="desc"></textarea>
+                        </p>
+                        <p>
+                            <input type=submit>
+                        </p>
+                    </form>
+                    `
+                }
+                else if(state.mode === 'read'){
                 while(i<state.contents.length){
                     if(state.contents[i].id === state.selected_id){
                         aTitle = state.contents[i].title;
@@ -75,19 +130,9 @@
                     ${aDesc}
                 </article>
                 `
-            }
+            }}
             store.subscribe(article)
             article();
-
-            function button(){
-                document.querySelector("#button").innerHTML = `
-                <ul>
-                    <li><a href="/create">생성</a></li>
-                    </ul>
-                <button>삭제</button>
-                `
-            }
-            button();
         
         </script>
     </body>
