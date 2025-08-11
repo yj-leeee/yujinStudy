@@ -6,6 +6,36 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <input id="name" type="text" placeholder="이름입력"><br>
+    <button id="btn">인사버튼</button>
+    <p id="p1"></p>
+    <script>
+        const btn = document.getElementById("btn");
+        
+        const p1 = document.getElementById("p1");
+
+        function hello(name){
+            const date = new Date();
+            if(date.getHours()>6 && date.getHours()<12){
+                p1.innerText = `좋은 아침 ${name}`
+            }else if(date.getHours()>12 && date.getHours()<18){
+                p1.innerText = `좋은 오후 ${name}`
+            }else if(date.getHours()>18 && date.getHours()<21){
+                p1.innerText = `좋은 저녁 ${name}`
+            }else{
+                p1.innerText = `잘 자 ${name}`
+            }
+        }
+
+        btn.addEventListener("click",()=>{
+            const name = document.getElementById("name").value;
+            if(name !== ""){
+                hello(name);
+            }else{
+                p1.innerText = '이름을 입력해주세요'
+            }
+            
+        })
+    </script>
 </body>
 </html>

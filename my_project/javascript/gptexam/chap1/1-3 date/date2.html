@@ -19,12 +19,14 @@
             const today = new Date();
             const dateP = document.getElementById("dateP");
             const days = ["일", "월", "화", "수", "목","금","토"]
-            dateP.innerText = `${today.getFullYear()}년 ${String(today.getMonth()+1).padStart(2, '0')}월 ${String(today.getDate()).padStart(2, '0')}일 (${days[today.getDay()]}요일)`
+            dateP.innerText = `${today.getFullYear()}년 ${String(today.getMonth()+1).padStart(2, '0')}월 
+            ${String(today.getDate()).padStart(2, '0')}일 (${days[today.getDay()]}요일)`
         })
         time.addEventListener("click", ()=>{
             const today = new Date();
             const timeP = document.getElementById("timeP");
-            timeP.innerText = `${String(today.getHours()).padStart(2, '0')}시 ${String(today.getMinutes()).padStart(2, '0')}분 ${String(today.getSeconds()).padStart(2, '0')}초`
+            timeP.innerText = `${String(today.getHours()).padStart(2, '0')}시 ${String(today.getMinutes()).padStart(2, '0')}분 
+            ${String(today.getSeconds()).padStart(2, '0')}초`
         })
 
     </script>
