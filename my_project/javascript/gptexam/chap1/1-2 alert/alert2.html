@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="fo">
+        <input id="name" placeholder="이름입력">
+        <br>
+        <input id="pass" type="password" placeholder="비밀번호입력">
+        <br>
+        <button id="btn">로그인</button>
+    </form>
+    <script>
+        const btn = document.querySelector("#btn");
+
+        function checkLogin(){
+            const name = document.getElementById("name").value;
+            const pass = document.getElementById("pass").value;
+            if(name !=="" && pass !==""){
+                alert(`어서오세요. ${name}님`)
+            }else if(name !== "" && pass === ""){
+                alert("비밀번호를 입력해주세요")
+            }else{
+                alert("이름을 입력해주세요")
+            }
+            
+            
+        }
+        btn.addEventListener("click",()=>{
+            event.preventDefault();
+            checkLogin();
+            document.querySelectorAll("input").forEach(input => input.value = "");
+            
+        })
+    </script>
+</body>
+</html>
