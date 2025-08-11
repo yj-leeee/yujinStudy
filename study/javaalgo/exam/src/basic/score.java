@@ -6,6 +6,8 @@ public class score {
 
 	public static void main(String[] args) {
 		//1. 성적 배열 선언
+		//Collections.reverseOrder());은 객체배열(Integer[], String[]에서만 동작, 
+		//int[] 기본형 배열에는 동작x
 		Integer[] scores = {88,55,39,100,90,100,98,67};
 		
 		//오름차순 정렬(꼴등부터 1등까지)
