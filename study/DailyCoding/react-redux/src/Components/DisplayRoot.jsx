@@ -3,6 +3,9 @@ import store from '../store';
 
 export default class DisplayRoot extends Component{
     state = {number:store.getState().number}
+    constructor(props){
+        super(props);
+    }
     render(){
         return(
         <div>
