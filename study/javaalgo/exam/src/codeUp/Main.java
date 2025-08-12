@@ -10,7 +10,7 @@ public class Main {
 		String a = sc.nextLine();
 		String[] parts = a.split("\\.");
 		
-		System.out.printf("%d.%02d.%02d",Integer.parseInt(parts[0]),Integer.parseInt(parts[1]),Integer.parseInt(parts[2]));
+		System.out.printf("%04d.%02d.%02d",Integer.parseInt(parts[0]),Integer.parseInt(parts[1]),Integer.parseInt(parts[2]));
 	}
 
 }
