@@ -10,7 +10,7 @@ class App extends Component() {
     <div className="App">
       <h1>Root</h1>
       <AddNumberRoot></AddNumberRoot>
-      <DisplayNumberRoot></DisplayNumberRoot>
+      <DisplayNumberRoot number={this.state.number}></DisplayNumberRoot>
     </div>
   );
   }
