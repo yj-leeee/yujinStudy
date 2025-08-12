@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
 
-createStore(function(state, action){
-    
+export default createStore(function(state, action){
+    return state;
 })
