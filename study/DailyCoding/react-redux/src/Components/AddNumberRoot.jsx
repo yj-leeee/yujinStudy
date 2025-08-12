@@ -7,7 +7,7 @@ render(){
     <div>
         <h1>Add Number Root</h1>
         <AddNumber onClick={function(size){
-            thid.props.onClick(size);
+            this.props.onClick(size);
         }.bind(this)}></AddNumber>
     </div>
         )
