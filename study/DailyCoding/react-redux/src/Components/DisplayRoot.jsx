@@ -7,7 +7,7 @@ export default class DisplayRoot extends Component{
         return(
         <div>
             <h1>Display Number</h1>
-            <input type="text" value={this.props.number} readOnly></input>
+            <input type="text" value={this.state.number} readOnly></input>
         </div>
         )
     }
