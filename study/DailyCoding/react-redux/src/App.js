@@ -1,28 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-
-class AddNumber extends Component{
-  render(){
-    return(
-      <div>
-        <h1>Add Number</h1>
-        <input type="button" value="+"></input>
-        <input type="text" value="0"></input>
-      </div>
-    )
-  }
-}
-
-class AddNumberRoot extends Component{
-  render(){
-    return(
-      <div>
-        <h1>Add Number Root</h1>
-        <AddNumber></AddNumber>
-      </div>
-    )
-  }
-}
+import AddNumberRoot from './Components/AddNumberRoot';
 
 function App() {
   return (
