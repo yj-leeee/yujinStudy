@@ -6,7 +6,7 @@ export default class DisplayNumberRoot extends Component{
     return(
         <div>
             <h1>Display Number Root</h1>
-            <DisplayRoot></DisplayRoot>
+            <DisplayRoot number={this.props.number}></DisplayRoot>
         </div>
         )
     }
