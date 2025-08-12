@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import store from '../store';
 
 export default class DisplayRoot extends Component{
+    state = {number:store.getState().number}
     render(){
         return(
         <div>
