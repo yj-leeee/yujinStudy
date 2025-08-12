@@ -5,6 +5,9 @@ export default class DisplayRoot extends Component{
     state = {number:store.getState().number}
     constructor(props){
         super(props);
+        store.subscribe(function(){
+            this.setState({number:store.getState().number});
+        }.bind(this))
     }
     render(){
         return(
