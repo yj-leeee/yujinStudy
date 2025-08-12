@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.min.js"></script>
+</head>
+<body>
+    <div id="div"></div>
+    
+    <script>
+        
+        function reducer(state, action){
+            if(state === undefined){
+                return{
+                    mode:'noname',
+                    name:""
+                }
+            }
+            var newState;
+        if(action.type === 'NAME'){
+            newState = Object.assign({},{mode:'read', name:action.name})
+            
+        }
+        return newState;
+        }
+        
+        var store = Redux.createStore(reducer);
+
+        function div(){
+            var state = store.getState();
+            if(state.mode === 'noname'){
+            document.querySelector("#div").innerHTML = `
+            <input type="text" id="nameIn" placeholder="이름을 입력해주세요">
+            <button id="btn"
+            onclick="
+            var name = document.getElementById('nameIn').value.trim();
+            store.dispatch({
+                type: 'NAME',
+                name: name})
+            "
+            >인사 버튼</button>`
+            
+            }else if(state.mode === 'read'){
+                var newName = state.name
+            document.querySelector("#div").innerHTML = `
+            <input type="text" placeholder="이름을 입력해주세요">
+            <button id="btn" >인사 버튼</button>
+            <p>안녕하세요 ${newName}님</p>`
+            
+            
+            }
+        }
+        store.subscribe(div);
+        div();
+        
+        // btn.addEventListener("click",()=>{
+        //     const val = document.querySelector("input").value;
+        //     if(val === ""){
+        //         //이름입력x
+        //     document.body.textContent="이름을 입력해주세요!";
+        //     }else{
+        //         document.body.textContent=안녕하세요 ${val}님!;
+        //     }
+        // })
+    </script>
+</body>
+</html>
