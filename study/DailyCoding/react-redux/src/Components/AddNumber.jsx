@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import store from '../store'
 export default class AddNumber extends Component{
     state = {size:1}
 render(){
