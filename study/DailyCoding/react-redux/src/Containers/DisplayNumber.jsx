@@ -1,7 +1,14 @@
 import DisplayRoot from "../Components/DisplayRoot";
 import {connect} from 'react-redux';
 
-export default connect()(DisplayRoot);
+function mapReduxStateToReactProps(){
+
+}
+function mapReduxDispatchToReactProps(){
+
+}
+
+export default connect(mapReduxStateToReactProps, mapReduxDispatchToReactProps)(DisplayRoot)
 
 // import store from "../store";
 // import React, { Component } from "react";
