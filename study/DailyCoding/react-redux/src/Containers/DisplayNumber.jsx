@@ -7,7 +7,7 @@ function mapReduxStateToReactProps(state){
     }
 }
 function mapReduxDispatchToReactProps(){
-
+    return {}
 }
 
 export default connect(mapReduxStateToReactProps, mapReduxDispatchToReactProps)(DisplayRoot)
