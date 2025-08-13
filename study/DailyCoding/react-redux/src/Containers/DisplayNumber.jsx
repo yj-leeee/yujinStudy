@@ -11,6 +11,6 @@ export default class extends Component{
         }.bind(this))
     }
     render(){
-        return <DisplayRoot></DisplayRoot>
+        return <DisplayRoot number={this.state.number}></DisplayRoot>
     }
 }
