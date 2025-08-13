@@ -4,8 +4,8 @@ import store from "../store";
 
 export default class extends Component{
     render(){
-        return <AddNumber onClick={function(){
-            store.dispatch({type:'INCREMENT', size:this.state.size})
+        return <AddNumber onClick={function(size){
+            store.dispatch({type:'INCREMENT', size:size})
         }.bind(this)}></AddNumber>
     }
 }
