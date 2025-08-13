@@ -1,6 +1,6 @@
 import DisplayRoot from "../Components/DisplayRoot";
 import {connect} from 'react-redux';
-export default connect()(DisplayRoot);
+
 
 // import store from "../store";
 // import React, { Component } from "react";
@@ -14,6 +14,6 @@ export default connect()(DisplayRoot);
 //         }.bind(this))
 //     }
 //     render(){
-//         return <DisplayRoot number={this.state.number}></DisplayRoot>
+//         return <DisplayRoot number={this.state.number} unit={this.props.unit}></DisplayRoot>
 //     }
 // }
