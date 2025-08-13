@@ -1,6 +1,7 @@
 import DisplayRoot from "../Components/DisplayRoot";
 import {connect} from 'react-redux';
 
+export default connect()(DisplayRoot);
 
 // import store from "../store";
 // import React, { Component } from "react";
