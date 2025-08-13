@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 function mapReduxStateToReactProps(state){
     return {
-        number : 
+        number : state.number
     }
 }
 function mapReduxDispatchToReactProps(){
