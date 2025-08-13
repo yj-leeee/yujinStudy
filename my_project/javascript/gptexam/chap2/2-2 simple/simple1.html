@@ -6,6 +6,36 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <input type="text" id="N1">
+    <br>
+    <input type="text" id="N2">
+    <br>
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+    <p id="p1"></p>
+    <script>
+        const N1 = document.getElementById("N1");
+        const N2 = document.getElementById("N2");
+
+        const plus = document.getElementById("plus");
+        const minus = document.getElementById("minus");
+        
+        function Pl(a,b){
+            let N3 = parseInt(a) + parseInt(b)
+            document.querySelector("#p1").textContent = `결과는 ${N3}`
+        }
+        function Mi(a,b){
+            let N3 = parseInt(a) - parseInt(b)
+            document.querySelector("#p1").textContent = `결과는 ${N3}`
+        }
+        plus.addEventListener("click",()=>{
+            Pl(N1.value, N2.value)
+        })
+        minus
+        .addEventListener("click",()=>{
+            Mi(N1.value, N2.value)
+        })
+
+    </script>
 </body>
 </html>
