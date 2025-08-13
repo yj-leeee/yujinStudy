@@ -6,11 +6,9 @@ function mapReduxStateToReactProps(state){
         number : state.number
     }
 }
-function mapReduxDispatchToReactProps(){
-    return {}
-}
 
-export default connect(mapReduxStateToReactProps, mapReduxDispatchToReactProps)(DisplayRoot)
+
+export default connect(mapReduxStateToReactProps)(DisplayRoot)
 
 // import store from "../store";
 // import React, { Component } from "react";
