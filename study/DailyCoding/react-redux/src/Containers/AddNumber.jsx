@@ -1,7 +1,11 @@
 import AddNumber from "../Components/AddNumber";
 import { connect } from "react-redux";
 
-export default connect()(AddNumber);
+function mapReduxDispatchToReactProps(){
+    return {}
+}
+
+export default connect(null,mapReduxDispatchToReactProps)(AddNumber);
 // import store from "../store";
 // import React, { Component } from "react";
 
