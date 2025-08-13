@@ -1,8 +1,10 @@
 import DisplayRoot from "../Components/DisplayRoot";
 import {connect} from 'react-redux';
 
-function mapReduxStateToReactProps(){
-
+function mapReduxStateToReactProps(state){
+    return {
+        number : 
+    }
 }
 function mapReduxDispatchToReactProps(){
 
