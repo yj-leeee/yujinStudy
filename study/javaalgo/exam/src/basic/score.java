@@ -17,6 +17,7 @@ public class score {
 		for(int i:scores) {
 			System.out.print(i + " ");
 		}
+		System.out.println();
 
 		System.out.println("===");
 		//내림차순 정렬(1등부터 꼴등까지)
