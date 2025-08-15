@@ -2,6 +2,9 @@ package user;
 
 import java.util.Scanner;
 
+
+
+
 public class newUser {
 	public static Object name;
 
@@ -16,8 +19,9 @@ public class newUser {
 		String pass = sc.nextLine();
 		
 		System.out.printf("회원가입을 환영합니다 %s 님", name);
-		User u1 = new User(name,id,pass);
-		System.out.println(u1.getName());
+		
+		User.userList.add(new User(name, id, pass)); //변수 없이 바로 생성한 객체 넣기
+		
 	}
 	
 }

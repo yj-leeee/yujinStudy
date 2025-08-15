@@ -12,12 +12,15 @@ public class Main {
 		while (tt) {// 항상 참인 조건으로 반복->무한 루프 생성
 			// 1. 처음 창, 로그인 or 회원가입
 			System.out.println("환영합니다\n1.로그인하기 :\n2.회원가입하기 :");
+			System.out.println("테스트2");
+			System.out.println("테스트1");
+			
 			int First = sc.nextInt(); // 로그인할건지 회원가입할건지
 
 			switch (First) {
 			case 1:
 				login.login();
-				return;
+				menu.menuInfo();
 			case 2:
 				newUser.newUser();
 				
