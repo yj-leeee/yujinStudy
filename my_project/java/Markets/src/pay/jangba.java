@@ -1,8 +1,6 @@
 package pay;
 
-import java.util.Scanner;
-
-import main.Menu;
+import java.util.ArrayList;
 
 public class jangba {
 	String id;
@@ -11,12 +9,11 @@ public class jangba {
 	int objectStock;
 	int totalSum;
 	
-	jangba(String id, String name, int price, int stock){
-		this.id =id;
+	jangba(String name, int price, int stock){
 		this.objectName = name;
 		this.objectPrice = price;
 		this.objectStock = stock;
-		this.totalSum = 0;
 	}
+	public static ArrayList<jangba> jangbaList = new ArrayList<>();
 	
 }

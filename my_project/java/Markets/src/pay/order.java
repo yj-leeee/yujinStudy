@@ -31,11 +31,11 @@ public class order {
 					
 					if(jangStock<=m.getThisStock()) {
 						System.out.println(m.getThisName()+"을 "+m.getThisStock()+"개 선택하셨습니다.");
+						jangba.jangbaList.add(new jangba(jangName, m.getThisprice(),jangStock));
 						stockOk = true;
 						break;
 					}else {
 						System.out.println("그만큼의 수량이 없습니다.");
-					
 					}
 					
 					}
@@ -45,6 +45,7 @@ public class order {
 					case 1:	
 						break;
 					case 2:
+						orderFinsh.orderFinsh();
 						return;
 					default:
 						System.out.println("잘못 입력하셨습니다");
