@@ -17,7 +17,7 @@ public class Main {
 			switch (First) {
 			case 1:
 				login.login();
-				Menu.Menu();
+				Menu.MenuInfo();
 				return;
 			case 2:
 				newUser.newUser();
