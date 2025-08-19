@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Menu {
 		private String thisName; //이름
-		int thisprice; //가격
-		int thisStock; //수량
+		private int thisprice; //가격
+		private int thisStock; //수량
 	
 		public Menu(String name, int price) {
 			this.setThisName(name);
@@ -25,6 +25,22 @@ public class Menu {
 				Menu m = MenuList.get(i);
 				System.out.println("제품명: " + m.getThisName() + " 가격: " + m.thisprice + " 수량: " + m.thisStock);
 			}
+		}
+
+		public int getThisprice() {
+			return thisprice;
+		}
+
+		public void setThisprice(int thisprice) {
+			this.thisprice = thisprice;
+		}
+
+		public int getThisStock() {
+			return thisStock;
+		}
+
+		public void setThisStock(int thisStock) {
+			this.thisStock = thisStock;
 		}
 
 		public String getThisName() {

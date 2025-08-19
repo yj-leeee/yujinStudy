@@ -3,6 +3,7 @@ package main;
 import java.util.Scanner;
 
 import pay.jangba;
+import pay.order;
 import user.login;
 import user.newUser;
 
@@ -19,8 +20,7 @@ public class Main {
 			case 1:
 				login.login();
 				Menu.MenuInfo();
-				jangba jang = new jangba();
-				jang.jangba();
+				order.order();
 				return;
 			case 2:
 				newUser.newUser();
