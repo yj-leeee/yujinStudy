@@ -4,7 +4,7 @@ public class VipGrade extends Grade{
 
 	public VipGrade(String id) {
 		super(id);
-		super.setGrade("VIP");
+		setGrade("VIP");
         setBonusPoint(0.05);
 	}
 

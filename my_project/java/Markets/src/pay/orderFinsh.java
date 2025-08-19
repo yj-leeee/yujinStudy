@@ -1,7 +1,7 @@
 package pay;
 
 public class orderFinsh {
-	public static void orderFinsh(){
+	public static int orderFinsh(){
 		System.out.println("===장바구니 목록===");
 		int total = 0;
 		for(jangba i : jangba.jangbaList) {
@@ -9,7 +9,7 @@ public class orderFinsh {
 			int eachTotal = i.objectStock * i.objectPrice; //각 물품 합계
 			total += eachTotal;
 		}
-		System.out.println("총 합계 : " + total + "원");
+		return total;
 		
 	}
 }
