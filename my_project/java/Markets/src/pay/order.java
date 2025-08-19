@@ -21,7 +21,7 @@ public class order {
 				if(jangName.equals(m.getThisName())) {
 					found = true;
 					System.out.println(m.getThisName() + "선택됨");
-					
+					while(true) { //수량입력 반복
 					System.out.println(m.getThisName() +" 수량 선택 : ");
 					
 					int jangStock = sc.nextInt();
@@ -33,10 +33,13 @@ public class order {
 						break;
 					}else {
 						System.out.println("그만큼의 수량이 없습니다.");
+					
+					}
+					
 					}
 					break;
 				}
-					}
+			}
 			
 			if(! found) {
 				System.out.println("물품을 잘못 입력하셨습니다");
