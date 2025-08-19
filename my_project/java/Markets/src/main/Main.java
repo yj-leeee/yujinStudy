@@ -21,6 +21,7 @@ public class Main {
 				login.login();
 				Menu.MenuInfo();
 				order.order();
+				System.out.println("test");
 				return;
 			case 2:
 				newUser.newUser();

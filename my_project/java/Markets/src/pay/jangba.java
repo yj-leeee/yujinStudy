@@ -16,7 +16,7 @@ public class jangba {
 		this.objectName = name;
 		this.objectPrice = price;
 		this.objectStock = stock;
-		this.totalSum = this.objectPrice * this.objectStock;
+		this.totalSum = 0;
 	}
 	
 }
