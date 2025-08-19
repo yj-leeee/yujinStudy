@@ -22,7 +22,7 @@ public class Main {
 				Menu.MenuInfo();
 				order.order();
 				System.out.println("test");
-				return;
+				break;
 			case 2:
 				newUser.newUser();
 				break;
