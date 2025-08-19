@@ -10,5 +10,6 @@ public class orderFinsh {
 			total += eachTotal;
 		}
 		System.out.println("총 합계 : " + total + "원");
+		
 	}
 }
