@@ -17,7 +17,7 @@ public class random {
 	for(int i=0; i<ran.length; i++) {
 		if(max <ran[i]) {
 			max = ran[i];
-		}
+		}//
 		if(min > ran[i]) {
 			min = ran[i];
 		}
