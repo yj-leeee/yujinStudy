@@ -5,6 +5,18 @@ import java.util.Scanner;
 import main.Menu;
 
 public class jangba {
-	//장바구니 담기
+	String id;
+	String objectName;
+	int objectPrice;
+	int objectStock;
+	int totalSum;
+	
+	jangba(String id, String name, int price, int stock){
+		this.id =id;
+		this.objectName = name;
+		this.objectPrice = price;
+		this.objectStock = stock;
+		this.totalSum = this.objectPrice * this.objectStock;
+	}
 	
 }

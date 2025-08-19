@@ -8,7 +8,8 @@ public class order {
 
 	public static void order() {
 		Scanner sc = new Scanner(System.in);
-		while(true) {
+		boolean check = true;
+		while(check) {
 			System.out.println("물품 입력 : ");
 			String jangName = sc.nextLine();
 
@@ -43,6 +44,17 @@ public class order {
 			
 			if(! found) {
 				System.out.println("물품을 잘못 입력하셨습니다");
+			}
+			System.out.println("더 담으시겠습니까? 1:네 2:아니요");
+			int plusCheck = sc.nextInt();
+			switch(plusCheck) {
+			case 1:
+				break;
+			case 2:
+				return;
+			default:
+				System.out.println("잘못 입력하셨습니다");
+				break;
 			}
 		}
 	}
