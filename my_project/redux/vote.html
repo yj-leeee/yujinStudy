@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.min.js"></script>
+</head>
+<body>
+    <div id="p"></div>
+    <div id="voteA"></div>
+    <div id="voteB"></div>
+
+    <script>
+        function reducer(state, action){
+            if(state === undefined){
+                return{
+                    voteA : 0,
+                    voteB : 0,
+                    voteTotal : 0
+                }
+            }
+            var newState;
+            if(action.type === 'VOTEA'){
+                newState = Object.assign({}, state, {voteA:action.voteA, voteTotal:action.voteTotal})
+            }else if(action.type === 'VOTEB'){
+                newState = Object.assign({}, state, {voteB:action.voteB, voteTotal:action.voteTotal})
+            }
+            return newState;
+        }
+        var store = Redux.createStore(reducer);
+
+        function p(){
+            var state = store.getState();
+            document.querySelector("#p").innerHTML = `
+            <p> A의 득표수 : ${state.voteA}</p>
+            <p> B의 득표수 : ${state.voteB}</p>
+            <p> 총 득표수 : ${state.voteTotal}</p>
+            `
+        }
+
+        function voteA(){
+            var state = store.getState();
+            document.querySelector("#voteA").innerHTML = `
+            <button onclick = "
+            store.dispatch({type: 'VOTEA', voteA: ${state.voteA + 1}, voteTotal: ${state.voteTotal + 1}})
+            ">A 투표</button>
+            `
+        }
+        function voteB(){
+            var state = store.getState();
+            document.querySelector("#voteB").innerHTML = `
+            <button onclick = "
+            store.dispatch({type: 'VOTEB', voteB: ${state.voteB + 1}, voteTotal: ${state.voteTotal + 1}})
+            ">B 투표</button>
+            `
+        }
+        store.subscribe(p);
+        store.subscribe(voteA);
+        store.subscribe(voteB);
+
+        p();
+        voteA();
+        voteB();
+    </script>
+</body>
+</html>
