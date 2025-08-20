@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.min.js"></script>
+</head>
+<body>
+    <div id="p"></div>
+    <div id="plus"></div>
+    <div id="minus"></div>
+
+    <script>
+        function reducer(state, action){
+            if(state === undefined){
+                return {
+                    total : 0
+                }
+            }
+            var newState;
+            if(action.type === 'PLUS'){
+                newState = Object.assign({}, state, {total:action.total})
+            }else if(action.type === 'MINUS'){
+                newState = Object.assign({}, state, {total:action.total})
+            }
+            return newState;
+        }
+        var store = Redux.createStore(reducer);
+
+        function P(){
+            var state = store.getState();
+            document.querySelector("#p").innerHTML = `
+            <p>현재 값 : ${state.total}</p>
+            `
+        }
+
+        function Plus(){
+            var state = store.getState();
+            document.querySelector('#plus').innerHTML = `
+            <button 
+            onclick = "store.dispatch({type:'PLUS', total:${state.total + 1} })">
+            증가</button>
+            `
+        }
+
+        function Minus(){
+            var state = store.getState();
+            document.querySelector('#minus').innerHTML = `
+            <button
+            onclick = "store.dispatch({type:'MINUS', total:${state.total - 1}})">
+            감소</button>
+            `
+        }
+        store.subscribe(P);
+        store.subscribe(Plus);
+        store.subscribe(Minus);
+
+        P();
+        Plus();
+        Minus();
+    </script>
+
+</body>
+</html>
