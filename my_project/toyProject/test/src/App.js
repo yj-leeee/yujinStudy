@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, {useState} from 'react';
+import UserProfile from './components/UserProfile';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
   }
   ]
   return (
-    
+    <UserProfile users={users}></UserProfile>
   );
 }
 
