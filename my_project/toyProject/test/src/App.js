@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, {useState} from 'react';
-import ProfildCard from './components/ProfileCard';
+
 
 function App() {
   const users = [
@@ -25,7 +25,7 @@ function App() {
   }
   ]
   return (
-    <ProfildCard users={users}></ProfildCard>
+    
   );
 }
 
