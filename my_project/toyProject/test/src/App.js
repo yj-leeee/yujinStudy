@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import {useState} from 'react';
+
+import LikeCard from './Componetents/LikeCard';
 
 function App() {
   
-  return 
+  return <LikeCard name={`유진`}></LikeCard>
 }
 
 
