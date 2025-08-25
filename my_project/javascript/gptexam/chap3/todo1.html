@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="할일입력">
+    <button id="btn">추가</button>
+    <ul></ul>
+    <script>
+        
+        const btn = document.getElementById("btn");
+        const ul = document.querySelector("ul");
+        let todos = [];
+        btn.addEventListener("click",()=>{
+            
+            const li = document.createElement("li");
+            const input = document.getElementById("input").value;
+            li.textContent = input;
+            todos.push(input);
+            console.log(todos);
+
+            li.addEventListener("click",()=>{
+                const x = ul.removeChild(li);
+                todos.splice(li);
+                console.log(x);
+            })
+            ul.appendChild(li);
+        })
+    </script>
+</body>
+</html>
