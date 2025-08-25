@@ -6,6 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <textarea id="text"></textarea>
+    <p id="p"></p>
+    <script>
+        
+        const text = document.getElementById("text");
+        text.addEventListener("input",()=>{
+            const p = document.querySelector("#p");
+            const t = document.getElementById("text").value.length;
+            p.textContent = `현재 글자 수 : ${t}`;
+        })
+    </script>
 </body>
 </html>
