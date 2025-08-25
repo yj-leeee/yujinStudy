@@ -6,6 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <input type="password" id="pass1">
+    <input type="password" id="pass2">
+    <button id="btn">확인</button>
+    <p id="p"></p>
+
+    <script>
+        
+        const btn = document.getElementById("btn");
+
+        btn.addEventListener("click",()=>{
+            const pass1 = document.getElementById("pass1").value;
+            const pass2 = document.getElementById("pass2").value;
+
+            if(pass1 == pass2){
+                document.getElementById("p").innerText="비밀번호 같음"
+            }else{
+                document.getElementById("p").innerText="비밀번호 다름"
+                console.log("pass1");
+            }
+        })
+
+    </script>
 </body>
 </html>
