@@ -2,10 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 
 import LikeCard from './Componetents/LikeCard';
+import LoginCard from './Componetents/LoginCard';
 
 function App() {
   
-  return <LikeCard name={`유진`}></LikeCard>
+  return <LoginCard></LoginCard>
 }
 
 
