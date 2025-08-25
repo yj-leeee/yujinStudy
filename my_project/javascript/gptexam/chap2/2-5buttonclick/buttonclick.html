@@ -6,6 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <button id="btn">클릭</button>
+    <p id="p"></p>
+
+    <script>
+        const btn = document.getElementById("btn");
+        let count = 0;
+        btn.addEventListener("click",()=>{
+            
+            count++;
+            document.getElementById("p").textContent = `버튼 클릭 횟수 : ${count}`
+        })
+    </script>
 </body>
 </html>
