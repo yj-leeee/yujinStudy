@@ -1,13 +1,15 @@
-import { useDispatch } from "react-redux"
 
-export function VotePanel(){
-    const voteA = useDispatch();
-    const voteB = useDispatch();
+
+export function VotePanel(props){
+    
     return(
         <div>
-            <button onClick={()=>{voteA({type:"VOTE_A"})}}>A 투표</button>
-            <button onClick={()=>{voteB({type:"VOTE_B"})}}>B 투표</button>
-
+            <button onClick={()=>{
+                props.voteA()
+            }}>A투표</button>
+            <button onClick={()=>{
+                props.voteB()
+            }}>B투표</button>
         </div>
     )
 }

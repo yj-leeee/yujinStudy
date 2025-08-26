@@ -1,14 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import { VotePanel } from './Component/VotePanel';
-import { VoteResult } from './Component/VoteResult';
+import WrapPanel from './Wrapper/WrapPanel';
+import WrapResult from './Wrapper/WrapResult';
 
 function App() {
   
   return(
     <div>
-      <VotePanel></VotePanel>
-      <VoteResult></VoteResult>
+      <WrapPanel></WrapPanel>
+      <WrapResult></WrapResult>
     </div>
   );
 
