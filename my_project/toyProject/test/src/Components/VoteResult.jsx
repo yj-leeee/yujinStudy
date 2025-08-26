@@ -16,6 +16,6 @@ export default function VoteResult(props){
         <div>
             <p>A 투표 수 : {state.userA}</p>
             <p>B 투표 수 : {state.userB}</p>
-        </div>
+         </div>
     )
 }
