@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux"
 
 export function VoteResult(){
-    const userA = useSelector(state => state.userA);
-    const userB = useSelector(state => state.userB);
+    
 
 
     return(
