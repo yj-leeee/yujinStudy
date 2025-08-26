@@ -1,16 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import store from './store';
-import VotePanel from './Components/VotePanel';
-import VoteResult from './Components/VoteResult';
+import WrapPanel from './Container/WrapPanel';
+import WrapResult from './Container/WrapResult';
 
 
 function App() {
   
   return(
     <div>
-      <VotePanel store={store}></VotePanel>
-      <VoteResult store={store}></VoteResult>
+      <WrapPanel></WrapPanel>
+      <WrapResult></WrapResult>
     </div>
   );
 
