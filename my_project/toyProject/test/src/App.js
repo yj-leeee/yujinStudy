@@ -1,15 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import Info from './Components/Info';
-import Login from './Components/Login';
+import WrappLogin from './wrap/WrappLogin';
+import WrappInfo from './wrap/WrappInfo';
+
 
 
 function App() {
   
   return (
     <div>
-      <Login></Login>
-      <Info></Info>
+      <WrappLogin></WrappLogin>
+      <WrappInfo />
     </div>
   )
 

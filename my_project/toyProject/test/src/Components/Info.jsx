@@ -1,17 +1,12 @@
-import { useEffect, useState } from 'react'
-import store from '../store.js'
-
-export default function Info(){
-    const [name,setName] = useState(store.getState().name)
-    const [age, setAge] = useState(store.getState().age)
-    const isLoggedIn = store.getState().isLoggedIn
+export default function Info(props){
+    
 
     function OX(){
-        if(isLoggedIn){
+        if(props.isLoggedIn){
             return(
                 <div>
-                <p>이름 : {name}</p>
-                <p>나이 : {age}</p>
+                <p>이름 : {props.name}</p>
+                <p>나이 : {props.age}</p>
             </div>
             );
         }else{
@@ -19,21 +14,7 @@ export default function Info(){
         }
     }
 
-    useEffect(()=>{
-        const chgName = store.subscribe(()=>{
-            setName(store.getState().name)
-        });
-
-        return() => chgName();
-    },[store.getState().name])
-
-    useEffect(()=>{
-        const chgAge = store.subscribe(()=>{
-            setAge(store.getState().age)
-        });
-
-        return() => chgAge();
-    },[store.getState().age])
+    
 
     return(
         <div>
