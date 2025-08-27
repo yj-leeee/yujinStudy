@@ -1,26 +1,27 @@
 
 
 export default function Login(props){
+    const {name, age, setName, setAge, LoginBtn, LogOutBtn,InBtn} = props.action
     return(
         <div>
-            <input placeholder="이름" value={props.action.name}
+            <input placeholder="이름" 
             onChange={(e)=>{
-                props.action.setName(e.target.value)
+                setName(e.target.value)
             }}></input>
             <br/>
-            <input placeholder="나이" value={props.action.age}
+            <input placeholder="나이" 
             onChange={(e)=>{
-                props.action.setAge(Number(e.target.value))
+                setAge(Number(e.target.value))
             }}></input>
             <br/>
             <button onClick={()=>{
-                props.action.LoginBtn()
+                LoginBtn()
             }}>로그인</button>
             <button onClick={()=>{
-                props.action.LogOutBtn()
+                LogOutBtn()
             }}>로그아웃</button>
             <button onClick={()=>{
-                props.action.InBtn()
+                InBtn()
             }}>나이증가</button>
 
 

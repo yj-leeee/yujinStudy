@@ -17,5 +17,5 @@ export default function LoginWrap(){
         dispatch({type:"INCREASE_AGE"})
     }
 
-    return <Login action={{dispatch, setName, setAge, LoginBtn, LogOutBtn,InBtn}}></Login>
+    return <Login action={{ setName, setAge, LoginBtn, LogOutBtn,InBtn}}></Login>
 }
