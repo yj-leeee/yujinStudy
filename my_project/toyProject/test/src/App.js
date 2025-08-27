@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import LoginWrap from './Components/Wrap/LoginWrap';
-import InfoWrap from './Components/Wrap/InfoWrap';
+import LoginWrap from './Wrap/LoginWrap';
+import InfoWrap from './Wrap/InfoWrap';
 
 
 

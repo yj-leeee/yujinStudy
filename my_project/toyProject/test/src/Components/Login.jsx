@@ -1,32 +1,26 @@
-import { useDispatch } from "react-redux"
-import { useState } from "react";
-
-export default function Login(){
-    const dispatch = useDispatch();
-    const [name,setName] = useState("");
-    const [age,setAge] = useState("");
 
 
+export default function Login(props){
     return(
         <div>
-            <input placeholder="이름" value={name}
+            <input placeholder="이름" value={props.action.name}
             onChange={(e)=>{
-                setName(e.target.value)
+                props.action.setName(e.target.value)
             }}></input>
             <br/>
-            <input placeholder="나이" value={age}
+            <input placeholder="나이" value={props.action.age}
             onChange={(e)=>{
-                setAge(Number(e.target.value))
+                props.action.setAge(Number(e.target.value))
             }}></input>
             <br/>
             <button onClick={()=>{
-                dispatch({type:"LOGIN", name, age})
+                props.action.LoginBtn()
             }}>로그인</button>
             <button onClick={()=>{
-                dispatch({type:"LOGOUT"})
+                props.action.LogOutBtn()
             }}>로그아웃</button>
             <button onClick={()=>{
-                dispatch({type:"INCREASE_AGE"})
+                props.action.InBtn()
             }}>나이증가</button>
 
 
