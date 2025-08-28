@@ -6,6 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div></div>>
+
+    <script>
+        const div = document.querySelector("div");
+        const users = ["이유진", "김수민", "이예진", "박하나"];
+        const hi = users.map((name) => {
+            return `<p>${name}님 환영합니다!</p>`
+        })
+
+        div.innerHTML = hi
+    </script>
 </body>
 </html>
