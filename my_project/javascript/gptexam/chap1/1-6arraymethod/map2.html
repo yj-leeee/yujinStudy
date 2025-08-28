@@ -6,6 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <ul></ul>
+
+    <script>
+        const students = [
+            { name: "이유진", score: 95 },
+            { name: "김수민", score: 81 },
+            { name: "이예진", score: 67 },
+            { name: "박하나", score: 52 }
+        ];
+
+        const grade =  students.map(({name,score})=>{
+            if(score >= 90){
+                return `<li>${name}님의 점수 : ${score} 등급 : A</li>`
+            }else if(score >= 80){
+                return `<li>${name}님의 점수 : ${score} 등급 : B</li>`
+            }else if(score >= 70){
+                return `<li>${name}님의 점수 : ${score} 등급 : C</li>`
+            }else if(score >= 60){
+                return `<li>${name}님의 점수 : ${score} 등급 : D</li>`
+            }else{
+                return `<li>${name}님의 점수 : ${score} 등급 : F</li>`
+            }
+        })
+        document.querySelector("ul").innerHTML = grade.join("");
+    </script>
 </body>
 </html>
