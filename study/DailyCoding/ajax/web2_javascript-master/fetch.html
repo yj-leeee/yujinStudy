@@ -5,12 +5,11 @@
         </article>
         <input type="button" value="fetch" onclick="
             
-            fetch('javascript').then(function(response){
-                console.log(response);
-                if(response.status == '404'){
-                    alert('Not found');
-                }
-            });
+            fetch('html').then(function(response){
+                response.text().then(function(text){
+                    document.querySelector('article').innerHTML = text;
+                })
+            })
             ">
 
     </body>
