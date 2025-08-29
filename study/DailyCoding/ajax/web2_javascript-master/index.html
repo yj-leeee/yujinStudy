@@ -37,8 +37,8 @@
 
   </article>
   <script>
-    function fetchPage(){
-      fetch('javascript').then(function(response){
+    function fetchPage(name){
+      fetch(name).then(function(response){
                 response.text().then(function(text){
                     document.querySelector('article').innerHTML = text;
                 })
