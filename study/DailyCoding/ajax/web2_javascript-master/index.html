@@ -36,6 +36,14 @@
   <article>
 
   </article>
-  <script></script>
+  <script>
+    function fetchPage(){
+      fetch('javascript').then(function(response){
+                response.text().then(function(text){
+                    document.querySelector('article').innerHTML = text;
+                })
+            })
+    }
+  </script>
 </body>
 </html>
