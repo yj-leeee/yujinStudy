@@ -32,7 +32,7 @@
     }
     fetch('list').then(function(response){
                 response.text().then(function(text){
-                  text.split(',')
+                  var items = text.split(',')
                   console.log(text)
                     document.querySelector('#nav').innerHTML = text;
                 })
