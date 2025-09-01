@@ -3,9 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>계산기기</title>
+    <link href="cal.css" rel="stylesheet">
 </head>
 <body>
-    
+    <table>
+        <tr>
+            <th colspan="4" id="in">입력 :  </th>
+        </tr>
+        <tr>
+            <th class="btn" data-value="1">1</th>
+            <th class="btn" data-value="2">2</th>
+            <th class="btn" data-value="3">3</th>
+            <th rowspan="3" class="btn" data-value="=">=</th>
+        </tr>
+        <tr>
+            <th class="btn" data-value="4">4</th>
+            <th class="btn" data-value="5">5</th>
+            <th class="btn" data-value="6">6</th>
+        </tr>
+        <tr>
+            <th class="btn" data-value="7">7</th>
+            <th class="btn" data-value="8">8</th>
+            <th class="btn" data-value="9">9</th>
+        </tr>
+        <tr>
+            <th class="btn" data-value="+">+</th>
+            <th class="btn" data-value="-">-</th>
+            <th class="btn" data-value="*">*</th>
+            <th class="btn" data-value="/">/</th>
+
+        </tr>
+        <tr>
+            <th colspan="4" id="v">값 : </th>
+        </tr>
+    </table>
+    <script>
+        const button = document.querySelectorAll(".btn");
+        const v = document.getElementById("v");
+        const i = document.getElementById("in");
+        let formula = "";
+        
+        button.forEach((btn)=>{
+        btn.addEventListener("click",()=>{
+            const value = btn.dataset.value;
+
+            if(value === "="){
+                //=버튼을 눌렀을때 수식분석해서 계산
+                let op = "";
+                if(formula.includes("+")) op = "+";
+                else if(formula.includes("-")) op = "-";
+                else if(formula.includes("*")) op = "*";
+                else if(formula.includes("/")) op = "/";
+
+                const[np1, np2] = formula.split(op);
+                const a = Number(np1);
+                const b = Number(np2);
+                let answer = "";
+
+                if(op === "+") answer = a+b;
+                else if(op === "-") answer = a-b;
+                else if(op === "*") answer = a*b;
+                else if(op === "/") answer = a/b;
+
+                v.innerText = `값 : ${answer}`
+
+            }else {
+                formula += value;
+                i.innerText = `입력 : ${formula}`
+            }
+        })
+    })
+    </script>
 </body>
 </html>

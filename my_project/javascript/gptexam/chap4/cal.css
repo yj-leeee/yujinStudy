@@ -1,0 +1,16 @@
+body{
+    background-color: pink;
+    display: grid;
+place-items: center;
+height: 100vh; 
+    
+}
+
+th{
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+}
+th:hover{
+    background-color: yellow;
+}
