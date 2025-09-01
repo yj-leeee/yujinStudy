@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>숫자 맞추기 게임</title>
 </head>
 <body>
-    
+  <script>
+    const number = Math.floor(Math.random() * 10) + 1;  // 1~10
+    let sido = 0;
+
+    while (true) {
+      const answer = Number(prompt('숫자를 입력하세요 (1~10):'));
+      sido++;
+
+      if (answer > number) {
+        alert('DOWN');
+      } else if (answer < number) {
+        alert('UP');
+      } else {
+        alert(`정답입니다! 시도 횟수: ${sido}번`);
+        break; // 게임 종료
+      }
+    }
+  </script>
 </body>
 </html>
