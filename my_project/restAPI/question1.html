@@ -9,6 +9,20 @@
     <div>
         1. 새 게시글 생성
         <button id="btn1">생성</button>
+        <br/>
+        2. id가 1인 게시글을 가져와서 출력하기 
+        <button id="btn2">가져와서 출력하기</button>
+        <br/>
+        3. 게시글 전체 수정하기
+        <button id="btn3">전체 수정</button>
+        <br/>
+        4. 게시글 부분 수정하기
+        <button id="btn4">부분 수정</button>
+        <br/>
+        5. posted id가 1 삭제하기
+        <button id="btn5">삭제</button>
+        
+
     </div>
     <script>
         const btn1 = document.getElementById("btn1");
@@ -18,10 +32,55 @@
                 method: 'POST',
                 headers: {'content-type':'application/json'},
                 body: JSON.stringify({
-                    id:1, title:"My First Post", body:"This is a test post"
+                    title:"My First Post", body:"This is a test post"
                 })
             })
         })
+
+        const btn2 = document.getElementById("btn2");
+        btn2.addEventListener("click",()=>{
+            fetch('http://localhost:3000/posted/1',{
+                method:'GET'
+            }).then(function(response){
+                return response.json()
+            }).then(function(result){
+                console.log(result);
+            })
+        })
+
+        const btn3 = document.getElementById("btn3");
+        btn3.addEventListener("click",()=>{
+            fetch('http://localhost:3000/posted/1',{
+                method: "PUT",
+                headers:{"content-type":"application/json"},
+                body:JSON.stringify({
+                    title:"Update Title", body:"Update body"
+                })
+            })
+        })
+
+        const btn4 = document.getElementById("btn4");
+        btn4.addEventListener("click",()=>{
+            fetch('http://localhost:3000/posted/1',{
+                method: "PATCH",
+                headers:{"content-type":"application/json"},
+                body:JSON.stringify({
+                    title:"Make a content!"
+                })
+            })
+        })
+
+        const btn5 = document.getElementById("btn5");
+
+        btn5.addEventListener("click",()=>{
+            fetch('http://localhost:3000/posted/1',{
+                method: 'DELETE',
+            })
+        })
+
+        
+
+
     </script>
 </body>
 </html>
