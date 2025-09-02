@@ -13,7 +13,15 @@
     <script>
         const btn1 = document.getElementById("btn1");
 
-        
+        btn1.addEventListener("click",()=>{
+            fetch('http://localhost:3000/posted',{
+                method: 'POST',
+                headers: {'content-type':'application/json'},
+                body: JSON.stringify({
+                    id:1, title:"My First Post", body:"This is a test post"
+                })
+            })
+        })
     </script>
 </body>
 </html>
