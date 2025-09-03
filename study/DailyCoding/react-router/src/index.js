@@ -12,13 +12,36 @@ function Home(){
   )
 }
 
-function App(){
+function Topics(){
   return(
     <div>
-      <Home></Home>
+      <h2>Topics</h2>
+      topics...
     </div>
   )
 }
+
+function Contact(){
+  return(
+    <div>
+      <h2>Contact</h2>
+      Contact...
+    </div>
+  )
+}
+
+function App(){
+  return(
+    <div>
+      <h1>React Router DOM example</h1>
+      <Home></Home>
+      <Topics></Topics>
+      <Contact></Contact>
+    </div>
+  )
+}
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
