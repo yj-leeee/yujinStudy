@@ -45,6 +45,9 @@ function App(){
         <Route path="/" element={<Home />} />
         <Route path="/topics" element={<Topics />} />
         <Route path="/contact" element={<Contact />} />
+        {/* 이 줄이 없는 경로 catch 역할! */}
+        <Route path="*" element={<div>Not Found</div>} />
+
       </Routes>
     </div>
   )
