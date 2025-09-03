@@ -3,9 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
+function Home(){
+  return(
+    <div>
+      <h2>Home</h2>
+      Home...
+    </div>
+  )
+}
+
 function App(){
   return(
-    <div>Hello React Router DOM</div>
+    <div>
+      <Home></Home>
+    </div>
   )
 }
 
