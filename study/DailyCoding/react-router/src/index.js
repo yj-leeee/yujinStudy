@@ -35,9 +35,9 @@ function App(){
   return(
     <div>
       <h1>React Router DOM example</h1>
-      <Route><Home></Home></Route>
-      <Route><Topics></Topics></Route>
-      <Route><Contact></Contact></Route>
+      <Route path="/"><Home></Home></Route>
+      <Route path="/topics"><Topics></Topics></Route>
+      <Route path="/contact"><Contact></Contact></Route>
     </div>
   )
 }
