@@ -35,6 +35,11 @@ function App(){
   return(
     <div>
       <h1>React Router DOM example</h1>
+      <ul>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/topics'>Topics</a></li>
+        <li><a href='/Contact'>Contact</a></li>
+      </ul>
       <Route path="/"><Home></Home></Route>
       <Route path="/topics"><Topics></Topics></Route>
       <Route path="/contact"><Contact></Contact></Route>
