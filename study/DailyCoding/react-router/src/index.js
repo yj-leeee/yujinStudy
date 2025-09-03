@@ -36,9 +36,9 @@ function App(){
     <div>
       <h1>React Router DOM example</h1>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/topics">Topics</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/topics">Topics</NavLink></li>
+        <li><NavLink to="/contact">Contact</NavLink></li>
       </ul>
 
       <Routes>
