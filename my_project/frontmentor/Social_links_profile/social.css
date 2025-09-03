@@ -1,0 +1,58 @@
+body {
+  background-color: black;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: hsl(0, 0%, 12%);
+  width: 500px;
+  height: 700px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 좌우 가운데 정렬 유지 */
+}
+
+img {
+  display: block;
+  border-radius: 50%;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  width: 100px;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+h4 {
+    margin-top: 0px;
+  color: hsl(75, 94%, 57%);
+  margin-bottom: 10px;
+}
+
+p {
+  color: hsl(0, 0%, 50%);
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.menu {
+  border-radius: 15px;
+  background-color: hsl(0, 0%, 24%);
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  width: 300px;
+  height: 50px;
+  margin-top: 17px; /* 상하 간격 수동 조정 */
+  line-height: 50px;
+}
+.menu:hover{
+background-color: hsl(75, 94%, 57%);
+color: black;
+}
