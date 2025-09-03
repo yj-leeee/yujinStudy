@@ -37,7 +37,7 @@ function App(){
       <h1>React Router DOM example</h1>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/topics">Topics</Link></li>
+        <li><a href='/topics'>Topics</a></li>
         <li><Link to="/contact">Contact</Link></li>
       </ul>
 
