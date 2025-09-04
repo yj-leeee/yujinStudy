@@ -15,11 +15,14 @@ class Nav extends Component {
     }.bind(this))
   }
   render(){
+    var listTags = [];
+    for(var i=0; i<this.state.list.length; i++){
+      var li = this.state.list[i];
+      listTags.push(<li><a href={li.id}>{li.title}</a></li>)
+    }
     return(<nav>
         <ul>
-          <li><a href="1">HTML</a></li>
-          <li><a href="2">CSS</a></li>
-          <li><a href="3">JS</a></li>
+          {listTags}
         </ul>
       </nav>)
   }
