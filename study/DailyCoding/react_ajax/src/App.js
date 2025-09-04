@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 
 class Nav extends Component {
+  state = {
+    list:[]
+  }
   componentDidMount(){
     fetch('list.json')
     .then(function(result){
