@@ -11,6 +11,7 @@ class Nav extends Component {
     })
     .then(function(json){
       console.log(json);
+      this.setState({list:json});
     })
   }
   render(){
