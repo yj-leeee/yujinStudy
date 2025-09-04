@@ -17,6 +17,9 @@ function Topics(){
   return(
     <div>
       <h2>Topics</h2>
+      <ul>
+        <li><NavLink to="/topics/1">HTML</NavLink></li>
+      </ul>
       topics...
     </div>
   )
