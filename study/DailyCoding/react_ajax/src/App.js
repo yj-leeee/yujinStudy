@@ -92,7 +92,7 @@ class App extends Component {
     if(this.state.article.isLoading){
       ArticleTag = <NowLoading></NowLoading>
     }else{
-      <Article title={this.state.article.item.title} desc={this.state.article.item.desc}></Article>
+      ArticleTag = <Article title={this.state.article.item.title} desc={this.state.article.item.desc}></Article>
     }
   return (
     <div className="App">
