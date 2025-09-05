@@ -38,12 +38,15 @@ class Article extends Component{
   }
 }
 class App extends Component {
+  state = {
+    article:{title:"Welcome", desc:"Hello, React & Ajax"}
+  }
   render(){
   return (
     <div className="App">
       <h1>WEB</h1>
       <Nav></Nav>
-      <Article title={"Welcome"} desc={"Hello, React & Ajax"}></Article>
+      <Article title={this.state.article.title} desc={this.state.article.desc}></Article>
     </div>
   );
   }
