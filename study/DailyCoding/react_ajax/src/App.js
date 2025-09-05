@@ -31,8 +31,8 @@ class Article extends Component{
   render(){
     return(
       <article>
-        <h2>Welcome</h2>
-        Hello, React & Ajax
+        <h2>{this.props.title}</h2>
+        {this.props.desc}
       </article>
     );
   }
