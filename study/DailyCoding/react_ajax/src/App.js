@@ -27,15 +27,22 @@ class Nav extends Component {
       </nav>)
   }
 }
+class Article extends Component{
+  render(){
+    return(
+      <article>
+        <h2>Welcome</h2>
+        Hello, React & Ajax
+      </article>
+    );
+  }
+}
 function App() {
   return (
     <div className="App">
       <h1>WEB</h1>
       <Nav></Nav>
-      <article>
-        <h2>Welcome</h2>
-        Hello, React & Ajax
-      </article>
+      <Article></Article>
     </div>
   );
 }
