@@ -37,7 +37,8 @@ class Article extends Component{
 }
 class App extends Component {
   state = {
-    article:{title:"Welcome", desc:"Hello, React & Ajax"}
+    article:{title:"Welcome", desc:"Hello, React & Ajax"},
+    list:[]
   }
   componentDidMount(){
     fetch('list.json')
