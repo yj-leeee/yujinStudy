@@ -22,7 +22,7 @@ class Nav extends Component {
         <a href={li.id} data-id={li.id} onClick={function(e){
           e.preventDefault();
           this.props.onClick(e.target.dataset.id)
-        }}>
+        }.bind(this)}>
           {li.title}
           </a>
           </li>)
@@ -53,7 +53,10 @@ class App extends Component {
     <div className="App">
       <h1>WEB</h1>
       <Nav onClick={function(id){
-        console.log(id);
+        fetch(id+'.json')
+          .then(function(result){
+          return result.json();
+        })
       }.bind(this)}></Nav>
       <Article title={this.state.article.title} desc={this.state.article.desc}></Article>
     </div>
