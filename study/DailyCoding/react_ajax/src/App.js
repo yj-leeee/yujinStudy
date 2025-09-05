@@ -56,7 +56,7 @@ class App extends Component {
   return (
     <div className="App">
       <h1>WEB</h1>
-      <Nav list={this.state.list} onClick={function(id){
+      <Nav list={this.state.list.items} onClick={function(id){
         fetch(id+'.json')
           .then(function(result){
           return result.json();
@@ -70,7 +70,7 @@ class App extends Component {
           })
         }.bind(this))
       }.bind(this)}></Nav>
-      <Article title={this.state.article.title} desc={this.state.article.desc}></Article>
+      <Article title={this.state.article.item.title} desc={this.state.article.item.desc}></Article>
     </div>
   );
   }
