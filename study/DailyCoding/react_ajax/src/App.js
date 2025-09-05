@@ -19,9 +19,9 @@ class Nav extends Component {
     for(var i=0; i<this.state.list.length; i++){
       var li = this.state.list[i];
       listTags.push(<li key={li.id}>
-        <a href={li.id} onClick={function(e){
+        <a href={li.id} data-id={li.id} onClick={function(e){
           e.preventDefault();
-          //여기서 ajax콜을 한다
+          this.props.onClick(e.target.dataset.id)
         }}>
           {li.title}
           </a>
