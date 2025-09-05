@@ -86,7 +86,7 @@ class App extends Component {
   return (
     <div className="App">
       <h1>WEB</h1>
-      
+      {NavTag}
       <Article title={this.state.article.item.title} desc={this.state.article.item.desc}></Article>
     </div>
   );
