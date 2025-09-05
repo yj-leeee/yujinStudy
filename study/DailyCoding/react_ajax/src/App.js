@@ -37,7 +37,8 @@ class Article extends Component{
     );
   }
 }
-function App() {
+class App extends Component {
+  render(){
   return (
     <div className="App">
       <h1>WEB</h1>
@@ -45,6 +46,7 @@ function App() {
       <Article title={"Welcome"} desc={"Hello, React & Ajax"}></Article>
     </div>
   );
+  }
 }
 
 export default App;
