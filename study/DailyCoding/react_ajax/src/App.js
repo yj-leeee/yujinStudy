@@ -68,6 +68,8 @@ class App extends Component {
       NavTag = <NowLoading></NowLoading>
     }else{
       NavTag = <Nav list={this.state.list.items} onClick={function(id){
+        var newArticle = Object.assign({}, this.state.article,{isLoading:true});
+        this.setState({article:newArticle});
         fetch(id+'.json')
           .then(function(result){
           return result.json();
