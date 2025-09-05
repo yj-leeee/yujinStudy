@@ -54,7 +54,7 @@ class App extends Component {
   return (
     <div className="App">
       <h1>WEB</h1>
-      <Nav onClick={function(id){
+      <Nav list={this.state.list} onClick={function(id){
         fetch(id+'.json')
           .then(function(result){
           return result.json();
