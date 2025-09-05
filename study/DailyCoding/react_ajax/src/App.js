@@ -1,99 +1,96 @@
-import React, {Component} from "react";
+import React, { useState, useEffect } from "react";
 
-class Nav extends Component {
-  render(){
-    var listTags = [];
-    for(var i=0; i<this.props.list.length; i++){
-      var li = this.props.list[i];
-      listTags.push(<li key={li.id}>
-        <a href={li.id} data-id={li.id} onClick={function(e){
-          e.preventDefault();
-          this.props.onClick(e.target.dataset.id)
-        }.bind(this)}>
-          {li.title}
-          </a>
-          </li>)
-    }
-    return(<nav>
-        <ul>
-          {listTags}
-        </ul>
-      </nav>)
-  }
+// 🟡 Nav 컴포넌트 (props.list, props.onClick 사용)
+function Nav({ list, onClick }) {
+  return (
+    <nav>
+      <ul>
+        {list.map((li) => (
+          <li key={li.id}>
+            <a
+              href={li.id}
+              data-id={li.id}
+              onClick={(e) => {
+                e.preventDefault();
+                onClick(e.target.dataset.id);
+              }}
+            >
+              {li.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
 }
-class Article extends Component{
-  render(){
-    return(
-      <article>
-        <h2>{this.props.title}</h2>
-        {this.props.desc}
-      </article>
-    );
-  }
-}
-class NowLoading extends Component{
-  render(){
-    return <div style={{backgroundColor:"orange"}}>Now Loading...</div>
-  }
-}
-class App extends Component {
-  state = {
-    article:{
-      item:{title:"Welcome", desc:"Hello, React & Ajax"},
-      isLoading:false
-    },
-    list:{
-      items:[],
-      isLoading:false
-    }
-  }
-  componentDidMount(){
-    var newList = Object.assign({}, this.state.list, {isLoading:true});
-    this.setState({list:newList})
-    fetch('list.json')
-    .then(function(result){
-      return result.json();
-    })
-    .then(function(json){
-      console.log(json);
-      this.setState({list:{
-        items:json,
-        isLoading:false
-      }});
-    }.bind(this))
-  }
-  render(){
-    var NavTag = null;
-    if(this.state.list.isLoading){
-      NavTag = <NowLoading></NowLoading>
-    }else{
-      NavTag = <Nav list={this.state.list.items} onClick={function(id){
-        var newArticle = Object.assign({}, this.state.article,{isLoading:true});
-        this.setState({article:newArticle});
-        fetch(id+'.json')
-          .then(function(result){
-          return result.json();
-        })
-        .then(function(json){
-          this.setState({
-            article:{
-              item:{
-                title:json.title,
-                desc:json.desc
-              },
-              isLoading:false
-            }
-          })
-        }.bind(this))
-      }.bind(this)}></Nav>
-    }
 
-    var ArticleTag = null;
-    if(this.state.article.isLoading){
-      ArticleTag = <NowLoading></NowLoading>
-    }else{
-      ArticleTag = <Article title={this.state.article.item.title} desc={this.state.article.item.desc}></Article>
-    }
+// 🟡 Article 컴포넌트
+function Article({ title, desc }) {
+  return (
+    <article>
+      <h2>{title}</h2>
+      {desc}
+    </article>
+  );
+}
+
+// 🟡 NowLoading 컴포넌트
+function NowLoading() {
+  return (
+    <div style={{ backgroundColor: "orange" }}>
+      Now Loading...
+    </div>
+  );
+}
+
+// 🟡 App 컴포넌트 (state와 lifecycle 관리)
+function App() {
+  // 🟢 상태 정의
+  const [list, setList] = useState({ items: [], isLoading: true });
+  const [article, setArticle] = useState({
+    item: { title: "Welcome", desc: "Hello, React & Ajax" },
+    isLoading: false,
+  });
+
+  // 🟢 컴포넌트가 처음 마운트될 때 실행 (list 불러오기)
+  useEffect(() => {
+    fetch("list.json")
+      .then((res) => res.json())
+      .then((json) => {
+        setList({ items: json, isLoading: false });
+      });
+  }, []);
+
+  // 🟢 클릭 시 article 가져오기
+  const handleClick = (id) => {
+    setArticle((prev) => ({
+      ...prev,
+      isLoading: true,
+    }));
+
+    fetch(`${id}.json`)
+      .then((res) => res.json())
+      .then((json) => {
+        setArticle({
+          item: { title: json.title, desc: json.desc },
+          isLoading: false,
+        });
+      });
+  };
+
+  // 🟢 조건부 렌더링
+  const NavTag = list.isLoading ? (
+    <NowLoading />
+  ) : (
+    <Nav list={list.items} onClick={handleClick} />
+  );
+
+  const ArticleTag = article.isLoading ? (
+    <NowLoading />
+  ) : (
+    <Article title={article.item.title} desc={article.item.desc} />
+  );
+
   return (
     <div className="App">
       <h1>WEB</h1>
@@ -101,7 +98,6 @@ class App extends Component {
       {ArticleTag}
     </div>
   );
-  }
 }
 
 export default App;
