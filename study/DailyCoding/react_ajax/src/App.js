@@ -45,7 +45,9 @@ class App extends Component {
   return (
     <div className="App">
       <h1>WEB</h1>
-      <Nav></Nav>
+      <Nav onClick={function(id){
+        
+      }.bind(this)}></Nav>
       <Article title={this.state.article.title} desc={this.state.article.desc}></Article>
     </div>
   );
