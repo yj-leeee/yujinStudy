@@ -4,16 +4,7 @@ class Nav extends Component {
   state = {
     list:[]
   }
-  componentDidMount(){
-    fetch('list.json')
-    .then(function(result){
-      return result.json();
-    })
-    .then(function(json){
-      console.log(json);
-      this.setState({list:json});
-    }.bind(this))
-  }
+  
   render(){
     var listTags = [];
     for(var i=0; i<this.state.list.length; i++){
@@ -47,6 +38,16 @@ class Article extends Component{
 class App extends Component {
   state = {
     article:{title:"Welcome", desc:"Hello, React & Ajax"}
+  }
+  componentDidMount(){
+    fetch('list.json')
+    .then(function(result){
+      return result.json();
+    })
+    .then(function(json){
+      console.log(json);
+      this.setState({list:json});
+    }.bind(this))
   }
   render(){
   return (
