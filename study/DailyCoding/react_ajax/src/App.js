@@ -33,7 +33,7 @@ class Article extends Component{
 }
 class NowLoading extends Component{
   render(){
-    return <div>Now Loading...</div>
+    return <div style={{backgroundColor:"orange"}}>Now Loading...</div>
   }
 }
 class App extends Component {
@@ -85,11 +85,18 @@ class App extends Component {
         }.bind(this))
       }.bind(this)}></Nav>
     }
+
+    var ArticleTag = null;
+    if(this.state.article.isLoading){
+      ArticleTag = <NowLoading></NowLoading>
+    }else{
+      <Article title={this.state.article.item.title} desc={this.state.article.item.desc}></Article>
+    }
   return (
     <div className="App">
       <h1>WEB</h1>
       {NavTag}
-      <Article title={this.state.article.item.title} desc={this.state.article.item.desc}></Article>
+      {ArticleTag}
     </div>
   );
   }
