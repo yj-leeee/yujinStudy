@@ -57,6 +57,14 @@ class App extends Component {
           .then(function(result){
           return result.json();
         })
+        .then(function(json){
+          this.setState({
+            article:{
+              title:json.title,
+              desc: json.desc
+            }
+          })
+        }.bind(this))
       }.bind(this)}></Nav>
       <Article title={this.state.article.title} desc={this.state.article.desc}></Article>
     </div>
