@@ -67,8 +67,11 @@ class App extends Component {
         .then(function(json){
           this.setState({
             article:{
-              title:json.title,
-              desc: json.desc
+              item:{
+                title:json.title,
+                desc:json.desc
+              },
+              isLoading:false
             }
           })
         }.bind(this))
