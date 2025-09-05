@@ -48,6 +48,7 @@ class App extends Component {
     }
   }
   componentDidMount(){
+    var newList = Object.assign({}, this.state.list, {isLoading:true});
     fetch('list.json')
     .then(function(result){
       return result.json();
