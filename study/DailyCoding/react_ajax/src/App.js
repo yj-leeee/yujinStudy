@@ -63,6 +63,8 @@ class App extends Component {
   render(){
     var NavTag = null;
     if(this.state.list.isLoading){
+      NavTag = <NowLoading></NowLoading>
+    }else{
       NavTag = <Nav list={this.state.list.items} onClick={function(id){
         fetch(id+'.json')
           .then(function(result){
