@@ -18,7 +18,14 @@ class Nav extends Component {
     var listTags = [];
     for(var i=0; i<this.state.list.length; i++){
       var li = this.state.list[i];
-      listTags.push(<li key={li.id}><a href={li.id}>{li.title}</a></li>)
+      listTags.push(<li key={li.id}>
+        <a href={li.id} onClick={function(e){
+          e.preventDefault();
+          //여기서 ajax콜을 한다
+        }}>
+          {li.title}
+          </a>
+          </li>)
     }
     return(<nav>
         <ul>
@@ -46,7 +53,7 @@ class App extends Component {
     <div className="App">
       <h1>WEB</h1>
       <Nav onClick={function(id){
-        
+        console.log(id);
       }.bind(this)}></Nav>
       <Article title={this.state.article.title} desc={this.state.article.desc}></Article>
     </div>
