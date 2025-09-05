@@ -42,7 +42,7 @@ function App() {
     <div className="App">
       <h1>WEB</h1>
       <Nav></Nav>
-      <Article></Article>
+      <Article title={"Welcome"} desc={"Hello, React & Ajax"}></Article>
     </div>
   );
 }
