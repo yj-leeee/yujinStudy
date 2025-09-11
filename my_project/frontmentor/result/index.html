@@ -7,6 +7,40 @@
     <link href="result.css" rel="stylesheet">
 </head>
 <body>
-    
+    <!-- 전체div -->
+    <div class="container">
+        <!-- 왼쪽 div -->
+        <div class="result">
+            <h2 class="p1" >Your Result</h2>
+            <!-- 원 div -->
+            <div id="score">
+                <h1 style="color: white; margin-bottom: 0px;" >총점평균</h1>
+                <p class="p1" style="margin-top: 0px;">of 100</p>
+            </div>
+            <!-- 원 div  끝끝-->
+            <h1 style="color:white; margin-bottom: 5px;">Great</h1>
+            <p class="p1" style="text-align: center; margin-top: 0px;">You scored higher than 65% of
+                <br/>
+                the people who have taken 
+                <br />
+                these tests.
+            </p>
+        </div>
+        <!-- 왼쪽 div 끝-->
+        <!-- 오른쪽 div -->
+        <div class="summary">
+            <h1>Summary</h1>
+            <div class="hang" id="hong"></div>
+            <div class="hang"></div>
+            <div class="hang"></div>
+            <div class="hang"></div>
+            <div class="hang" id="Continue">Continue</div>
+        </div>
+        <!-- 오른쪽 div 끝-->
+    </div>
+
+    <script>
+        const hang = document.getElementsByClassName("hang");
+    </script>
 </body>
 </html>
