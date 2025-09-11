@@ -38,6 +38,10 @@ body{
     color: hsl(241, 100%, 89%)
 }
 /* 왼쪽 */
+#h1{
+    align-self: flex-start;
+    margin-left: 35px;
+}
 .summary{
     width: 325px;
     display: flex;
@@ -48,7 +52,35 @@ body{
 
 #Continue{
     background-color: hsl(224, 30%,27%);
+    height: 45px;
     color: aliceblue;
-    text-align: center;
-    
+    border-radius: 20px;
+     display: flex;            /* 🔥 핵심: flex 사용 */
+  justify-content: center;  /* 가로 가운데 정렬 */
+  align-items: center;      /* 세로 가운데 정렬 */
+}
+#Continue:hover{
+    background-color: hsla(256, 72%, 46%, 1);
+}
+.box{
+    display: flex;
+    width: 270px;
+    height: 40px;
+    margin: 20px auto;
+    align-items: center;
+    border-radius: 15px;
+}
+.box > img {
+    width: 20px;
+    margin-left: 15px;
+}
+#p3{
+    margin-left: 5px;
+}
+#p2{
+    color: hsla(224,30%,27%,0.2);
+}
+.p4{
+    margin-left: auto;
+    margin-right: 5px;
 }

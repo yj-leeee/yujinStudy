@@ -14,8 +14,8 @@
             <h2 class="p1" >Your Result</h2>
             <!-- 원 div -->
             <div id="score">
-                <h1 style="color: white; margin-bottom: 0px;" >총점평균</h1>
-                <p class="p1" style="margin-top: 0px;">of 100</p>
+                <h1 id="total" style="color: white; margin-bottom: 0px; margin-top: 1px; font-size: 60px;" ></h1>
+                <p class="p1" style="margin-top: -5px;">of 100</p>
             </div>
             <!-- 원 div  끝끝-->
             <h1 style="color:white; margin-bottom: 5px;">Great</h1>
@@ -29,8 +29,9 @@
         <!-- 왼쪽 div 끝-->
         <!-- 오른쪽 div -->
         <div class="summary">
-            <h1>Summary</h1>
+            <h1 id="h1">Summary</h1>
             <div id="hang"></div>
+            <div class="box" id="Continue">Continue</div>
         
         </div>
         <!-- 오른쪽 div 끝-->
@@ -38,21 +39,31 @@
 
     <script>
         const hang = document.getElementById("hang");
-        let hangs = '';
+        const total = document.getElementById("total");     
+
         fetch('./data.json',{
             method: 'GET'}).then(function(response){
                 return response.json()
             }).then(function(result){
-                console.log(result)
-        hang.innerHTML = `
-        <div>
-            <img src=${result[0].icon}>
-                <p>${result[0].category}</p>
-                <p>${result[0].score}</p>
-        </div>`
+                let hangs = '';
+                let sum = 0; //점수수
+                for(let i=0; i<result.length; i++){
+                    sum += result[i].score;
+                    hangs += `
+                        <div class="box" style="background-color:${result[i].background};">
+                            <img src="${result[i].icon}"/>
+                            <p id="p3" style="color:${result[i].color};">${result[i].category}</p>
+                            <p class="p4">${result[i].score} <span id="p2"> / 100</span></p>
+                        </div>
+                        `;
+                }
+                const avg = Math.round(sum/result.length); //평균구하기
+                total.innerText = avg;
+                hang.innerHTML = hangs;
             })
 
-        
+            
+
     </script>
 </body>
 </html>
