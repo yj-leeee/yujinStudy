@@ -30,17 +30,29 @@
         <!-- 오른쪽 div -->
         <div class="summary">
             <h1>Summary</h1>
-            <div class="hang" id="hong"></div>
-            <div class="hang"></div>
-            <div class="hang"></div>
-            <div class="hang"></div>
-            <div class="hang" id="Continue">Continue</div>
+            <div id="hang"></div>
+        
         </div>
         <!-- 오른쪽 div 끝-->
     </div>
 
     <script>
-        const hang = document.getElementsByClassName("hang");
+        const hang = document.getElementById("hang");
+        let hangs = '';
+        fetch('./data.json',{
+            method: 'GET'}).then(function(response){
+                return response.json()
+            }).then(function(result){
+                console.log(result)
+        hang.innerHTML = `
+        <div>
+            <img src=${result[0].icon}>
+                <p>${result[0].category}</p>
+                <p>${result[0].score}</p>
+        </div>`
+            })
+
+        
     </script>
 </body>
 </html>

@@ -45,13 +45,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-.hang{
-    width: 250px;
-    height: 50px;
-    background-color: aqua;
-    margin: 15px;
-    border-radius: 20px;
-}
+
 #Continue{
     background-color: hsl(224, 30%,27%);
     color: aliceblue;
