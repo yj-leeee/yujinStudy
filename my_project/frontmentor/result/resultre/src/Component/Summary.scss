@@ -1,0 +1,51 @@
+#summary{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+
+    
+}
+.summary-card{
+    display: flex;
+    border-radius: 20px;
+    width: 270px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px ;
+}
+#summary-continue{
+    display: flex;
+  align-items: center;         // ⬅️ 세로 가운데 정렬
+  justify-content: center;
+    border-radius: 20px;
+    width: 270px;
+    background-color: hsl(224,30%,27%);
+    color: white;
+    text-align: center;
+    height: 60px; 
+}
+#summary-continue:hover{
+    background-color: hsl(241,81%,54%);
+}
+@media screen and (max-width: 768px) {
+    #summary{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .summary-list{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .summary-card{
+        width: 400px;
+    }
+
+}

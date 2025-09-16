@@ -1,0 +1,50 @@
+@mixin set-flex-column{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#result{
+    @include set-flex-column;
+    width: 50%;
+    background: linear-gradient(hsl(252, 100%,67%), hsl(241, 81%,54%));
+    height: 100%;
+    border-radius: 20px;
+}
+#one{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(hsl(241, 81%,54%),hsl(252, 100%,67%));
+    @include set-flex-column;
+}
+#pc{
+    display: block;
+    text-align: center;
+}
+#mobile{
+    display: none;
+    text-align: center;
+}
+.color{
+    color: hsl(241, 100%, 89%)
+}
+#avg{
+    margin-top: 58px;
+    color: white;
+    font-size: 60px;
+}
+
+@media screen and (max-width: 768px) {
+    #result{
+        display: flex;
+        width: 100%;
+    }
+    #pc{
+        display: none;
+    }
+    #mobile{
+        display: block;
+    }
+}
