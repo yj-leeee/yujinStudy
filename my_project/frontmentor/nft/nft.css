@@ -1,39 +1,132 @@
-body{
-    background-color: hsl(217,54%,11%);
-    display: grid;
-    height: 100vh;
-    place-content: center;
+/* 전체 배경 */
+body {
+  background-color: hsl(217, 54%, 11%);
+  display: grid;
+  height: 100vh;
+  place-content: center;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-#container{
-    width: 470px;
-    background-color: hsl(216,50%,16%);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+/* 카드 컨테이너 */
+#container {
+  width: 300px;
+  background-color: hsl(216, 50%, 16%);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 15px;
 }
-#img{
-    width: 90%;
-    height: 60%;
-    margin-top: 20px;
-    align-items: center;
+
+/* NFT 이미지 */
+#img {
+    width: 100%;         /* padding 기준으로 꽉 차게 */
+  margin-top: 10px;    /* 필요한 여백만 주기 */
+  border-radius: 10px;
 }
-#p_div1{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+
+/* 타이틀 */
+#p1 {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
 }
-.div{
-    display: flex;
-    align-items: center;
-    
+
+/* 기본 p 스타일 */
+p {
+  margin: 0;
+  color: hsl(215, 51%, 70%);
+  font-size: 16px;
 }
-.hover:hover{
-    color: aqua;
+
+/* 강조 hover 효과 */
+.hover:hover {
+  color: aqua;
+  cursor: pointer;
 }
-#p1{
-    color: white; 
-    font-size: 20px; 
-    font-weight: 500;
+
+/* 가격과 시간 줄 */
+#p_div1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
-hr{}
+
+/* 아이콘+텍스트 묶음 */
+.div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 가격 스타일 */
+.eth {
+  color: aqua;
+  font-weight: bold;
+}
+
+/* 남은 시간 */
+.days {
+  color: hsl(215, 51%, 70%);
+}
+
+/* 아이콘 크기 */
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* 아바타 줄 */
+#creator {
+  gap: 12px;
+}
+
+/* 아바타 이미지 */
+.avatar {
+  border: white 1px solid;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+/* 구분선 */
+hr {
+  width: 100%;
+  border: 0.5px solid hsl(215, 32%, 30%);
+}
+#img_div{
+    position: relative;
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+/* 오버레이 박스 */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(178, 100%, 50%, 0.5); /* 청록색 반투명 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+/* 아이콘 스타일 */
+.eye-icon {
+  width: 40px;
+  height: 40px;
+}
+/* hover 시 나타남 */
+#img_div:hover .overlay {
+  opacity: 1;
+  cursor: pointer;
+}
