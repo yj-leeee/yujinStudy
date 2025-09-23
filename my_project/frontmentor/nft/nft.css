@@ -1,0 +1,39 @@
+body{
+    background-color: hsl(217,54%,11%);
+    display: grid;
+    height: 100vh;
+    place-content: center;
+}
+#container{
+    width: 470px;
+    background-color: hsl(216,50%,16%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#img{
+    width: 90%;
+    height: 60%;
+    margin-top: 20px;
+    align-items: center;
+}
+#p_div1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.div{
+    display: flex;
+    align-items: center;
+    
+}
+.hover:hover{
+    color: aqua;
+}
+#p1{
+    color: white; 
+    font-size: 20px; 
+    font-weight: 500;
+}
+hr{}
