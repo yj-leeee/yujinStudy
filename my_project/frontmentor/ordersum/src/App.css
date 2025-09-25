@@ -1,0 +1,18 @@
+body{
+  background-color: hsl(225,100%,98%);
+  background-image: url(/public/pattern-background-desktop.svg);
+  background-repeat: no-repeat;
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  background-size: 100% auto; /* ✅ 가로 100%, 세로는 원본 크기 유지 */
+  
+}
+
+@media screen and (max-width: 768px) {
+  /* 모바일에서만 적용 */
+  body{
+    background-image: url(/public/pattern-background-mobile.svg);
+    background-repeat: no-repeat;
+  }
+}

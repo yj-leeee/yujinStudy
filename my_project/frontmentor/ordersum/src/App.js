@@ -1,9 +1,9 @@
-import logo from './logo.svg';
+import Component from './Component/Component';
 import './App.css';
 
 function App() {
   return (
-    <div>dd</div>
+    <Component></Component>
   );
 }
 
