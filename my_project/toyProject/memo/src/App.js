@@ -4,6 +4,7 @@ import Login from './Component/Login';
 import Signup from './Component/Signup';
 import Memolist from './Component/Memolist';
 import CreateMemo from './Component/CreateMemo';
+import MemoDetail from './Component/MemoDetail';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/create' element={<Signup />}/>
         <Route path='/memo' element={<Memolist />}/>
         <Route path='/createMemo' element={<CreateMemo />}/>
+        <Route path='/memodetail/:id' element={<MemoDetail />}/>
       </Routes>
     </Router>
   );

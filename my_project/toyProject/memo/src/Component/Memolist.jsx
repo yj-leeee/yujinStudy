@@ -23,6 +23,11 @@ export default function Memolist(){
                 });
         }
     }, [username]);
+
+    //메모 디테일 페이지로 넘어가기
+    const memodetail = (id) => {
+        navigate(`/memodetail/${id}`)
+    }
     return (
         <div>
             <h1>{username}의 메모장</h1>
@@ -42,8 +47,7 @@ export default function Memolist(){
                         memos.map((memo) => (
                             <tr key={memo.id}>
                                 <td>{memo.id}</td>
-                                <td>{memo.title}</td>
-                                
+                                <td onClick={() => memodetail(memo.id)}>{memo.title}</td> {/* 🔥 id 전달 */}
                             </tr>
                         ))
                     ) : (
