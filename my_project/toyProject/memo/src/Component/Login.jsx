@@ -1,8 +1,12 @@
 import { useState } from "react"
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom"; // 🔥 추가
 
 export default function Login(){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate(); // 🔥 페이지 이동 함수
+    const dispatch = useDispatch();
 
     
     const handleLogin = () => {
@@ -19,6 +23,12 @@ export default function Login(){
         .then(response => response.text())
         .then(result => {
             alert(result); // 서버에서 받은 응답 메시지 출력
+            if (result.startsWith("로그인 성공")) {
+                // store에 공급
+                dispatch({ type: "LOGIN", username: username }); // 🔥 올바른 방식
+                // 🔥 username을 가지고 memo 페이지로 이동
+                navigate("/memo", { state: { username } });
+            }
         })
         .catch(error => {
             console.error("로그인 에러:", error);

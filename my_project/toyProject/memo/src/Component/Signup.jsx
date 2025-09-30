@@ -37,6 +37,7 @@ export default function Signup(){
                 <br/>
                 <button type="button" onClick={handleSignup}>회원가입</button>
             </form>
+            <a href="/">로그인</a>
         </div>
     )
 }
