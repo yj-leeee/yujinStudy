@@ -1,0 +1,27 @@
+#mini{
+    display: grid;
+    grid-template-columns: repeat(3,120px)
+}
+.minis{
+    display: flex;
+    flex-direction: column;
+}
+.minis h2{
+    margin-bottom: 2px;
+}
+@media screen and (max-width: 768px) {
+    #mini{
+    grid-template-columns: 1fr; /* 세로로 1열 */
+    grid-template-rows: repeat(3, 80px);   /* 행 지정 안 해도 됨 */
+    justify-items: center;      /* 가운데 정렬 (선택사항) */
+    gap: 2px;
+
+    }
+    .minis {
+        justify-content: center;
+    }
+    .minis h2{
+    margin-bottom: -15px;
+    
+    }
+}

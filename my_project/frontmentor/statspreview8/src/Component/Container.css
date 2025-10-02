@@ -1,0 +1,34 @@
+#container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+.mobile{
+    display: none;
+}
+/*글자색 흰색*/
+.p_white{
+    color : white;
+}
+span{
+    color: hsl(277,64%,61%);
+}
+/*글자색 회색*/
+.p_gray{
+    color: hsla(0,0%,100%,0.6)
+}
+@media screen and (max-width:768px){
+    .pc{
+        display: none;
+    }
+    .mobile{
+        display: block;
+    }
+    #container{
+        width: 400px;
+        text-align: center;
+        padding-top: 20px;
+    }
+}

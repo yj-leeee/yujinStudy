@@ -1,0 +1,35 @@
+body{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(233, 47%, 7%);
+}
+#home{
+  background-color: hsl(244,37%,16%);
+  width: 1000px;
+  display: flex;
+  
+}
+#img {
+  background-color: hsl(277, 64%, 61%);
+  background-image: url('img/image-header-desktop.jpg');
+  background-blend-mode: multiply; /* 색 덮기 */
+  background-size: cover; /* 이미지 꽉 채우기 */
+  background-position: center;
+  width: 50%;
+  height: 400px; /* 원하는 높이 지정 */
+}
+
+@media screen and (max-width: 768px) {
+  #home{
+    flex-direction: column-reverse;
+    width: auto;
+    align-items: center;
+  }
+  #img{
+    background-image: url('img/image-header-mobile.jpg');
+    width: 100%;
+  }
+  
+}

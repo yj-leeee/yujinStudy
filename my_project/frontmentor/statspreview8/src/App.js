@@ -1,9 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import Container from './Component/Container';
 
 function App() {
   return (
-    <div></div>
+    <div id='home'>
+      <Container/>
+      <div id='img'></div>
+    </div>
   );
 }
 
