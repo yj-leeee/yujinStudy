@@ -1,0 +1,36 @@
+
+.cardcontainer{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    align-items: flex-start;
+    max-width: 320px;
+}
+#h1{
+    color: white;
+}
+#p1{
+    color: hsla(0,0%,95%,0.75);
+    padding-bottom: 70px;
+    line-height: 1.8; /* 줄 간격 넓게 */
+    letter-spacing: 0.3px; /* 자간 약간 */
+}
+#btn{
+    background-color: white;
+    padding: 13px 40px;
+    border-radius: 20px;
+    
+}
+#btn:hover{
+    border: solid 3px white;
+    background-color: transparent;
+    
+    color: white !important;
+}
+
+@media screen and (max-width: 768px) {
+    #p1{
+  line-height: 1.8; /* 줄 간격 넓게 */
+    letter-spacing: 0.3px; /* 자간 약간 */
+}
+}
