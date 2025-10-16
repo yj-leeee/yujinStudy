@@ -1,0 +1,30 @@
+#Two{
+    background-color: hsl(185,65%,43%);
+    border-radius: 10px 10px 0 0;
+    padding-left: 30px;
+    padding-bottom: 25px;
+}
+#two_h3{
+    display: inline;
+    color: white;
+}
+#two_span{
+    font-size: 12px;
+    vertical-align:middle;
+    margin-left: 5px;
+    color: #e9e9ee;
+}
+#sign{
+    background-color: hsl(71,73%,54%);
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+}
+.pcolor{
+    color: hsla(0,0,100%,0.7);
+}

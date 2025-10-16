@@ -1,9 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import One from './component/One';
+import Two from './component/Two';
+import Three from './component/Three';
+
 
 function App() {
   return (
-    <div>
+    <div id='container'>
+      <One />
+      <Two />
+      <Three />
     </div>
   );
 }

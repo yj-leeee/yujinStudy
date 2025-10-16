@@ -1,0 +1,40 @@
+body{
+    background-color: hsl(218,22%,67%);
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+#container{
+    width: 650px;
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    grid-template-rows:200px 250px;
+    
+}
+*{
+    box-sizing: border-box;
+}
+.grey{
+    color: hsl(218,22%,67%);
+}
+.hcolor{
+    color: hsl(0,0,98%);
+}
+.pcolor{
+    color: hsla(0,0,100%,0.7);
+}
+
+.moblie{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    #container{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        margin: 0 30px;
+    }
+    .pc{display: none;}
+    .moblie{display: block};
+}
