@@ -7,7 +7,7 @@ export default function HomeScreen() {
       
       {/* 화면 중앙에 "실험 성공" 텍스트를 출력합니다. */}
       <Text style={{ fontSize: 30, fontWeight: 'bold', color: 'green' }}>
-        실험 성공 🎉
+        실험 성공 ddd🎉
       </Text>
       
       {/* Expo Router가 정상 작동 중인지 확인하는 텍스트도 추가합니다. */}
