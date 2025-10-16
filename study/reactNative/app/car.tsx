@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 
-export default function car(){
+export default function Car(){
     return(
         <View>
-            <Text>car</Text>
+            <Text>안안</Text>
         </View>
     )
 }
