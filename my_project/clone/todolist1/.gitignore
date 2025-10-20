@@ -41,3 +41,13 @@ app-example
 # generated native folders
 /ios
 /android
+
+# generated native folders (Detailed Exclusions)
+/ios/build
+/ios/Pods
+/ios/*.xcworkspace
+
+/android/build
+/android/app/build
+/android/.gradle
+/android/local.properties
