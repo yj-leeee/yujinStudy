@@ -1,0 +1,73 @@
+#cardCon{
+    display: flex;
+    gap: 20px;
+    grid-column: 1/3;
+    margin-bottom: 30px;
+}
+
+.p_card{
+    background-color: hsl(300,43%,22%);
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+/*위치조정*/
+.p_card:nth-of-type(2){
+    position: relative;
+    top:20px
+}
+.p_card:nth-of-type(3){
+    position: relative;
+    top:40px
+}
+.p_text{
+    color: white;
+}
+
+/*프로필*/
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.p_img{
+    width: 30px; /* 이미지 크기 조절 */
+    height: 30px;
+    object-fit: contain; /* 비율 유지 */
+    border-radius: 50%;
+}
+.p_name{
+    color:hsl(333,80%,67%)
+}
+@media screen and (max-width: 768px) {
+    #cardCon {
+        /* ⭐️ 수직 정렬로 변경 */
+        display: flex;
+        flex-direction: column;
+        
+        /* 너비를 부모 컨테이너(#container)에 맞게 확장 */
+        width: 100%;
+        
+        /* ⭐️ 모바일에서 중앙 정렬 */
+        align-items: center; 
+        
+        /* 모바일 세로 간격 조정 */
+        gap: 15px; 
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .p_card {
+        width: 100%; /* 너비를 꽉 채우도록 설정 */
+        
+        padding: 25px; /* 모바일에서 내부 패딩을 늘려 시원하게 보이도록 조정 */
+    }
+    
+    /* ⭐️ 계단식 위치 초기화 ⭐️ */
+    .p_card:nth-of-type(2),
+    .p_card:nth-of-type(3) {
+        position: static; /* position: relative 해제 */
+        top: auto;        /* top 값 초기화 */
+    }
+}

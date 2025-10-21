@@ -1,0 +1,29 @@
+#textContainer{
+    padding-right: 50px;
+}
+/* ⭐️ 모바일 스타일 (768px 이하) ⭐️ */
+@media screen and (max-width: 768px) {
+    #textContainer {
+        /* 1. 텍스트 중앙 정렬 */
+        text-align: center; 
+        
+        /* 2. 데스크톱용 오른쪽 패딩 제거 (모바일 전체 너비 사용) */
+        padding-right: 0; 
+        
+        /* 3. 모바일에서 텍스트가 너무 넓게 퍼지지 않도록 최대 너비 제한 */
+        max-width: 90%; 
+        margin: 0 auto 30px auto; /* 중앙 정렬 및 하단 간격 */
+    }
+    
+    /* 4. h1 크기 및 간격 조정 */
+    #textContainer h1 {
+        font-size: 2rem; /* 모바일에서 글꼴 크기 축소 (필요 시) */
+        padding: 0 10px; /* 텍스트가 화면 끝에 붙지 않도록 좌우 패딩 추가 */
+    }
+    
+    /* 5. p 태그 간격 조정 */
+    #textContainer p {
+        padding: 0 10px;
+        font-size: 1rem;
+    }
+}

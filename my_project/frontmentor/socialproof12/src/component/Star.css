@@ -1,0 +1,68 @@
+.starcard{
+    background-color: hsl(300,24%,96%);
+    display: flex;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    gap: 30px;
+}
+.starcard-container{
+    padding-right: 50px;
+    padding-top: 50px;
+}
+.star-icon-img {
+    width: 17px; /* 이미지 크기 조절 */
+    height: 16px;
+    object-fit: contain; /* 비율 유지 */
+}
+
+.starcard:nth-of-type(2){
+    position: relative;
+    left: 40px;
+}
+.starcard:nth-of-type(3){
+    position: relative;
+    left: 80px;
+}
+@media screen and (max-width: 768px) {
+
+    .starcard-container {
+        /* 별점 카드를 세로로 쌓고 전체 컨테이너 너비를 사용 */
+        display: flex;
+        flex-direction: column; 
+        align-items: center; /* ⭐️ 전체 카드들을 가로축 중앙에 정렬 */
+        width: 100%;
+        padding-right: 0; /* 데스크톱용 오른쪽 패딩 제거 */
+        padding-top: 20px; /* 상단 패딩 조정 */
+        gap: 10px; /* 카드 간 세로 간격 조정 */
+    }
+
+    .starcard {
+        /* 너비를 100%로 설정하고, 뷰포트 여백을 위해 max-width를 사용 */
+        width: 100%; 
+        
+        
+        /* ⭐️ 데스크톱에서 설정한 계단식 위치를 모바일에서 반드시 해제 */
+        position: static !important; 
+        left: auto !important;
+        
+        /* ⭐️ 별점과 텍스트를 카드 내부에서 중앙 정렬 */
+        justify-content: center; 
+        
+        /* 텍스트 줄바꿈을 유도하기 위해 padding 조정 */
+        padding: 15px 30px; 
+    }
+    
+    /* ⭐️ nth-of-type을 사용한 계단식 스타일 초기화 ⭐️ */
+    .starcard:nth-of-type(2),
+    .starcard:nth-of-type(3) {
+        position: static !important;
+        left: auto !important;
+    }
+    
+    .stars {
+        /* 별 이미지 그룹 간의 간격 조정 */
+        gap: 5px;
+        margin-right: 15px; /* 별 그룹과 텍스트 사이 간격 */
+    }
+}
