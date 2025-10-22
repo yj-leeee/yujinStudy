@@ -1,10 +1,10 @@
+import { Ionicons } from '@expo/vector-icons';
 import { Stack } from "expo-router";
-import { Ionicons} from '@expo/vector-icons';
 import { Image } from "react-native";
 
-import { Provider } from 'react-redux';
-import { store } from "../redux/store"; 
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Provider } from 'react-redux';
+import { store } from "../redux/store";
 
 const img = require('../assets/images/avatar.jpeg');
 
