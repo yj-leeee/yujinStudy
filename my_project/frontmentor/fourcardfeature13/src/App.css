@@ -6,27 +6,27 @@ body{
 }
 #cardContainer{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: auto auto; 
+    grid-template-areas: 
+    "Sup Team Cal"
+    "Sup Karma Cal";
     gap: 30px; 
-    align-items: center; /* 2. Grid 아이템 수직 중앙 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
+  align-items: center; /* 세로 가운데 정렬 */
+  width: 80%;
+  max-width: 1000px; /* 카드 묶음 전체 폭 */
+  margin: 100px auto; /* 화면 가운데 배치 */
 }
 #supervisor{
-    grid-column: 1 / 2; /* 1열 지정 */
-    grid-row: 1 / 3;    /* 2행 차지 */
-    align-self: center; 
+    grid-area: Sup;
+    align-self: center; /* 세로 가운데 */
 }
 #Team{
-    grid-column: 2 / 3; /* 2열 지정 */
-    grid-row: 1/ 2;     /* 1행 차지 */
+    grid-area: Team
 }
 #Karma{
-    grid-column: 2 / 3; /* 2열 지정 */
-    grid-row: 2/ 3;     /* 2행 차지 */
+    grid-area: Karma;
 }
 #Calculator{
-    /* 🚨 필수 수정: 3열에 위치하도록 grid-column을 명시해야 합니다. */
-    grid-column: 3 / 4; 
-    grid-row: 1 / 3;    /* 2행 차지 */
-    align-self: center;
+    grid-area: Cal;
+    align-self: center; /* 세로 가운데 */
 }

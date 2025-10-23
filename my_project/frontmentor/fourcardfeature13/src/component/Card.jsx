@@ -6,6 +6,6 @@ export default function Card({cardData}){
     <div className='cards' style={{borderTopColor:color}}>
         <h3>{title}</h3>
         <p>{text}</p>
-        <img src={icon} />
+        <img id='img' src={icon} />
     </div>)
 }
