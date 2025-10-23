@@ -20,8 +20,10 @@ function App() {
       <Title id='pageContainer' />
       <div id='cardContainer'>
         <Card id='supervisor' cardData={getCardById('supervisor')}/>
+        <div id='TeamK'>
         <Card id='Team' cardData={getCardById('Team')}/>
         <Card id='Karma' cardData={getCardById('Karma')}/>
+        </div>
         <Card id='Calculator' cardData={getCardById('Calculator')}/>
       </div>
     </div>
