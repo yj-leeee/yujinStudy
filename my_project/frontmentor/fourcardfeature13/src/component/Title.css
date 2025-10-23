@@ -1,0 +1,19 @@
+#title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    height: auto;
+}
+#title > *{
+    margin: 0;
+}
+#title_p{
+    margin-top: 15px;
+    max-width: 500px; /* 예시 값: 최대 500px 너비에서 줄바꿈 시작 */
+    text-align: center;
+}
+#title_h1{
+    font-weight: 100;
+}

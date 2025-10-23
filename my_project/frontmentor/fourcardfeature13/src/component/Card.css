@@ -1,0 +1,10 @@
+.cards{
+    border-top: 4px solid;
+    height: 230px;
+    width: 250px;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 0 10px;
+    box-shadow: 0 15px 30px -5px rgba(131, 143, 160, 0.4);
+    
+}
