@@ -8,7 +8,11 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <Stack>
-        
+        <Stack.Screen
+        name='index'
+        options={{
+          headerShown:false,
+        }}/>
       </Stack>
     </SafeAreaProvider>
     
