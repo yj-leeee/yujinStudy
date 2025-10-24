@@ -9,13 +9,16 @@ export default function Stories(){
             paddingVertical:10
         },
         scrollContent:{
-            marginVertical:5,
-            marginHorizontal:15,
+            marginVertical:10,
+            flexDirection: 'row', 
+            alignItems: 'center',
+            // 💡 [수정] ScrollView 좌우에 여백을 줍니다. (항목의 margin과 충돌하지 않게)
+            paddingHorizontal: 15,
         },
         img:{
-            height:70,
-            width:70,
-            borderRadius:35
+            height:78,
+            width:78,
+            borderRadius:38
         }
     })
     return(
