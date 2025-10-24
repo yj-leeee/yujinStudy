@@ -1,7 +1,8 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 
 
-export default function Story({id, photo, name, isSee }){
+export default function Story({id, photo, name, isSee}){
+    const ring = isSee ? "lightgray" : "pink";
     const styles = StyleSheet.create({
         img:{
             height:70,
@@ -9,15 +10,14 @@ export default function Story({id, photo, name, isSee }){
             borderRadius:35,
         },
         container:{
-            marginHorizontal:15
+            marginHorizontal:8
         }, 
         line:{
             height:78,
             width:78,
             borderRadius:39,
             borderWidth:4,
-            borderColor:
-            isSee ? "white" : "pink"
+            borderColor: ring,
         }
     })
     return(

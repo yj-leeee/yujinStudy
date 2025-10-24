@@ -1,4 +1,4 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { my, story } from "../constants/data";
 import Story from "./Story";
 export default function Stories(){
@@ -14,12 +14,9 @@ export default function Stories(){
             alignItems: 'center',
             // 💡 [수정] ScrollView 좌우에 여백을 줍니다. (항목의 margin과 충돌하지 않게)
             paddingHorizontal: 15,
+            marginHorizontal:-6
         },
-        img:{
-            height:78,
-            width:78,
-            borderRadius:38
-        }
+        
     })
     return(
         <ScrollView
@@ -29,10 +26,11 @@ export default function Stories(){
             contentContainerStyle={styles.scrollContent}
         >
             {/*내 스토리*/}
-            <View>
-                <Image style={styles.img}source={my.photo}/>
-                <Text style={{textAlign:"center", marginTop:8}}>나</Text>
-            </View>
+            <Story
+                photo={my.photo}
+                name="나"
+                isSee={true}
+            />
             {/*내 스토리 끝*/}
             {/*다른사람*/}
             {story.map((item)=>(

@@ -1,5 +1,6 @@
 import { feed, story } from "@/constants/data";
 import Feather from '@expo/vector-icons/Feather';
+
 import { FlatList, Image, StyleSheet, Text, View } from "react-native";
 export default function Feed(){
     // 💡 1. 사용자 이름으로 프로필 이미지를 찾는 헬퍼 함수
@@ -15,7 +16,7 @@ const getProfilePhoto = (name) => {
     function feedlist({item}){
         const profilePhotoSource = getProfilePhoto(item.name);
         return(
-            <View>
+            <View style={{marginBottom:40}}>
                 {/*헤더*/}
                 <View style={styles.header}>
                     <View style={{flexDirection:"row", alignItems:"center"}}>
@@ -26,6 +27,21 @@ const getProfilePhoto = (name) => {
                 </View>
                 {/*헤더*/}
                 <Image style={{height:350}} source={item.photo}/>
+                {/*아이콘*/}
+                <View style={{flexDirection:"row", justifyContent:"space-between", margin:10}}>
+                    <View style={{flexDirection:"row"}}>
+                        <Feather style={styles.Icon} name="heart" size={24} color="black" />
+                        <Feather style={styles.Icon} name="message-circle" size={24} color="black" />
+                        <Feather style={styles.Icon} name="send" size={24} color="black" />
+                    </View>
+                    <Feather name="bookmark" size={24} color="black" />
+                </View>
+                <View style={styles.Icon}>
+                    {/*텍스트*/}
+                    <Text>{item.likeCount} Like</Text>
+                    <Text style={{color:"gray", fontSize:10}}>{item.data}</Text>
+                </View>
+                
             </View>
         )
     }
@@ -46,10 +62,14 @@ const getProfilePhoto = (name) => {
             marginRight:15
         },
         feedContainer:{
-            marginVertical:10,
+
+            paddingBottom: 80,
         },
         feed:{
             marginVertical:10,
+        },
+        Icon:{
+            marginHorizontal:10,
         }
     })
 
@@ -57,10 +77,9 @@ const getProfilePhoto = (name) => {
         <FlatList
         data={ar}
         renderItem={feedlist}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.id.toString()}
         initialNumToRender={3}
         contentContainerStyle={styles.feedContainer}
-        
         ></FlatList>
     )
 }
