@@ -1,0 +1,37 @@
+#btn{
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    color:hsl(257,40%,49%)
+}
+#btn:hover{
+    color:white;
+    background-color: hsl(300,69%,71%);
+}
+#Content{
+    flex-wrap: wrap;
+}
+#h1{
+    color:white
+}
+#p1{
+    color: lightgray;
+}
+
+/*모바일*/
+@media screen and (max-width: 768px) {
+    #Content{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        max-width: 350px;
+        width: 100%;
+    }
+    #p1{
+        line-height: 1.6;
+    }
+}
