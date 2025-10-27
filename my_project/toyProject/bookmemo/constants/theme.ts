@@ -33,5 +33,6 @@ export const bookStyle = StyleSheet.create({
   },
   bookContent:{
     justifyContent:'space-evenly',
-  }
+    flex:1,
+  },
 })
