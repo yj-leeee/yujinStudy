@@ -40,7 +40,7 @@ export default function App() {
     const fetchBooks = async () => {
       try {
         const data = await axiosBooks(query);
-        setBooks(data.items);
+        setBooks(data);
       } catch (error) {
         console.error('책 정보 불러오기 실패:', error);
       }
@@ -63,7 +63,7 @@ export default function App() {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.item}>
-            <Text style={styles.title}>{item.title.replace(/<[^>]+>/g, '')}</Text>
+            <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.author}>{item.author}</Text>
           </View>
         )}

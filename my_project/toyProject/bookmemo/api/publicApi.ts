@@ -13,7 +13,12 @@ export const axiosBooks = async (query: string) => {
         'X-Naver-Client-Secret': clientSecret!,
       },
     });
-    return response.data;
+    const filt = response.data.items.map((item:any)=>({
+        title: item.title.replace(/<[^>]+>/g, ''), // HTML 태그 제거
+        author : item.author,
+        image : item.image,
+    }))
+    return filt;
   } catch (error) {
     console.error('책 검색 API 호출 오류:', error);
     throw error;
