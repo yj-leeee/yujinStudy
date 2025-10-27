@@ -17,6 +17,7 @@ export const axiosBooks = async (query: string) => {
         title: item.title.replace(/<[^>]+>/g, ''), // HTML 태그 제거
         author : item.author,
         image : item.image,
+        publisher : item.publisher, //출판사
     }))
     return filt;
   } catch (error) {
