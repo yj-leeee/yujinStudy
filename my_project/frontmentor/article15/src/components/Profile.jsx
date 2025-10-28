@@ -30,8 +30,8 @@ export default function Profile(){
     function Toggle(){
         return(
             <div className='con2'>
-                <Share />
-                <ShareBtn className='sharebtncon' isActive={isShareOpen} onClick={toggleShare} />
+                <Share isActive={isShareOpen} onClick={toggleShare}/>
+                {/* <ShareBtn className='sharebtncon' isActive={isShareOpen} onClick={toggleShare} /> */}
             </div>
         )
     }
