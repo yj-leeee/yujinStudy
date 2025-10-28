@@ -1,5 +1,7 @@
 package com.example.backend.todo;
 
+import java.time.LocalDateTime;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,5 +11,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TodoRequestDto {
-	private String content;
+    private String content;
+
+    // DTO → 엔터티 변환
+    public Todo toEntity() {
+        return new Todo(this.content);
+    }
 }
