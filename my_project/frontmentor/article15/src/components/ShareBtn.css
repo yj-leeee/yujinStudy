@@ -9,4 +9,21 @@
 #shareBtn:hover{
     background-color: hsl(217,19%,35%);
 }
+#shareBtn:active{
+    background-color: hsl(212, 23%, 69%);
+
+}
+
+@media screen and (max-width: 768px) {
+  /* 모바일에서만 적용 */
+    #shareYesBtn{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: hsl(212, 23%, 69%);
+    display: grid;
+    place-items: center;
+}
+}
+
 /* background-color: hsl(217,19%,35%);*/

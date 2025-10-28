@@ -18,6 +18,7 @@ export default function Share(){
             <div className='icon'>
                 <img src={pinterest}/>
             </div>
+            
         </div>
     )
 }

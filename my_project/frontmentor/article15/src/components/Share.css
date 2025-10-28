@@ -6,20 +6,32 @@
     align-items: center;
     position: absolute;
     bottom: 0;
+    
 }
-/* 2. Mobile Specific (팝업이 화면 하단 전체를 덮음) */
+/* ---------------------------------------------------- */
+/* 2. Mobile Specific (팝업이 #Profile 전체 영역을 덮음) */
 /* ---------------------------------------------------- */
 @media screen and (max-width: 768px) {
     #share_con{
-        /* 모바일 활성화 상태 (mobile-active-state.jpg)처럼 하단 영역 전체를 덮음 */
+        /* #Profile 요소를 기준으로 절대 위치 설정 */
         position: absolute;
-        bottom: -10px; /* Profile 영역 아래에 붙임 */
-        left: -32px; /* Texts 컴포넌트의 패딩을 상쇄 (App.css: #content padding 32px) */
-        right: -32px; 
-        width: calc(100% + 64px); /* (32px * 2) 만큼 너비를 확장 */
-        height: 70px;
-        border-radius: 0 0 10px 10px; /* 카드 하단 모서리에 맞춤 */
+        top: 0; /* 프로필 내용이 사라진 자리를 덮음 */
+        left: -20px; /* App.css의 #content padding을 상쇄하여 왼쪽 끝에 붙임 */
+        right: -32px; /* App.css의 #content padding을 상쇄하여 오른쪽 끝에 붙임 */
+        
+        /* #Profile 전체 너비와 높이를 덮도록 설정 */
+        width: 320px;
+        height: 70px; /* 고정된 높이 */
+        
+        /* 모바일 활성화 상태 이미지처럼 하단에만 둥근 모서리 적용 */
+        border-radius: 0 0 10px 10px; 
+        
         justify-content: flex-start; /* 왼쪽 정렬 */
+        box-shadow: none; 
+    }
+    
+    #share_con::after {
+        content: none; /* 모바일에서는 꼬리 제거 */
     }
 }
 
@@ -28,11 +40,10 @@
 /* ---------------------------------------------------- */
 @media (min-width: 769px) {
     #share_con{
-        /* 데스크톱 활성화 상태 (desktop-active-state.jpg)처럼 버튼 위에 위치 */
+        /* 데스크톱 활성화 상태 이미지처럼 버튼 위에 위치 */
         position: absolute;
-        top: -65px; /* 버튼 위로 띄움 */
-        right: -80px; /* 버튼 오른쪽으로 이동 및 너비 조정 */
-        /* 삼각형 꼬리 추가 (말풍선) */
+        top: -65px; 
+        right: -80px; 
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     }
 
@@ -40,14 +51,12 @@
     #share_con::after {
         content: '';
         position: absolute;
-        bottom: -10px; /* 팝업 하단에 위치 */
-        left: 50%;
-        transform: translateX(-50%);
+        bottom: -10px; 
+        right: 45px; 
         width: 0;
         height: 0;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
-        border-top: 10px solid hsl(217,19%,35%); /* 배경색과 동일 */
-        /* 데스크톱에서만 보이도록 조정 */
+        border-top: 10px solid hsl(217,19%,35%); 
     }
 }
