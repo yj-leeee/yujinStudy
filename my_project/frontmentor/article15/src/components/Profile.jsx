@@ -1,0 +1,37 @@
+//Profile.jsx
+
+import './Profile.css'
+import avatar from '../img/avatar-michelle.jpg';
+import ShareBtn from './ShareBtn';
+import Share from './Share';
+import { useState } from 'react';
+
+export default function Profile(){
+    const [isShareOpen,setIsShareOpen] = useState(false);
+
+    const toggleShare = () =>{
+        setIsShareOpen(prev => !prev);
+    };
+
+    function Profilecontent(){
+        return(
+            
+        )
+    }
+    return(
+        <div id='Profile'>
+            <div id='con2'>
+                <img id='profile_img' src={avatar}/>
+                <div id='profile_text'>
+                    <p className='h3 texts' id='p2'>Michelle Appelton</p>
+                    <p className='p1 texts'>28 Jun 2020</p>
+                </div>
+            </div>
+            <div id='share_area'>
+                <ShareBtn onClick={toggleShare} />
+                {isShareOpen && <Share />}
+            </div>
+        </div>
+        
+    )
+}

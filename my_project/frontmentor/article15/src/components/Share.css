@@ -1,0 +1,53 @@
+#share_con{
+    background-color: hsl(217,19%,35%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+/* 2. Mobile Specific (팝업이 화면 하단 전체를 덮음) */
+/* ---------------------------------------------------- */
+@media screen and (max-width: 768px) {
+    #share_con{
+        /* 모바일 활성화 상태 (mobile-active-state.jpg)처럼 하단 영역 전체를 덮음 */
+        position: absolute;
+        bottom: -10px; /* Profile 영역 아래에 붙임 */
+        left: -32px; /* Texts 컴포넌트의 패딩을 상쇄 (App.css: #content padding 32px) */
+        right: -32px; 
+        width: calc(100% + 64px); /* (32px * 2) 만큼 너비를 확장 */
+        height: 70px;
+        border-radius: 0 0 10px 10px; /* 카드 하단 모서리에 맞춤 */
+        justify-content: flex-start; /* 왼쪽 정렬 */
+    }
+}
+
+/* ---------------------------------------------------- */
+/* 3. Desktop Specific (말풍선 모양 팝업) */
+/* ---------------------------------------------------- */
+@media (min-width: 769px) {
+    #share_con{
+        /* 데스크톱 활성화 상태 (desktop-active-state.jpg)처럼 버튼 위에 위치 */
+        position: absolute;
+        top: -65px; /* 버튼 위로 띄움 */
+        right: -80px; /* 버튼 오른쪽으로 이동 및 너비 조정 */
+        /* 삼각형 꼬리 추가 (말풍선) */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 삼각형 꼬리 (::after) 생성 */
+    #share_con::after {
+        content: '';
+        position: absolute;
+        bottom: -10px; /* 팝업 하단에 위치 */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid hsl(217,19%,35%); /* 배경색과 동일 */
+        /* 데스크톱에서만 보이도록 조정 */
+    }
+}
