@@ -15,6 +15,6 @@ public class TodoService {
 	public TodoResponseDto create(TodoRequestDto todorequestDto) {
 		Todo todo = todorequestDto.toEntity(); // DTO → Entity
         Todo saved = todoRepository.save(todo); // DB 저장
-        return TodoResponseDto.fromEntity(saved); // Entity → DTO 변환
+        return TodoResponseDto.from(saved); // Entity → DTO 변환
 	}
 }
