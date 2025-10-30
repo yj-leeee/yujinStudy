@@ -17,4 +17,13 @@ public class TodoService {
         Todo saved = todoRepository.save(todo); // DB 저장
         return TodoResponseDto.from(saved); // Entity → DTO 변환
 	}
+	
+	//할일 수정 메서드
+	public TodoResponseDto update(Integer id, TodoRequestDto todoRequestDto) {
+		//1.id로 기존 Todo엔터티 조회
+		Todo todo = todoRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("존재하지 않는 할 일입니다."));
+		todo.update(todoRequestDto.getContent(), LocalDateTime.now());
+		return TodoResponseDto.from(todo);
+	}
 }

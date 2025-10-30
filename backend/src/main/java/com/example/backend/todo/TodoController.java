@@ -1,10 +1,14 @@
 package com.example.backend.todo;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 
 @RequestMapping("/todo")
@@ -17,5 +21,11 @@ public class TodoController {
 	@PostMapping("/create")
 	public TodoResponseDto create(TodoRequestDto todoRequestDto) {
 		return todoService.create(todoRequestDto);
+	}
+	
+	//할일 수정
+	@PutMapping("/update/{id}")
+	public TodoResponseDto update(@PathVariable("id") Integer id,@RequestBody TodoRequestDto todoRequestDto) {
+		return todoService.update(id, todoRequestDto);
 	}
 }

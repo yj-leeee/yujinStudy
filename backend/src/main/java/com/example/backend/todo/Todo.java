@@ -28,5 +28,9 @@ public class Todo {
     private String content;
     private LocalDateTime createDateTime;
 
-    
+    //할일 업데이트
+    public void update(String content, LocalDateTime createDateTime) {
+    	this.content = content;
+    	this.createDateTime = createDateTime;
+    }
 }
