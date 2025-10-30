@@ -15,7 +15,7 @@ public class TodoController {
 	
 	//할일 생성
 	@PostMapping("/create")
-	public TodoResponseDto create(@RequestBody TodoRequestDto todoRequestDto) {
+	public TodoResponseDto create(TodoRequestDto todoRequestDto) {
 		return todoService.create(todoRequestDto);
 	}
 }

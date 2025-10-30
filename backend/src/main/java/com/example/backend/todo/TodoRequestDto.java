@@ -2,6 +2,7 @@ package com.example.backend.todo;
 
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import lombok.Setter;
 //보통 id는 필요없고 content만 있으면 됨(클라이언트->서버)
 
 @NoArgsConstructor
-@Setter
+@AllArgsConstructor
 @Getter
 @Builder
 public class TodoRequestDto {
