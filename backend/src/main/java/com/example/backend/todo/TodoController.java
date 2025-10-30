@@ -1,5 +1,8 @@
 package com.example.backend.todo;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -27,5 +30,11 @@ public class TodoController {
 	@PutMapping("/update/{id}")
 	public TodoResponseDto update(@PathVariable("id") Integer id,@RequestBody TodoRequestDto todoRequestDto) {
 		return todoService.update(id, todoRequestDto);
+	}
+	
+	//할일 목록 가져오기
+	@GetMapping("read")
+	public List<TodoResponseDto> read() {
+		return todoService.readAll();
 	}
 }
