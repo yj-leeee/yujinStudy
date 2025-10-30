@@ -3,6 +3,7 @@ package com.example.backend.todo;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -43,5 +44,12 @@ public class TodoService {
 			responseList.add(dto);
 		}
 		return responseList;
+	}
+	
+	//할일 목록 삭제
+	public void delete(Integer id) {
+		Todo todo = todoRepository.findById(id)
+				.orElseThrow(()-> new IllegalArgumentException("존재하지 않습니다"));
+		todoRepository.delete(todo);
 	}
 }
