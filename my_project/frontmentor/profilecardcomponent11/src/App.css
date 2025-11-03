@@ -1,8 +1,11 @@
 #root{
   height: 100vh;
   background-image: linear-gradient(135deg,hsl(0,0%,100%),hsl(0,100%,98%));
+  margin: 0;
 }
-
+*{
+  box-sizing: border-box;
+}
 
 @media screen and (max-width: 768px) {
   #img{
@@ -12,14 +15,34 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+  #contain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 
 @media screen and (min-width: 770px){
 	/*데스크탑에서 적용*/
+  #contain{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  #contain2{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 50px 40px;
+  }
   #img{
     background-image: url(./img/hero-desktop.jpg);
-    height: 100%;
-    width: 50%;
+    height: 100vh;
+    width: 40vh;;
+    background-repeat: no-repeat;
+    
   }
 }
