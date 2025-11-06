@@ -1,0 +1,49 @@
+import { StyleSheet } from "react-native";
+
+export const backPink = '#ffb4b4';
+export const inputPink = '#ffeaea';
+export const lightPink = '#fff4f4';
+
+export const input = StyleSheet.create({
+    container:{
+        backgroundColor:backPink,
+        height:220, 
+    },
+    field:{
+        margin:25,
+        backgroundColor:inputPink,
+        fontSize:30,
+        flex:1
+    }
+})
+
+export const btn = StyleSheet.create({
+    btn:{
+        backgroundColor:inputPink,
+        borderColor:backPink,
+        borderWidth:1,
+        height:70,
+        width:80,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    fsize:{
+        fontSize:32
+    },
+    xbutton:{
+        backgroundColor:backPink,
+        height:50,
+        width:80,
+        margin:13,
+        alignSelf:'flex-end'
+    }
+})
+
+export const btns = StyleSheet.create({
+    btns:{
+        flexDirection:'row',
+        margin:8,
+        justifyContent:'space-around'
+    }
+})
+
