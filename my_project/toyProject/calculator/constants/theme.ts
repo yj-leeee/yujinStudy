@@ -11,9 +11,15 @@ export const input = StyleSheet.create({
     },
     field:{
         margin:25,
+        marginBottom:0,
         backgroundColor:inputPink,
         fontSize:30,
         flex:1
+    },
+    resultText:{
+        fontSize:30,
+        alignSelf:'flex-end',
+        margin:0,
     }
 })
 
