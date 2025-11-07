@@ -78,11 +78,17 @@ export const calculatorSlice = createSlice({
             const newBracket = needClose ? ')' : '(';
 
             state.displayValue += newBracket;
+        },
+
+        //6. = 버튼 눌렀을때
+        resultPress : (state) => {
+            const result = state.result;
+            state.displayValue = String(result);
         }
 
        
     }
 })
-export const { handleBracket, setDisplayValue, calculateResult, deleteBtn, clearAll } = calculatorSlice.actions;
+export const { handleBracket, resultPress ,setDisplayValue, calculateResult, deleteBtn, clearAll } = calculatorSlice.actions;
  
 export default calculatorSlice.reducer;

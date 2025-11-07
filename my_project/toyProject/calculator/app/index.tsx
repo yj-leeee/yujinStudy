@@ -2,7 +2,7 @@ import Btns from "@/components/Btns";
 import InputComponent from "@/components/InputComponent";
 import Xbtn from "@/components/Xbtn";
 import { lightPink } from "@/constants/theme";
-import { calculateResult, clearAll, handleBracket, setDisplayValue } from "@/redux/calculatorSlice";
+import { calculateResult, clearAll, handleBracket, resultPress, setDisplayValue } from "@/redux/calculatorSlice";
 import { useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,6 +24,9 @@ export default function Home(){
                 break;
             case '( )':
                 dispatch(handleBracket());
+                break;
+            case '=':
+                dispatch(resultPress());
                 break;
             default:
                 dispatch(setDisplayValue(value));
