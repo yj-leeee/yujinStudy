@@ -49,11 +49,15 @@ export const calculatorSlice = createSlice({
             let display = state.displayValue;
             state.displayValue = display.slice(0,-1);
 
+        },
+        //4. C 버튼을 눌렀을때 식 전체 삭제
+        clearAll: (state) => {
+            state.displayValue = '';
         }
 
        
     }
 })
-export const { setDisplayValue, calculateResult, deleteBtn } = calculatorSlice.actions;
+export const { setDisplayValue, calculateResult, deleteBtn, clearAll } = calculatorSlice.actions;
 
 export default calculatorSlice.reducer;

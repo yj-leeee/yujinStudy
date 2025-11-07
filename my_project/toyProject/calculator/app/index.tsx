@@ -2,7 +2,7 @@ import Btns from "@/components/Btns";
 import InputComponent from "@/components/InputComponent";
 import Xbtn from "@/components/Xbtn";
 import { lightPink } from "@/constants/theme";
-import { calculateResult, setDisplayValue } from "@/redux/calculatorSlice";
+import { calculateResult, clearAll, setDisplayValue } from "@/redux/calculatorSlice";
 import { useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +18,15 @@ export default function Home(){
 
     //모든 버튼 클릭을 처리하는 통합 함수
     const handleButtonPress = (value : string) => {
+        switch(value){
+            case 'C':
+                dispatch(clearAll());
+                break;
+            default:
                 dispatch(setDisplayValue(value));
+                break;
+        }
+                
     }
 
     const buttonRows = [
