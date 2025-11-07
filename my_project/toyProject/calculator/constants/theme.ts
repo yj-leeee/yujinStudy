@@ -20,6 +20,7 @@ export const input = StyleSheet.create({
         fontSize:30,
         alignSelf:'flex-end',
         margin:0,
+        marginRight:25
     }
 })
 

@@ -3,6 +3,10 @@ import { Text, TextInput, View } from "react-native";
 import { useSelector } from "react-redux";
 export default function InputComponent(){
     const displayValue = useSelector((state: any) => state.calculator.displayValue);
+    const result = useSelector((state:any)=> state.calculator.result);
+    
+    
+    
     return(
         <View style={input.container}>
             <TextInput
@@ -18,7 +22,7 @@ export default function InputComponent(){
                 // 💡 핵심: 포커스 시 소프트 키보드 표시를 막습니다.
                 showSoftInputOnFocus={false}
             />
-            <Text style={input.resultText}>계산결과</Text>
+            <Text style={input.resultText}>{result}</Text>
         </View>
     )
 }

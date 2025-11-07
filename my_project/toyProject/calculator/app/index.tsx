@@ -2,11 +2,19 @@ import Btns from "@/components/Btns";
 import InputComponent from "@/components/InputComponent";
 import Xbtn from "@/components/Xbtn";
 import { lightPink } from "@/constants/theme";
-import { setDisplayValue } from "@/redux/calculatorSlice";
+import { calculateResult, setDisplayValue } from "@/redux/calculatorSlice";
+import { useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 export default function Home(){
     const dispatch = useDispatch();
+    const displayValue = useSelector((state: any) => state.calculator.displayValue)
+
+    //displayValue가 바뀔때마다 자동 계산
+    useEffect(()=>{
+        dispatch(calculateResult());
+    }, [displayValue]);
+
 
     //모든 버튼 클릭을 처리하는 통합 함수
     const handleButtonPress = (value : string) => {
