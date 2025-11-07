@@ -31,7 +31,10 @@ export const calculatorSlice = createSlice({
                 const expr = state.displayValue
                     .replace(/×/g, '*')
                     .replace(/÷/g, '/');
-
+                if(expr === ''){
+                    state.result = 0;
+                    return;
+                }
                 //마지막 문자가 숫자나 괄호면 계산 가능
                 if(/[\d]$/.test(expr)){
                     const result = new Function(`return ${expr}`)();
