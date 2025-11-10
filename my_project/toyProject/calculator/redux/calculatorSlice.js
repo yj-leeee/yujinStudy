@@ -3,9 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 let nextId = 2; //계산기 ID를 자동 증가시키기 위한 전역변수
 const initialState = {
   calculators: [
-    { id: 1, displayValue: '', result: 0, cursorPos: 0},
+    { id: 1, displayValue: '', result: 0, cursorPos: 0, history: []},
   ],
   activeId : 1,
+  showHistory: false,
 };
 
 export const calculatorSlice = createSlice({
@@ -119,7 +120,20 @@ export const calculatorSlice = createSlice({
         resultPress : (state) => {
             const calc = state.calculators.find(c => c.id === state.activeId);
             if(calc){
-                calc.displayValue = String(calc.result);
+                const expression = calc.displayValue;
+                const result = calc.result;
+                calc.displayValue = String(result);
+                //계산기록 저장
+                if(!calc.history) calc.history = [];
+                calc.history.unshift({
+                    expression,
+                    result,
+                    time: new Date().toLocaleDateString(),
+                });
+                //기록 개수 제한(20개)
+                if(calc.history.length > 20){
+                    calc.history.pop();
+                }
             }
         },
 
@@ -165,9 +179,13 @@ export const calculatorSlice = createSlice({
                 calc.cursorPos = action.payload;
             }
         },
+        //11. 토글 리듀서
+        toggleHistory: (state) => {
+            state.showHistory = !state.showHistory;
+        },
        
     }
 })
-export const { setCursorPosition,deleteCalculator ,addCalculator,switchCalculator,handleBracket, resultPress ,setDisplayValue, calculateResult, deleteBtn, clearAll } = calculatorSlice.actions;
+export const { toggleHistory ,setCursorPosition,deleteCalculator ,addCalculator,switchCalculator,handleBracket, resultPress ,setDisplayValue, calculateResult, deleteBtn, clearAll } = calculatorSlice.actions;
  
 export default calculatorSlice.reducer;

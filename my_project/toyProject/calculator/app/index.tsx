@@ -1,6 +1,7 @@
 import Btns from "@/components/Btns";
 import CalculatorTabs from "@/components/CalculatorTabs";
 import HistoryBtn from "@/components/HistoryBtn";
+import HistoryList from "@/components/HistoryList";
 import InputComponent from "@/components/InputComponent";
 import Xbtn from "@/components/Xbtn";
 import { lightPink } from "@/constants/theme";
@@ -12,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Home(){
     const dispatch = useDispatch();
     const displayValue = useSelector((state: any) => state.calculator.displayValue)
-
+    const {showHistory} = useSelector((state:any) => state.calculator);
     //displayValue가 바뀔때마다 자동 계산
     useEffect(()=>{
         dispatch(calculateResult());
@@ -53,6 +54,8 @@ export default function Home(){
                 <HistoryBtn />
                 <Xbtn/>
             </View>
+            {/*계산 기록 표시*/}
+            {showHistory && <HistoryList />}
             
             {/* 🚨 여기에 buttonRows 배열을 Btns 컴포넌트로 전달 */}
             {buttonRows.map((row, index) => (
