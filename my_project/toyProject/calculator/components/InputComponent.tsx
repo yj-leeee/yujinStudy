@@ -1,11 +1,20 @@
 import { input } from "@/constants/theme";
+import { calculateResult } from "@/redux/calculatorSlice";
+import { useEffect } from "react";
 import { Text, TextInput, View } from "react-native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 export default function InputComponent(){
-    const displayValue = useSelector((state: any) => state.calculator.displayValue);
-    const result = useSelector((state:any)=> state.calculator.result);
-    
-    
+    //리덕스 상태에서 계산기 전체를 불러오기
+    const {calculators, activeId} = useSelector((state:any)=> state.calculator);
+    //현재 활성 계산기 찾기
+    const activeCalc = 
+        calculators.find((c: any) => c.id === activeId) || { displayValues: "", result:0};
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        if(activeCalc){
+        dispatch(calculateResult());
+        }
+    }, [activeCalc.displayValue, activeId]);
     
     return(
         <View style={input.container}>
@@ -18,11 +27,11 @@ export default function InputComponent(){
                 textAlignVertical='bottom' 
                 textAlign='right'
                 //리덕스 상태를 value로 연셜
-                value={displayValue}
+                value={activeCalc.displayValue}
                 // 💡 핵심: 포커스 시 소프트 키보드 표시를 막습니다.
                 showSoftInputOnFocus={false}
             />
-            <Text style={input.resultText}>{result}</Text>
+            <Text style={input.resultText}>{activeCalc.result}</Text>
         </View>
     )
 }

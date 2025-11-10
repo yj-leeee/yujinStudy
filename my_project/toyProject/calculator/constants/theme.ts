@@ -60,7 +60,8 @@ export const tabs = StyleSheet.create({
         borderColor:backPink,
         borderWidth:1,
         padding:5,
-        borderTopRightRadius:20
+        borderTopRightRadius:20,
+        flexDirection:'row'
     },
     newTab:{
         borderColor:backPink,
@@ -68,5 +69,6 @@ export const tabs = StyleSheet.create({
         padding:5,
         alignItems:'flex-end',
         borderTopLeftRadius:20,
+        
     }
 })

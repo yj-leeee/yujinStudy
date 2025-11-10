@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+let nextId = 2; //계산기 ID를 자동 증가시키기 위한 전역변수
 const initialState = {
   calculators: [
     { id: 1, displayValue: '', result: 0 },
@@ -18,24 +19,26 @@ export const calculatorSlice = createSlice({
 
         //1. 버튼 입력한거 문자열로 받기
         setDisplayValue : (state, action) =>{
-            const input = action.payload; //버튼에서 넘어온 문자열
-            let display = state.displayValue;
-            if(display === ''){
-                if(input === '.'){
-                    state.displayValue = '0.';
-                }else{
-                    state.displayValue = input;
-                }
+            const calc = state.calculators.find(c => c.id === state.activeId);
+            if(!calc){
+                return;
             }
-            //'0'이 아니거나 이미 입력중이면 문자열 이어 붙이기
-            else {
-                state.displayValue = display + input;
+            const input = action.payload;
+            if(calc.displayValue === ''){
+                calc.displayValue = input === '.' ? '0.' : input;
+            }else{
+                calc.displayValue += input;
             }
         },
         //2. displayValue 바뀔대마다 계산
         calculateResult: (state) => {
+            const calc = state.calculators.find(c => c.id === state.activeId);
+            if(!calc){
+                return;
+            }
+
             try {
-                const expr = state.displayValue
+                const expr = calc.displayValue
                     .replace(/×/g, '*')
                     .replace(/÷/g, '/');
                 if(expr === ''){
@@ -50,7 +53,7 @@ export const calculatorSlice = createSlice({
                 //마지막 문자가 숫자나 괄호면 계산 가능
                 if(/[\d)]$/.test(expr)){
                     const result = new Function(`return ${expr}`)();
-                    state.result = result;
+                    calc.result = result;
                 }
             } catch(e) {
                 //계산 불가능시 result 유지
@@ -58,19 +61,31 @@ export const calculatorSlice = createSlice({
         },
         //3. Xbtn 누르면 한글자씩 삭제
         deleteBtn: (state) => {
-            let display = state.displayValue;
-            state.displayValue = display.slice(0,-1);
-
+            const calc = state.calculators.find(c => c.id === state.activeId);
+            if(calc){
+                calc.displayValue = calc.displayValue.slice(0,-1);
+                if(calc.displayValue.length === 0){
+                    calc.result = 0;
+                }
+             }
         },
         //4. C 버튼을 눌렀을때 식 전체 삭제
         clearAll: (state) => {
-            state.displayValue = '';
+            const calc = state.calculators.find(c => c.id === state.activeId);
+            if(calc){
+                calc.displayValue = '';
+                calc.result = 0;
+            }
+            
         },
 
         //5. 괄호 버튼
         handleBracket : (state) => {
-            const display = state.displayValue;
-
+            const calc = state.calculators.find(c => c.id === state.activeId);
+            if(!calc) {
+                return;
+            }
+            const display = calc.displayValue;
             //괄호 개수 세기
             const openCount = (display.match(/\(/g) || []).length;
             const closeCount = (display.match(/\)/g) || []).length;
@@ -84,29 +99,55 @@ export const calculatorSlice = createSlice({
             //추가할 괄호 결정
             const newBracket = needClose ? ')' : '(';
 
-            state.displayValue += newBracket;
+            calc.displayValue += newBracket;
         },
 
         //6. = 버튼 눌렀을때
         resultPress : (state) => {
-            const result = state.result;
-            state.displayValue = String(result);
+            const calc = state.calculators.find(c => c.id === state.activeId);
+            if(calc){
+                calc.displayValue = String(calc.result);
+            }
         },
 
         //7. 새 계산기 생성
         addCalculator : (state) => {
-          const newCalc = { id: state.id++, displayValue: '', result : 0};
+          const newCalc = { id: nextId++, displayValue: '', result : 0};
           state.calculators.push(newCalc);
           state.activeId = newCalc.id;
         },
         //8. 계산기 전환
         switchCalculator : (state, action)=>{
           state.activeId = action.payload;
-        }
+        },
+        //9. 계산기 삭제
+        deleteCalculator : (state)=>{
+            //현재 활성 계산기 ID
+            const idToDelete = state.activeId;
+            //전체 계산기 목록
+            const calculators = state.calculators;
+            
+            //계산기 1개만 남았으면 삭제 방지
+            if(calculators.length === 1){
+                return;
+            }
+            //현재 계산기의 인덱스 찾기
+            const index = calculators.findIndex(c => c.id = idToDelete);
+            if(index === -1) return;
 
+            //삭제 수행
+            calculators.splice(index,1);
+            //다음 활성 계산기 정하기
+            //바로 이전 탭이 있으면 그걸 선택, 없으면 첫번째로 이동
+            if(index > 0){
+                state.activeId = calculators[index -1].id;
+            }else { 
+                state.activeId = calculators[0].id;
+            }
+        }
        
     }
 })
-export const { addCalculator,switchCalculator,handleBracket, resultPress ,setDisplayValue, calculateResult, deleteBtn, clearAll } = calculatorSlice.actions;
+export const { deleteCalculator ,addCalculator,switchCalculator,handleBracket, resultPress ,setDisplayValue, calculateResult, deleteBtn, clearAll } = calculatorSlice.actions;
  
 export default calculatorSlice.reducer;
