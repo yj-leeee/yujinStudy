@@ -55,3 +55,18 @@ export const btns = StyleSheet.create({
     }
 })
 
+export const tabs = StyleSheet.create({
+    tabs:{
+        borderColor:backPink,
+        borderWidth:1,
+        padding:5,
+        borderTopRightRadius:20
+    },
+    newTab:{
+        borderColor:backPink,
+        borderWidth:1,
+        padding:5,
+        alignItems:'flex-end',
+        borderTopLeftRadius:20,
+    }
+})

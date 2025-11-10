@@ -1,4 +1,5 @@
 import Btns from "@/components/Btns";
+import CalculatorTabs from "@/components/CalculatorTabs";
 import InputComponent from "@/components/InputComponent";
 import Xbtn from "@/components/Xbtn";
 import { lightPink } from "@/constants/theme";
@@ -44,6 +45,7 @@ export default function Home(){
     ];
     return(
         <SafeAreaView style={{flex:1, backgroundColor:lightPink}}>
+            <CalculatorTabs />
             <InputComponent />
             <Xbtn/>
             {/* 🚨 여기에 buttonRows 배열을 Btns 컴포넌트로 전달 */}

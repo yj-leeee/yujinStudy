@@ -1,14 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    displayValue: '', //전체 수식
-    result:0, //결과값
-    
-}
+  calculators: [
+    { id: 1, displayValue: '', result: 0 },
+  ],
+  activeId : 1,
+};
+
 export const calculatorSlice = createSlice({
     name : 'calculator',
     initialState,
     reducers: {
+      //0. 현재 활성화된 계산기 찾기 (공통 로직)
+      _getActiveCalc : (state) => {
+        return state.calculators.find(c=> c.id === state.activeId);
+      },
+
         //1. 버튼 입력한거 문자열로 받기
         setDisplayValue : (state, action) =>{
             const input = action.payload; //버튼에서 넘어온 문자열
@@ -84,11 +91,22 @@ export const calculatorSlice = createSlice({
         resultPress : (state) => {
             const result = state.result;
             state.displayValue = String(result);
+        },
+
+        //7. 새 계산기 생성
+        addCalculator : (state) => {
+          const newCalc = { id: state.id++, displayValue: '', result : 0};
+          state.calculators.push(newCalc);
+          state.activeId = newCalc.id;
+        },
+        //8. 계산기 전환
+        switchCalculator : (state, action)=>{
+          state.activeId = action.payload;
         }
 
        
     }
 })
-export const { handleBracket, resultPress ,setDisplayValue, calculateResult, deleteBtn, clearAll } = calculatorSlice.actions;
+export const { addCalculator,switchCalculator,handleBracket, resultPress ,setDisplayValue, calculateResult, deleteBtn, clearAll } = calculatorSlice.actions;
  
 export default calculatorSlice.reducer;
