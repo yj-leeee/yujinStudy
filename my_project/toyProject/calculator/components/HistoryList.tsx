@@ -1,9 +1,11 @@
-import { ScrollView, Text, View } from "react-native";
-import { useSelector } from "react-redux";
+import { setDisplayValue } from "@/redux/calculatorSlice";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function HistoryList(){
     const { calculators, activeId } = useSelector((state:any) => state.calculator);
     const activeCalc = calculators.find((c:any) => c.id === activeId);
+    const dispatch = useDispatch();
 
     if(!activeCalc || !activeCalc.history?.length){
         return(
@@ -14,11 +16,14 @@ export default function HistoryList(){
     }
 
     return (
-        <ScrollView style={{maxHeight:180,padding:10}}>
+        <ScrollView style={{maxHeight:80,padding:10}}>
             {activeCalc.history.map((item:any, index:number) => (  // ✅ 수정된 부분
-                <View key={index} style={{marginBottom:8}}>
+                
+                <TouchableOpacity key={index}
+                 style={{marginBottom:8}}
+                 onPress={() => dispatch(setDisplayValue(item.expression))}>
                     <Text>{item.expression} = {item.result}</Text>
-                </View>
+                </TouchableOpacity>
             ))}
         </ScrollView>
     );

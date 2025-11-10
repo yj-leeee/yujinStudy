@@ -52,10 +52,11 @@ export default function Home(){
             <InputComponent />
             <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                 <HistoryBtn />
+                {/*계산 기록 표시*/}
+            {showHistory && <HistoryList />}
                 <Xbtn/>
             </View>
-            {/*계산 기록 표시*/}
-            {showHistory && <HistoryList />}
+            
             
             {/* 🚨 여기에 buttonRows 배열을 Btns 컴포넌트로 전달 */}
             {buttonRows.map((row, index) => (
