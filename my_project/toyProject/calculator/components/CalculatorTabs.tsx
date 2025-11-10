@@ -11,7 +11,7 @@ export default function CalculatorTabs(){
     return(
         <View>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                {calculators.map((calc:any) => {
+                {calculators.map((calc:any, index:number) => {
                     //활성화된 계산기인지 확인
                     const isActive = calc.id === activeId;
                     
@@ -24,7 +24,7 @@ export default function CalculatorTabs(){
                         onPress={() => dispatch(switchCalculator(calc.id))}
                         >
                             <View style={{flexDirection:'row'}}>
-                            <Text>{calc.id}. 계산기 : {calc.result ?? 0}</Text>
+                            <Text>{index+1}. 계산기 : {calc.result ?? 0}</Text>
                             <Pressable
                                 onPress={(e)=>{
                                     e.stopPropagation();//탭 클릭 이벤트 막기
