@@ -38,11 +38,12 @@ export const btn = StyleSheet.create({
         fontSize:32
     },
     xbutton:{
-        backgroundColor:backPink,
         height:50,
         width:80,
         margin:13,
-        alignSelf:'flex-end'
+        alignSelf:'flex-end',
+        justifyContent:'center',
+        alignItems:'center',
     }
 })
 
