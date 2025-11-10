@@ -1,10 +1,12 @@
 import Btns from "@/components/Btns";
 import CalculatorTabs from "@/components/CalculatorTabs";
+import HistoryBtn from "@/components/HistoryBtn";
 import InputComponent from "@/components/InputComponent";
 import Xbtn from "@/components/Xbtn";
 import { lightPink } from "@/constants/theme";
 import { calculateResult, clearAll, handleBracket, resultPress, setDisplayValue } from "@/redux/calculatorSlice";
 import { useEffect } from "react";
+import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
 export default function Home(){
@@ -47,7 +49,11 @@ export default function Home(){
         <SafeAreaView style={{flex:1, backgroundColor:lightPink}}>
             <CalculatorTabs />
             <InputComponent />
-            <Xbtn/>
+            <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+                <HistoryBtn />
+                <Xbtn/>
+            </View>
+            
             {/* 🚨 여기에 buttonRows 배열을 Btns 컴포넌트로 전달 */}
             {buttonRows.map((row, index) => (
                 <Btns key={index} buttonData={row} onButtonPress={handleButtonPress}/>
