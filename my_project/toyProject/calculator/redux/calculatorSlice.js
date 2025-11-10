@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 let nextId = 2; //계산기 ID를 자동 증가시키기 위한 전역변수
 const initialState = {
   calculators: [
-    { id: 1, displayValue: '', result: 0 },
+    { id: 1, displayValue: '', result: 0, cursorPos: 0},
   ],
   activeId : 1,
 };
@@ -62,12 +62,25 @@ export const calculatorSlice = createSlice({
         //3. Xbtn 누르면 한글자씩 삭제
         deleteBtn: (state) => {
             const calc = state.calculators.find(c => c.id === state.activeId);
-            if(calc){
-                calc.displayValue = calc.displayValue.slice(0,-1);
-                if(calc.displayValue.length === 0){
-                    calc.result = 0;
-                }
-             }
+            if(!calc){
+                return;
+            }
+            const { displayValue , cursorPos } = calc;
+
+            if(cursorPos === 0){ //커서가 맨 앞이면 삭제 불가
+                return;
+            }
+            //커서 앞 한 글자 제거
+            calc.displayValue = 
+                displayValue.slice(0, cursorPos - 1) + displayValue.slice(cursorPos);
+
+            //커서 위치 1칸 앞으로 이동
+            calc.cursorPos = cursorPos - 1;
+
+            //결과 리셋
+            if(calc.displayValue.length === 0){
+                calc.result = 0;
+            }
         },
         //4. C 버튼을 눌렀을때 식 전체 삭제
         clearAll: (state) => {
@@ -144,10 +157,17 @@ export const calculatorSlice = createSlice({
             }else { 
                 state.activeId = calculators[0].id;
             }
-        }
+        },
+        //10. 커서 위치 저장 리듀서
+        setCursorPosition : (state, action) => {
+            const calc = state.calculators.find(c => c.id === state.activeId);
+            if(calc){
+                calc.cursorPos = action.payload;
+            }
+        },
        
     }
 })
-export const { deleteCalculator ,addCalculator,switchCalculator,handleBracket, resultPress ,setDisplayValue, calculateResult, deleteBtn, clearAll } = calculatorSlice.actions;
+export const { setCursorPosition,deleteCalculator ,addCalculator,switchCalculator,handleBracket, resultPress ,setDisplayValue, calculateResult, deleteBtn, clearAll } = calculatorSlice.actions;
  
 export default calculatorSlice.reducer;

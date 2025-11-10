@@ -1,5 +1,5 @@
 import { input } from "@/constants/theme";
-import { calculateResult } from "@/redux/calculatorSlice";
+import { calculateResult, setCursorPosition } from "@/redux/calculatorSlice";
 import { useEffect } from "react";
 import { Text, TextInput, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
@@ -30,6 +30,11 @@ export default function InputComponent(){
                 value={activeCalc.displayValue}
                 // 💡 핵심: 포커스 시 소프트 키보드 표시를 막습니다.
                 showSoftInputOnFocus={false}
+                //커서 이동 이벤트 추적
+                onSelectionChange={(e)=>{
+                    const cursorPos = e.nativeEvent.selection.start;
+                    dispatch(setCursorPosition(cursorPos))
+                }}
             />
             <Text style={input.resultText}>{activeCalc.result}</Text>
         </View>
