@@ -1,14 +1,19 @@
 import './App.css';
-import Content from './component/Content';
-import EmailInput from './component/EmailInput';
-import Header from './component/Header';
+import LoginForm from './Components/LoginForm';
+import PurpleBtn from './Components/PurpleBtn';
+import Text from './Components/Text';
+
 
 
 function App() {
   return (
-    <div>
+    <div id='root'>
+      <Text />
+      <PurpleBtn/>
+      <LoginForm />
     </div>
   );
+
 }
 
 

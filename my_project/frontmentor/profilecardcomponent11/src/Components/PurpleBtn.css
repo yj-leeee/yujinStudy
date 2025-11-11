@@ -1,0 +1,18 @@
+#purBtn{
+    background-color: hsl(248,32%,48%);
+    padding: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px hsl(249,10%,26%);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+}
+#pulP{
+    color:hsl(246,25%,90%)
+}
+@media screen and (max-width: 768px) {
+  #pulP{
+    width: 200px;
+  }
+}
