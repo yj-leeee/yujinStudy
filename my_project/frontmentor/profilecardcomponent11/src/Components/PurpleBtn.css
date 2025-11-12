@@ -2,11 +2,11 @@
     background-color: hsl(248,32%,48%);
     padding: 10px auto;
     border-radius: 10px;
-    box-shadow: 0 5px 5px hsl(249,10%,26%);
+    box-shadow: 0 7px 5px hsla(249,10%,26%,0.5);
     display: flex;
     justify-content: center;
     text-align: center;
-    
+    margin: 10px;
 }
 #pulP{
     color:hsl(246,25%,90%)

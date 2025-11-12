@@ -9,8 +9,10 @@ function App() {
   return (
     <div id='root'>
       <Text />
-      <PurpleBtn/>
-      <LoginForm />
+      <div id='root2'>
+        <PurpleBtn/>
+        <LoginForm />
+      </div>
     </div>
   );
 

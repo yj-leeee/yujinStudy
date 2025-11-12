@@ -21,6 +21,20 @@ body{
   }
 }
 
-@media screen and (mix-width: 770px){
-	/*데스크탑에서 적용*/
+@media screen and (min-width: 770px){
+	body{
+    background-image: url(/src/img/bg-intro-desktop.png);
+  }
+  #root{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+  }
+  #root2{
+    width: 50%;
+    height: 80vh;
+    
+  }
 }

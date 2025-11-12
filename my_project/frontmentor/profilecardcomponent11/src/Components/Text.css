@@ -1,19 +1,14 @@
 .title{
     color:white;
-    max-width: 350px;
     line-height: 40px;
-
 }
 .text{
     color:hsl(246,25%, 90%);
-    max-width: 280px;
     font-size: 16px;
 }
 #TextContainer{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
     line-height: 25px;
 }
 @media screen and (max-width: 768px) {
@@ -21,5 +16,21 @@
     width: 100%;
     margin-top: 60px;
     margin-bottom: 40px;
+    text-align: center;
+    align-items: center;
+
+  }
+  .title{
+    width: 350px;
+  }
+  .text{max-width: 280px;}
+}
+@media screen and (min-width: 770px){
+  #TextContainer{
+    width: 40%;
+    
+  }
+  .title{
+    width: 300px
   }
 }
