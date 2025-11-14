@@ -54,4 +54,12 @@ public class MemberService {
 		
 		return MemberResponseDTO.fromEntity(saved);
 	}
+	
+	//회원 삭제
+	public void deleteMember(Long id) {
+		Member member = memberRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("회원이 존재하지 않습니다."));
+		
+		memberRepository.delete(member);
+	}
 }

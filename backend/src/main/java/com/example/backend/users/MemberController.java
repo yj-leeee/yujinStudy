@@ -2,6 +2,7 @@ package com.example.backend.users;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,5 +42,11 @@ public class MemberController {
 	@PatchMapping("/update/{id}")
 	public MemberResponseDTO update(@PathVariable("id") Long id, @RequestBody UpdateRequestDTO dto) {
 		return memberService.update(id, dto);
+	}
+	
+	//회원 삭제
+	@DeleteMapping("/delete/{id}")
+	public void deleteMember(@PathVariable("id") Long id) {
+		memberService.deleteMember(id);
 	}
 }
