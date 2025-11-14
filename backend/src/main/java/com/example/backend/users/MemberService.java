@@ -1,5 +1,7 @@
 package com.example.backend.users;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -22,5 +24,14 @@ public class MemberService {
 		Member saved = memberRepository.save(member); //저장
 		
 		return MemberResponseDTO.fromEntity(saved); //응답 DTO 반환
+	}
+	
+	//회원 조회 메서드
+	public MemberResponseDTO findMember(Long id) {
+		Member member = memberRepository.findById(id)
+			.orElseThrow(() -> new IllegalArgumentException("해당 회원이 존재하지 않습니다."));
+		return MemberResponseDTO.fromEntity(member);
+		
+		
 	}
 }
