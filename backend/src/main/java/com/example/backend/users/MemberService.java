@@ -1,6 +1,7 @@
 package com.example.backend.users;
 
-import java.util.Optional;
+
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -31,7 +32,14 @@ public class MemberService {
 		Member member = memberRepository.findById(id)
 			.orElseThrow(() -> new IllegalArgumentException("해당 회원이 존재하지 않습니다."));
 		return MemberResponseDTO.fromEntity(member);
-		
+	}
+	
+	//회원 전체 조회 메서드
+	public List<MemberResponseDTO> findAll() {
+		return memberRepository.findAll()
+				.stream()
+				.map(MemberResponseDTO::fromEntity)
+				.toList();
 		
 	}
 }

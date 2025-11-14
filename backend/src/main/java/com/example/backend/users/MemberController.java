@@ -1,5 +1,7 @@
 package com.example.backend.users;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,5 +28,11 @@ public class MemberController {
 	@GetMapping("/findMember/{id}")
 	public MemberResponseDTO findMember(@PathVariable("id") Long id) {
 		return memberService.findMember(id);
+	}
+	
+	//회원 전체 조회
+	@GetMapping("/findMembers")
+	public List<MemberResponseDTO> findAll(){
+		return memberService.findAll();
 	}
 }
