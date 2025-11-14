@@ -42,4 +42,16 @@ public class MemberService {
 				.toList();
 		
 	}
+	
+	//업데이트 메서드 구현
+	public MemberResponseDTO update(Long id, UpdateRequestDTO dto) {
+		Member member = memberRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("회원이 존재하지 않습니다."));
+		
+		member.update(dto.getName(), dto.getPassword());
+		
+		Member saved = memberRepository.save(member);
+		
+		return MemberResponseDTO.fromEntity(saved);
+	}
 }

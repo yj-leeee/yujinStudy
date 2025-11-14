@@ -44,4 +44,14 @@ public class Member {
 	public void onUpdate() {
 		this.updatedAt = LocalDateTime.now();
 	}
+	
+	//이름 비밀번호 바꾸기
+		public void update(String name, String password) {
+			if(name != null && !name.isBlank()) {
+				this.name = name;
+			}
+			if(password != null && !password.isBlank()) {
+				this.password = password;
+			}
+		}
 }
