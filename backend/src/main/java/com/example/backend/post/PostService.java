@@ -1,5 +1,8 @@
 package com.example.backend.post;
 
+import java.util.List;
+
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -15,5 +18,20 @@ public class PostService {
 		Post post = dto.toEntity();
 		Post saved = postRepository.save(post);
 		return PostResponseDTO.fromEntity(saved);
+	}
+	
+	//게시글 단일 조회
+	public PostResponseDTO findPost(Long id) {
+		Post post = postRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("해당하는 게시글이 없습니다."));
+		return PostResponseDTO.fromEntity(post);
+	}
+	
+	//게시글 전체 조회
+	public List<PostResponseDTO> findAllPost(){
+		return postRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt"))
+				.stream()
+				.map(PostResponseDTO::fromEntity)
+				.toList();
 	}
 }

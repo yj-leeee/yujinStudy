@@ -16,6 +16,7 @@ public class PostResponseDTO {
 	private String content;
 	private String author;
 	private LocalDateTime createdAt;
+	private LocalDateTime updatedAt;
 	
 	public static PostResponseDTO fromEntity(Post post) {
 		return PostResponseDTO.builder()
@@ -24,6 +25,7 @@ public class PostResponseDTO {
 				.content(post.getContent())
 				.author(post.getAuthor())
 				.createdAt(post.getCreatedAt())
+				.updatedAt(post.getUpdatedAt())
 				.build();
 	}
 }
