@@ -62,4 +62,14 @@ public class PostService {
 				.map(PostResponseDTO::fromEntity)
 				.toList();
 	}
+	
+	//작성자로 조회
+	public List<PostResponseDTO> findAuthor(String author){
+		List<Post> post = postRepository.findByAuthor(author);
+		
+		return post.stream()
+				.sorted((a, b) -> b.getCreatedAt().compareTo(a.getCreatedAt())) // 최신순 정렬
+				.map(PostResponseDTO::fromEntity)
+				.toList();
+	}
 }

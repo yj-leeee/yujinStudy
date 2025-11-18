@@ -48,4 +48,11 @@ public class PostController {
 	public List<PostResponseDTO> searchByTitle(@RequestParam("keyword") String keyword ){
 		return postService.findTitle(keyword);
 	}
+	
+	@GetMapping("/posts/author/{author}")
+	public List<PostResponseDTO> searchAuthor(@PathVariable("author") String author){
+		return postService.findAuthor(author);
+	}
+	
+	
 }
