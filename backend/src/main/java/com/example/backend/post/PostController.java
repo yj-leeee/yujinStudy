@@ -54,5 +54,13 @@ public class PostController {
 		return postService.findAuthor(author);
 	}
 	
+	@GetMapping("/posts/find")
+	public List<PostResponseDTO> search(
+			@RequestParam(value = "keyword", required = false) String keyword,
+			@RequestParam(value = "author", required = false) String author
+			){
+		return postService.find(keyword, author);
+	}
+	
 	
 }

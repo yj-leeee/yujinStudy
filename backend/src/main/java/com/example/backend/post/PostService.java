@@ -72,4 +72,31 @@ public class PostService {
 				.map(PostResponseDTO::fromEntity)
 				.toList();
 	}
+	
+	//제목+작성자
+	public List<PostResponseDTO> find(String keyword, String author){
+		List<Post> post;
+		boolean hasKeyword = (keyword != null && !keyword.isBlank());
+		boolean hasAuthor = (author != null && !author.isBlank());
+		
+			if(hasKeyword && hasAuthor) {
+				post = postRepository.findByTitleContainingAndAuthor(keyword, author);
+				}
+			else if(hasKeyword) {
+				post = postRepository.findByTitleContaining(keyword);
+				}
+			else if(hasAuthor) {
+				post = postRepository.findByAuthor(author);
+				}
+			else {
+				post = postRepository.findAll();
+			}
+		
+		
+		return post.stream()
+				.sorted((a, b) -> b.getCreatedAt().compareTo(a.getCreatedAt()))
+				.map(PostResponseDTO::fromEntity)
+				.toList();
+		
+	}
 }
