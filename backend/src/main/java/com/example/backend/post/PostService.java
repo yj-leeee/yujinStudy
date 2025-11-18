@@ -45,4 +45,12 @@ public class PostService {
 		Post saved = postRepository.save(post);
 		return PostResponseDTO.fromEntity(saved);
 	}
+	
+	//게시글 삭제
+	public void delete(Long id) {
+		Post post = postRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("해당하는 게시글이 없습니다."));
+		
+		postRepository.delete(post);
+	}
 }

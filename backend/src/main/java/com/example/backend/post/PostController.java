@@ -2,6 +2,7 @@ package com.example.backend.post;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,5 +36,10 @@ public class PostController {
 	@PatchMapping("/posts/{id}")
 	public PostResponseDTO update(@PathVariable("id") Long id, @Valid @RequestBody PostUpdateDTO dto) {
 		return postService.update(id, dto);
+	}
+	
+	@DeleteMapping("/posts/{id}")
+	public void delete(@PathVariable("id") Long id) {
+		postService.delete(id);
 	}
 }
