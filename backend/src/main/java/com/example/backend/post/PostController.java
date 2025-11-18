@@ -3,6 +3,7 @@ package com.example.backend.post;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,5 +30,10 @@ public class PostController {
 	@GetMapping("/posts")
 	public List<PostResponseDTO> findAllPost(){
 		return postService.findAllPost();
+	}
+	
+	@PatchMapping("/posts/{id}")
+	public PostResponseDTO update(@PathVariable("id") Long id, @Valid @RequestBody PostUpdateDTO dto) {
+		return postService.update(id, dto);
 	}
 }

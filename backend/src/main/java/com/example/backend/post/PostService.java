@@ -34,4 +34,15 @@ public class PostService {
 				.map(PostResponseDTO::fromEntity)
 				.toList();
 	}
+	
+	//게시글 수정
+	public PostResponseDTO update(Long id,PostUpdateDTO dto) {
+		Post post = postRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("해당하는 게시글이 없습니다."));
+		
+		post.update(dto.getTitle(), dto.getContent());
+		
+		Post saved = postRepository.save(post);
+		return PostResponseDTO.fromEntity(saved);
+	}
 }
