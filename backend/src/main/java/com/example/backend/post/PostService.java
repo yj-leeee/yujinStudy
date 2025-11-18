@@ -53,4 +53,13 @@ public class PostService {
 		
 		postRepository.delete(post);
 	}
+	
+	//제목 키워드 검색 API 만들기
+	public List<PostResponseDTO> findTitle(String keyword) {
+		List<Post> post = postRepository.findByTitleContaining(keyword);
+		
+		return post.stream()
+				.map(PostResponseDTO::fromEntity)
+				.toList();
+	}
 }
