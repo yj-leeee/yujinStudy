@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Todo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	private String todo;
 
@@ -29,7 +29,7 @@ public class Todo {
 		this.todo = todo;
 	}
 	
-	public void toggleComplete() {
+	public void toggleChecked() {
 		this.checked = !this.checked;
 	}
 }
