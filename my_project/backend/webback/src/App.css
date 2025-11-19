@@ -1,0 +1,21 @@
+body{
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+#root{
+  width: 1000px;
+  height: 800px;
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+#lists{
+  background-color: aliceblue;
+  width: 90%;
+  height: 80%;
+  position: relative;
+  overflow-y: auto;
+}

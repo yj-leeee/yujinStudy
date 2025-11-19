@@ -1,0 +1,23 @@
+.Lists{
+    display: flex;
+    margin: 20px;
+    width: 90%;
+    background-color: white;
+    border-radius: 50px;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+.btns{
+    margin: 10px;
+    border: none;
+    background: none;
+    text-decoration: underline;
+    font-size: 20px;
+}
+.btns:nth-child(1){
+    color:blue;
+}
+.btns:nth-child(2){
+    color:red;
+}
