@@ -11,3 +11,8 @@ export const createBtn = async (todo) => {
     });
 
 }
+
+//할일 삭제
+export const deleteTodo = async (id) => {
+    return axios.delete(`http://localhost:8080/todo/delete/${id}`);
+}

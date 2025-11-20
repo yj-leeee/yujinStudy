@@ -8,8 +8,6 @@ import { useEffect, useState } from 'react';
 function App() {
   const [todos, setTodos] = useState([]);
 
- 
-
   const loadTodos = () => {
     findAll()
     .then(res => setTodos(res.data))
@@ -19,12 +17,15 @@ function App() {
     loadTodos();
   }, []);
 
+  console.log("todos:", todos);
+
   return (
     <div id='root'>
       <Search />
       <div id='lists'>
         {todos.map(t => (
-          <List key={t.id} todoText={t.todo} />  
+          <List key={t.id} id={t.id} todoText={t.todo} 
+          refresh={loadTodos}/>  
         ))}
         
         <CreateBtn refresh={loadTodos}/>

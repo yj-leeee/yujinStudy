@@ -12,9 +12,11 @@ import lombok.NoArgsConstructor;
 public class TodoResponseDTO {
 	private String todo;
 	private boolean checked;
+	private Long id;
 	
 	public static TodoResponseDTO fromEntity(Todo todo) {
 		return TodoResponseDTO.builder()
+				.id(todo.getId())
 				.todo(todo.getTodo())
 				.checked(todo.isChecked())
 				.build();

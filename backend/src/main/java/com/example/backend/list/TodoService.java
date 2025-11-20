@@ -1,6 +1,7 @@
 package com.example.backend.list;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,12 @@ public class TodoService {
 				.stream()
 				.map(TodoResponseDTO::fromEntity)
 				.toList();
+	}
+	
+	//할일 삭제
+	public void delete(Long id) {
+		Todo todo = todoRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("존재하지 않는 할일 입니다"));
+		todoRepository.delete(todo);
 	}
 }
