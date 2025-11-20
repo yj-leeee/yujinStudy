@@ -4,7 +4,7 @@ export default function List({id,todoText, refresh}){
     console.log("삭제버튼에 전달된 id:", id);
     return(
         <div className="Lists">
-            <p>{todoText}</p>
+            <input id='text_input' value={todoText}></input>
             <div id='btns'>
                 <button className='btns'>수정</button>
                 <button className='btns'
