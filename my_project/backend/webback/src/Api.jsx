@@ -16,3 +16,10 @@ export const createBtn = async (todo) => {
 export const deleteTodo = async (id) => {
     return axios.delete(`http://localhost:8080/todo/delete/${id}`);
 }
+
+//할일 수정
+export const updateTodo = async (id, todo) => {
+    return axios.patch(`http://localhost:8080/todo/update/${id}`,{
+        todo: todo
+    })
+}

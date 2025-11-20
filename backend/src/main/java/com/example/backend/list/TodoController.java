@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,5 +35,11 @@ public class TodoController {
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable("id") Long id) {
 		todoService.delete(id);
+	}
+	
+	//할일 수정
+	@PatchMapping("/update/{id}")
+	public TodoResponseDTO update(@PathVariable("id") Long id, @RequestBody String content) {
+		return todoService.update(id, content);
 	}
 }

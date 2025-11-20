@@ -33,4 +33,14 @@ public class TodoService {
 				.orElseThrow(() -> new IllegalArgumentException("존재하지 않는 할일 입니다"));
 		todoRepository.delete(todo);
 	}
+	
+	//할일 수정
+	public TodoResponseDTO update(Long id, String content) {
+		Todo todo = todoRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("존재하지 않습니다."));
+		todo.update(content);
+		
+		//JPA는 영속성에 의해 한 번더 리포지터리로 저장 안 해도 자동으로 됨
+		return TodoResponseDTO.fromEntity(todo);
+	}
 }
