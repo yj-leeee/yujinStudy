@@ -8,11 +8,16 @@ import { useEffect, useState } from 'react';
 function App() {
   const [todos, setTodos] = useState([]);
 
-  useEffect(()=> {
+ 
+
+  const loadTodos = () => {
     findAll()
     .then(res => setTodos(res.data))
     .catch(err => console.error(err));
-  },[]);
+  };
+  useEffect(() => {
+    loadTodos();
+  }, []);
 
   return (
     <div id='root'>
@@ -22,7 +27,7 @@ function App() {
           <List key={t.id} todoText={t.todo} />  
         ))}
         
-        <CreateBtn/>
+        <CreateBtn refresh={loadTodos}/>
       </div>
       
     </div>
