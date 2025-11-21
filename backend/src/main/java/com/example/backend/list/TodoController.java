@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -41,5 +42,17 @@ public class TodoController {
 	@PatchMapping("/update/{id}")
 	public TodoResponseDTO update(@PathVariable("id") Long id, @RequestBody String content) {
 		return todoService.update(id, content);
+	}
+	
+	//할일 검색
+	@GetMapping("/findTodo")
+	public List<TodoResponseDTO> findTodo(@RequestParam("text") String text) {
+		return todoService.findTodo(text);
+	}
+	
+	//할일 체크
+	@PatchMapping("/toggle/{id}")
+	public TodoResponseDTO toggleChecked(@PathVariable("id") Long id) {
+		return todoService.toggleChecked(id);
 	}
 }

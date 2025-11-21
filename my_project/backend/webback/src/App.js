@@ -21,10 +21,10 @@ function App() {
 
   return (
     <div id='root'>
-      <Search />
+      <Search setTodos={setTodos}/>
       <div id='lists'>
         {todos.map(t => (
-          <List key={t.id} id={t.id} todoText={t.todo} 
+          <List key={t.id} id={t.id} todoText={t.todo} checked={t.checked}
           refresh={loadTodos}/>  
         ))}
         

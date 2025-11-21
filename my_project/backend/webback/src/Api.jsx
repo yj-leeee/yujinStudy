@@ -23,3 +23,15 @@ export const updateTodo = async (id, todo) => {
         todo: todo
     })
 }
+
+//할일 검색
+export const findTodo = async (text) => {
+    return axios.get("http://localhost:8080/todo/findTodo", {
+        params: {text: text}
+    })
+} 
+
+//할일 체크
+export const toggleTodo = async (id) => {
+    return axios.patch(`http://localhost:8080/todo/toggle/${id}`);
+};

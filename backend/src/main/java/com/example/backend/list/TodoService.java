@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -41,6 +42,30 @@ public class TodoService {
 		todo.update(content);
 		
 		//JPA는 영속성에 의해 한 번더 리포지터리로 저장 안 해도 자동으로 됨
+		return TodoResponseDTO.fromEntity(todo);
+	}
+	
+	//할일 검색
+	public List<TodoResponseDTO> findTodo(String text) {
+		List<Todo> todos = todoRepository.findByTodoContaining(text);
+		
+		if(todos.isEmpty()) {
+			throw new IllegalArgumentException("검색결과가 없습니다.");
+		}
+		return todos.stream()
+				.map(TodoResponseDTO::fromEntity)
+				.toList();
+	}
+	
+	//할일 체크
+	@Transactional
+	public TodoResponseDTO toggleChecked(Long id) {
+		Todo todo = todoRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("존재하지 않는 할일입니다."));
+		
+		todo.toggleChecked(); //true <-> false 변환
+		
+		//save없어도 JPA가 자동 업데이트
 		return TodoResponseDTO.fromEntity(todo);
 	}
 }
