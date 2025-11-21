@@ -17,8 +17,14 @@ export default function Search({setTodos}){
     return(
         <div id="search">
             <input placeholder="검색" id="input"
-            onChange={(e) => setText(e.target.value)}
-            value={text}></input>
+            value={text}
+            onChange={(e) =>{
+                const value = e.target.value;
+                setText(value);
+                handleSearch(value);
+                }
+            }
+            ></input>
             <button id="search_btn" onClick={handleSearch}><FaSearch size={20}/></button>
         </div>
     )
