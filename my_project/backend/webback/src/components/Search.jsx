@@ -11,7 +11,7 @@ export default function Search({setTodos}){
             const res = await findTodo(text);
             setTodos(res.data); //검색 결과를 상위(App)로 전달
         } catch (err) {
-            alert("검색 결과가 없습니다!");
+            
         }
     }
     return(
