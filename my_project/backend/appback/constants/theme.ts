@@ -24,7 +24,7 @@ export const createBtn = StyleSheet.create({
     div:{
         flexDirection:'row',
         margin:10,
-        height:80,
+        height:50,
         alignItems:'center',
         position:'relative'
     },
@@ -41,7 +41,8 @@ export const createBtn = StyleSheet.create({
     inputDiv:{
         borderColor:'black',
         borderWidth:1,
-        flex:1,
+        //flex:1,
+        overflow:'hidden',
         borderRadius:20
     }
     
