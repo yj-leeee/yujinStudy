@@ -1,6 +1,6 @@
 import CreateBtn from "@/components/CreateBts";
 import Search from "@/components/Search";
-import { ScrollView } from "react-native";
+import { KeyboardAvoidingView, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Home(){
@@ -10,7 +10,13 @@ export default function Home(){
             <ScrollView>
 
             </ScrollView>
-            <CreateBtn />
+
+            <KeyboardAvoidingView
+            behavior={"padding"}
+            keyboardVerticalOffset={80}>
+                <CreateBtn />
+            </KeyboardAvoidingView>
+        
         </SafeAreaView>
     )
 }

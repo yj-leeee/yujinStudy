@@ -1,7 +1,7 @@
 import { createBtn } from '@/constants/theme';
 import Feather from '@expo/vector-icons/Feather';
 import { useRef, useState } from 'react';
-import { Animated, Dimensions, Pressable, TextInput, View } from "react-native";
+import { Animated, Dimensions, Keyboard, Pressable, TextInput, View } from "react-native";
 
 export default function CreateBtn(){
     const[open, setOpen] = useState(false);
@@ -15,6 +15,11 @@ export default function CreateBtn(){
 
     const toggle = () => {
         const toValue = open ? 0 : 1; //true면 0도로, false면 45도로
+        const next = !open;
+
+        if(!next){
+            Keyboard.dismiss();
+        }
 
         Animated.timing(animation, {
             toValue,
