@@ -21,16 +21,28 @@ export const SearchSty = StyleSheet.create({
 })
 
 export const createBtn = StyleSheet.create({
+    div:{
+        flexDirection:'row',
+        margin:10,
+        height:80,
+        alignItems:'center',
+        position:'relative'
+    },
     btn:{
         borderRadius:'50%',
-        backgroundColor:'gray',
+        backgroundColor:'black',
         width:50,
         height:50,
         alignItems:'center',
         justifyContent:'center',
+        position:'absolute',
+        right:0
     },
-    div:{
-        margin:10,
-        alignItems:'flex-end'
+    inputDiv:{
+        borderColor:'black',
+        borderWidth:1,
+        flex:1,
+        borderRadius:20
     }
+    
 })
