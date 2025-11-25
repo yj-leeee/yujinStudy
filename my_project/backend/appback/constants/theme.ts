@@ -47,3 +47,21 @@ export const createBtn = StyleSheet.create({
     }
     
 })
+
+export const lists = StyleSheet.create({
+    wrapper:{
+        flexDirection:'row',
+        margin:10,
+        borderRadius:20,
+        borderWidth:1,
+        borderColor:'black',
+        backgroundColor:'white',
+        alignItems:'center',
+        justifyContent:'space-between',
+        paddingHorizontal:20
+    },
+    btns:{
+        flexDirection:'row',
+        gap:20
+    }
+})
