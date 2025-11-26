@@ -16,6 +16,7 @@ export default function Home(){
 
     const todos = useSelector((state : any) => state.todos.todos);
     console.log("Redux todos:", todos);
+    
     return(
         <SafeAreaView style={{flex:1}}>
             <Search />

@@ -11,3 +11,8 @@ export const createTodo = async (todo) => {
         todo: todo
     });
 }
+
+//할일 삭제 
+export const deleteTodoApi = async (id) => {
+    return axios.delete(`${BASE_URL}/delete/${id}`)
+};

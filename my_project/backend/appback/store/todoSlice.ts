@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addTodo, fetchTodos } from './todoThunk';
+import { addTodo, deleteTodoDone, fetchTodos } from './todoThunk';
 
 const initialState = {
     todos: [],
@@ -19,6 +19,10 @@ export const todoSlice = createSlice({
         .addCase(addTodo.fulfilled, (state, action) => {
             state.todos.push(action.payload);
         })
+        //deleteTodo todo목록에서 제거
+        .addCase(deleteTodoDone.fulfilled, (state, action) => {
+            state.todos = state.todos.filter((t) => t.id !== action.payload);
+        });
     },
 });
 
