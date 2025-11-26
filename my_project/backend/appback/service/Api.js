@@ -16,3 +16,19 @@ export const createTodo = async (todo) => {
 export const deleteTodoApi = async (id) => {
     return axios.delete(`${BASE_URL}/delete/${id}`)
 };
+
+//할일 수정
+export const updateTodo = async (id, content) => {
+    return axios.patch(`${BASE_URL}/update/${id}`, {
+        content: content
+    })
+}
+
+//할일 검색
+export const findTodo = async (text) => {
+    return axios.get(`${BASE_URL}/findTodo`, {
+        params:{
+            text:text
+        }
+    })
+}
