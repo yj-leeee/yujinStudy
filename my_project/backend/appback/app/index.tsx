@@ -14,13 +14,13 @@ export default function Home(){
         dispatch(fetchTodos());
     }, []);
 
-    const todos = useSelector((state) => state.todos.todos);
-
+    const todos = useSelector((state : any) => state.todos.todos);
+    console.log("Redux todos:", todos);
     return(
         <SafeAreaView style={{flex:1}}>
             <Search />
             <ScrollView style={{backgroundColor:'lightgray', margin:5, borderRadius:20}}>
-                {todos.map((item) => (
+                {todos.map((item : any) => (
                     <List key={item.id} todo={item} />
                 ))}
             </ScrollView>
