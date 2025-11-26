@@ -32,3 +32,8 @@ export const findTodo = async (text) => {
         }
     })
 }
+
+//할일 체크
+export const toggleTodo = async (id) => {
+    return axios.patch(`${BASE_URL}/toggle/${id}`);
+}

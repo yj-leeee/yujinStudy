@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addTodo, deleteTodoDone, fetchTodos, searchTodo, updateDone } from './todoThunk';
+import { addTodo, deleteTodoDone, fetchTodos, searchTodo, toggleTodoDone, updateDone } from './todoThunk';
 
 const initialState = {
     todos: [],
@@ -34,6 +34,14 @@ export const todoSlice = createSlice({
         //할일 검색
         .addCase(searchTodo.fulfilled, (state, action) => {
             state.todos = action.payload; //검색결과로 교체            
+        })
+        //할일 체크
+        .addCase(toggleTodoDone.fulfilled, (state, action) => {
+            const updated = action.payload;
+            const idx = state.todos.findIndex(t => t.id === updated.id);
+            if(idx !== -1){
+                state.todos[idx] = updated;
+            }
         })
     },
 });
