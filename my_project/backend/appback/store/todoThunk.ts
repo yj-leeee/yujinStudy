@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getAll } from '../service/Api';
+import { createTodo, getAll } from '../service/Api';
 
 export const fetchTodos = createAsyncThunk(
   "todos/fetch",
@@ -8,3 +8,12 @@ export const fetchTodos = createAsyncThunk(
     return res.data;
   }
 );
+
+//할 일 추가하기
+export const addTodo = createAsyncThunk(
+  "todos/add",
+  async (todo) => {
+    const res = await createTodo(todo);
+    return res.data;
+  }
+)

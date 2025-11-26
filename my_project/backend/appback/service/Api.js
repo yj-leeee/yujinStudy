@@ -5,3 +5,9 @@ const BASE_URL = "http://localhost:8080/todo";
 export const getAll = async () => {
     return axios.get(`${BASE_URL}/lists`)
 }
+
+export const createTodo = async (todo) => {
+    return axios.post(`${BASE_URL}/create`,{
+        todo: todo
+    });
+}

@@ -1,10 +1,15 @@
 import { createBtn } from '@/constants/theme';
+import { addTodo } from '@/store/todoThunk';
 import Feather from '@expo/vector-icons/Feather';
 import { useRef, useState } from 'react';
 import { Animated, Dimensions, Keyboard, Pressable, TextInput, View } from "react-native";
+import { useDispatch } from 'react-redux';
 
 export default function CreateBtn(){
+    const dispatch = useDispatch();
+
     const[open, setOpen] = useState(false);
+    const[todo, setTodo] = useState(""); //입력값 상태
     const animation = useRef(new Animated.Value((0))).current;
     //입력창 펼치기
     const slideAnim = useRef(new Animated.Value(0)).current;
@@ -49,10 +54,22 @@ export default function CreateBtn(){
         outputRange:[0,maxWidth]
     });
 
+
+    //저장 기능
+    const saveTodo = () => {
+        if(!todo.trim()) return; //공백 방지
+
+        dispatch(addTodo(todo)); //서버로 전송
+        setTodo(""); //입력값 초기화
+        toggle(); //닫기 애니메이션
+    }
     return (
         <View style={createBtn.div}>
             <Animated.View style={[createBtn.inputDiv, {width}]}>
-                <TodoInput />
+                <TodoInput 
+                    todo={todo}
+                    setTodo={setTodo}
+                    saveTodo={saveTodo}/>
             </Animated.View>
             
             <Pressable style={createBtn.btn} 
@@ -65,10 +82,11 @@ export default function CreateBtn(){
     )
 }
 
-function TodoInput(){
+function TodoInput({todo, setTodo, saveTodo}){
     return(
-        <View style={{flex:1 ,justifyContent:'center'}}>
-            <TextInput placeholder='할일 입력'></TextInput>
+        <View style={{flex:1 ,flexDirection:'row', justifyContent:'space-between', marginHorizontal:20}}>
+            <TextInput placeholder='할일 입력' value={todo} onChangeText={setTodo}></TextInput>
+            <Pressable style={{color : 'blue'}} onPress={saveTodo}>저장</Pressable>
         </View>
     )
 }
