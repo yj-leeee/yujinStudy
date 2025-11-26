@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { createTodo, deleteTodoApi, getAll } from '../service/Api';
+import { createTodo, deleteTodoApi, getAll, updateTodo } from '../service/Api';
 
 export const fetchTodos = createAsyncThunk(
   "todos/fetch",
@@ -24,5 +24,14 @@ export const deleteTodoDone = createAsyncThunk(
   async (id) => {
     await deleteTodoApi(id);
     return id; //slice에서 어떤 id를 지울지 알아야 함
+  }
+)
+
+//할일 수정하기
+export const updateDone = createAsyncThunk(
+  "todos/update",
+  async ({id, content}) => {
+    const res = await updateTodo(id, content);
+    return res.data;
   }
 )
